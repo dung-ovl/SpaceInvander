@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 35802ce5407a86048a7822e7bbb00774
+guid: 128086d0b2a1a934bb4f630ec9fba24c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main Ship - Base - Damaged_0
+      name: Main Ship - Engines - Supercharged Engine_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 61d7a9678a45e2f479aa5f281f020909
-      internalID: 1089098212
+      spriteID: 01720f3f01e4e8046b377874f5cd876f
+      internalID: -314093663
       vertices: []
       indices: 
       edges: []
@@ -136,7 +136,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Main Ship - Base - Damaged_0: 1089098212
+      Main Ship - Engines - Supercharged Engine_0: -314093663
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
