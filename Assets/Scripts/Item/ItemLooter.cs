@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
-public class ItemLooter : GameMonoBehaviour
+public class ItemLooter : ShipAbstract
 {
     [SerializeField] protected SphereCollider _collider;
     [SerializeField] protected Rigidbody _rigibody;
@@ -39,10 +39,15 @@ public class ItemLooter : GameMonoBehaviour
         ItemPickupkable itemPickupable = collider.GetComponent<ItemPickupkable>();
         if (itemPickupable == null) return;
         ItemCode itemCode = itemPickupable.GetItemCode();
-        Transform obj = transform.parent.Find("ShipShield");
-        if (obj != null)
+        Debug.Log("Picked " + itemCode.ToString());
+        if (itemCode == ItemCode.ShieldItem)
         {
-            obj.gameObject.SetActive(true);
+            Transform obj = transform.parent.Find("ShipShield");
+            if (obj != null)
+            {
+                this.shipController.Shield.SetLifeTime(5f);
+                this.shipController.Shield.ActiveShield();
+            }
         }
         itemPickupable.Picked();
     }
