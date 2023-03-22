@@ -100,7 +100,7 @@ public class Spawner : GameMonoBehaviour
         return newPrefab;
     }
 
-    protected virtual void Despawn(Transform obj)
+    public virtual void Despawn(Transform obj)
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
