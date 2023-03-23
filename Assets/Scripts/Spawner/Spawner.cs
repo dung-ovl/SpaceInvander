@@ -28,6 +28,7 @@ public class Spawner : GameMonoBehaviour
 
     protected virtual void LoadPrefabs()
     {
+        if (prefabs.Count > 0) return;
         Transform prefabsObj = transform.Find("Prefabs");
         foreach (Transform prefab in prefabsObj)
         {

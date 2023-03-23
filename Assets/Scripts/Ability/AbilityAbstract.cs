@@ -5,8 +5,9 @@ using UnityEngine;
 public abstract class AbilityAbstract : GameMonoBehaviour
 {
     [Header("Ability")]
-    [SerializeField] protected AbilityController abilityController;
     [SerializeField] protected bool isActived = false;
+
+    [SerializeField] protected AbilityController abilityController;
     public AbilityController AbilityController { get { return abilityController; } }
     protected override void LoadComponents()
     {
@@ -21,5 +22,5 @@ public abstract class AbilityAbstract : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadAbilityController", gameObject);
     }
 
-    protected abstract void Active();
+    public abstract void Active();
 }

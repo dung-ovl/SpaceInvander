@@ -38,12 +38,16 @@ public class ItemLooter : ShipAbstract
     {
         ItemPickupkable itemPickupable = collider.GetComponent<ItemPickupkable>();
         if (itemPickupable == null) return;
-        ItemCode itemCode = itemPickupable.GetItemCode();
+        ItemCode itemCode = itemPickupable.ItemCtrl.ItemProfileSO.itemCode;
         Debug.Log("Picked " + itemCode.ToString());
         if (itemCode == ItemCode.ShieldItem)
         {
             this.ShipController.Shield.ActiveShield.SetLifeTime(5f);
             this.ShipController.Shield.ActiveShield.Shield();
+        }
+        if (itemCode == ItemCode.HealItem)
+        {
+            this.ShipController.Ability.HealAbility.Active();
         }
         itemPickupable.Picked();
     }
