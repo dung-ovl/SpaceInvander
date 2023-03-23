@@ -28,6 +28,7 @@ public class Spawner : GameMonoBehaviour
 
     protected virtual void LoadPrefabs()
     {
+        if (prefabs.Count > 0) return;
         Transform prefabsObj = transform.Find("Prefabs");
         foreach (Transform prefab in prefabsObj)
         {
@@ -89,7 +90,7 @@ public class Spawner : GameMonoBehaviour
         return newPrefab;
     }
 
-    protected virtual void Despawn(Transform obj)
+    public virtual void Despawn(Transform obj)
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);

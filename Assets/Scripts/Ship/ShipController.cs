@@ -25,6 +25,10 @@ public class ShipController : GameMonoBehaviour
 
     public Animator EngineAnimator => engineAnimator;
 
+    [SerializeField] protected ShieldCtrl shield;
+    public ShieldCtrl Shield => shield;
+
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -70,5 +74,12 @@ public class ShipController : GameMonoBehaviour
         Transform weapon = transform.Find("Model/Weapon");
         this.weaponAnimator = weapon.GetComponent<Animator>();
         Debug.Log(transform.name + ": LoadWeaponAnimator", gameObject);
+    }
+
+    protected virtual void LoadShield()
+    {
+        if (this.shield != null) return;
+        this.shield = transform.GetComponentInChildren<ShieldCtrl>();
+        Debug.Log(transform.name + ": LoadShield", gameObject);
     }
 }

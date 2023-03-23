@@ -34,7 +34,7 @@ public class HealAbility : AbilityAbstract
         Debug.Log(transform.name + ": LoadDamageReceiver", gameObject);
     }
 
-    protected override void Active()
+    public override void Active()
     {
      
         this.damageReceiver.AddHealthPoint(healPoint);
