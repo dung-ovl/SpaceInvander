@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ShieldAbstract : GameMonoBehaviour
 {
-    [SerializeField] protected ShieldCtrl shipCtrl;
-    public ShieldCtrl ShieldCtrl { get { return shipCtrl; } }
+    [SerializeField] protected ShieldAbility shieldAbility;
+    public ShieldAbility ShieldAbility { get { return shieldAbility; } }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -14,8 +14,8 @@ public class ShieldAbstract : GameMonoBehaviour
 
     protected virtual void LoadShieldCtrl()
     {
-        if (shipCtrl != null) return;
-        shipCtrl = transform.parent.GetComponent<ShieldCtrl>();
+        if (shieldAbility != null) return;
+        shieldAbility = transform.parent.GetComponent<ShieldAbility>();
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 }
