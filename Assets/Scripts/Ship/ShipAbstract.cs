@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShipAbstract : GameMonoBehaviour
 {
     [SerializeField] protected ShipController shipController;
-    public ShipController JunkController { get { return shipController; } }
+    public ShipController ShipController { get { return shipController; } }
     protected override void LoadComponents()
     {
         base.LoadComponents();

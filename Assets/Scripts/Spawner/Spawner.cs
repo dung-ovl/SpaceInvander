@@ -6,16 +6,10 @@ using UnityEngine;
 
 public class Spawner : GameMonoBehaviour
 {
-    private static Spawner instance;
-
-    public static Spawner Instance { get => instance; }
-
+    [Header("Spawner")]
     [SerializeField] protected List<Transform> prefabs;
     [SerializeField] protected List<Transform> poolObjs;
     [SerializeField] protected Transform holder;
-
-    public string BulletOne = "SurikenBullet";
-    public string BulletTwo = "SnakeBullet";
 
     protected override void LoadComponents()
     {
@@ -24,11 +18,6 @@ public class Spawner : GameMonoBehaviour
         this.LoadHolder();
     }
 
-    protected override void Awake()
-    {
-        base.Awake();
-        Spawner.instance = this;
-    }
 
     protected virtual void LoadHolder()
     {
