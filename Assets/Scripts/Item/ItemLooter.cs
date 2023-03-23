@@ -42,12 +42,8 @@ public class ItemLooter : ShipAbstract
         Debug.Log("Picked " + itemCode.ToString());
         if (itemCode == ItemCode.ShieldItem)
         {
-            Transform obj = transform.parent.Find("ShipShield");
-            if (obj != null)
-            {
-                this.shipController.Shield.SetLifeTime(5f);
-                this.shipController.Shield.ActiveShield();
-            }
+            this.ShipController.Shield.ActiveShield.SetLifeTime(5f);
+            this.ShipController.Shield.ActiveShield.Shield();
         }
         itemPickupable.Picked();
     }

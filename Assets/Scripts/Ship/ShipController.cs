@@ -16,8 +16,8 @@ public class ShipController : GameMonoBehaviour
 
     public Animator EngineAnimator => engineAnimator;
 
-    [SerializeField] protected ShipShield shield;
-    public ShipShield Shield => shield;
+    [SerializeField] protected ShieldCtrl shield;
+    public ShieldCtrl Shield => shield;
 
 
     protected override void LoadComponents()
@@ -55,7 +55,7 @@ public class ShipController : GameMonoBehaviour
     protected virtual void LoadShield()
     {
         if (this.shield != null) return;
-        this.shield = transform.GetComponentInChildren<ShipShield>();
+        this.shield = transform.GetComponentInChildren<ShieldCtrl>();
         Debug.Log(transform.name + ": LoadShield", gameObject);
     }
 }

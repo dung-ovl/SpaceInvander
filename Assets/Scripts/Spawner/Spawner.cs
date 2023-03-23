@@ -27,6 +27,7 @@ public class Spawner : GameMonoBehaviour
     protected override void Awake()
     {
         base.Awake();
+        if (Spawner.instance != null) Debug.LogError("Only 1 GameCtrl allow to exist");
         Spawner.instance = this;
     }
 
