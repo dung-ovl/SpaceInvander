@@ -35,25 +35,20 @@ public class ShipShooting : ShipAbstract
         Vector3 spawnPos = transform.position;
         Quaternion rotation = transform.parent.rotation;
 
-        string bulletName;
+        string bulletName = "";
         for (int i = -2; i <= 2; i++)
         {
-            Vector3 spawn = spawnPos + Vector3.right * i / 20 + Vector3.up * -Mathf.Abs(i) /10 ;
+            Vector3 spawn = spawnPos + Vector3.right * i / 30 + Vector3.up * -Mathf.Abs(i) / 30 ;
             Quaternion rot = Quaternion.AngleAxis(-i * 5, Vector3.forward);
-            if (i % 2 == 0)
-            {
-                bulletName = Spawner.Instance.BulletOne;
-            }
-            else
-            {
-                bulletName = Spawner.Instance.BulletTwo;
-            }
-            Transform newBullet = Spawner.Instance.Spawn(bulletName, spawn, rot);
+            bulletName = BulletSpawner.Instance.BulletOne;
+            Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawn, rot);
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
             Debug.Log("Shoot");
-        }   
+        }
     }
+
+   
 
     protected virtual void CheckShooting()
     {

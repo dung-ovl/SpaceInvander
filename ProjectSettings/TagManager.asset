@@ -38,18 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Bullet
-    uniqueID: 4131812275
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Space
+    uniqueID: 4256195471
     locked: 0
   - name: Engine
     uniqueID: 2380689503
+    locked: 0
+  - name: Bullet
+    uniqueID: 4131812275
     locked: 0
   - name: Ship
     uniqueID: 1447412019
     locked: 0
   - name: Weapon
     uniqueID: 2360536949
-    locked: 0
-  - name: Default
-    uniqueID: 0
     locked: 0

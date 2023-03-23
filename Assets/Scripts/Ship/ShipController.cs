@@ -11,6 +11,15 @@ public class ShipController : GameMonoBehaviour
 
     [SerializeField] protected Animator weaponAnimator;
 
+    [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
+
+    [SerializeField] protected AbilityController ability;
+    public AbilityController Ability => ability;
+
+    public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
+
+
+
     public Animator WeaponAnimator => weaponAnimator;
 
 
@@ -26,7 +35,22 @@ public class ShipController : GameMonoBehaviour
         this.LoadShipMovement();
         this.LoadEngineAnimator();
         this.LoadWeaponAnimator();
-        this.LoadShield();
+        this.LoadShipDamageReceiver();
+        this.LoadAbility();
+    }
+
+    private void LoadAbility()
+    {
+        if (this.ability != null) return;
+        this.ability = GetComponentInChildren<AbilityController>();
+        Debug.Log(transform.name + ": LoadAbility", gameObject);
+    }
+
+    protected virtual void LoadShipDamageReceiver()
+    {
+        if (this.shipDamageReceiver != null) return;
+        this.shipDamageReceiver = GetComponentInChildren<ShipDamageReceiver>();
+        Debug.Log(transform.name + ": LoadShipDamageReceiver", gameObject);
     }
 
     protected virtual void LoadShipMovement()

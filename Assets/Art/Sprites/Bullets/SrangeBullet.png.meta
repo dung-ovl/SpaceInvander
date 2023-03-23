@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 50d9a824815048b4b8a7dacfa13cadca
+guid: 488cc3de96191214e8a8e8543c3d2b30
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SurikenBullet_0
+      name: SrangeBullet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4510ffd126cc0544838297c3a49aeff
-      internalID: 539718917
+      spriteID: 726d9b3efc0ddd44fb48e539e1b5d731
+      internalID: 1357050433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SurikenBullet_1
+      name: SrangeBullet_1
       rect:
         serializedVersion: 2
         x: 16
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9508ca6ba110fb144ac0dedcb04ef25c
-      internalID: 430954176
+      spriteID: 8cb5a4d76ef43d64baf9931b6b9457f7
+      internalID: 295257359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SurikenBullet_2
+      name: SrangeBullet_2
       rect:
         serializedVersion: 2
         x: 32
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8deaf99111c882c4dae2321da204763f
-      internalID: -465038414
+      spriteID: 81b233894c1a9a94eb4ee7cc511dc21f
+      internalID: -1459947809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SurikenBullet_3
+      name: SrangeBullet_3
       rect:
         serializedVersion: 2
         x: 48
@@ -182,8 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6e2fe56b38f26b429e7fc904927c08e
-      internalID: -191426358
+      spriteID: 60675e6888f1b85428cb28f84ba684ac
+      internalID: -907465048
       vertices: []
       indices: 
       edges: []
@@ -199,10 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SurikenBullet_0: 539718917
-      SurikenBullet_1: 430954176
-      SurikenBullet_2: -465038414
-      SurikenBullet_3: -191426358
+      SrangeBullet_0: 1357050433
+      SrangeBullet_1: 295257359
+      SrangeBullet_2: -1459947809
+      SrangeBullet_3: -907465048
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
