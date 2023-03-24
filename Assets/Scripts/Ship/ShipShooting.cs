@@ -5,36 +5,37 @@ using UnityEngine;
 
 public class ShipShooting : ShipAbstract
 {
+    [Header("ShipShooting")]
     [SerializeField] protected bool isShooting = true;
-    [SerializeField] protected float shootDelay = 0.2f;
+    [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.SetupShootSpeed();
+    }
 
     private void Update()
     {
-        this.CheckShooting();
+        
     }
 
     private void FixedUpdate()
     {
         this.Shooting();
+        this.OnShootingAnimation();
     }
 
 
     protected virtual void Shooting()
     {
-        if (!isShooting)
-        {
-            shipController.WeaponAnimator.SetBool("isShooting", false);
-            return;
-        }
-        shipController.WeaponAnimator.SetBool("isShooting", true);
+        if (!this.isShooting) return;
         shootTimer += Time.fixedDeltaTime;
         if (shootTimer < shootDelay) return;
         shootTimer = 0;
-
         Vector3 spawnPos = transform.position;
         Quaternion rotation = transform.parent.rotation;
-
         string bulletName = "";
         for (int i = -2; i <= 2; i++)
         {
@@ -48,10 +49,19 @@ public class ShipShooting : ShipAbstract
         }
     }
 
-   
-
-    protected virtual void CheckShooting()
+    protected virtual void OnShootingAnimation()
     {
-        
+        if (!this.isShooting)
+        {
+            shipController.WeaponAnimator.SetBool("isShooting", false);
+            return;
+        }
+        shipController.WeaponAnimator.SetBool("isShooting", true);
+    }
+
+    protected virtual void SetupShootSpeed(int speedPercentAdd = 0)
+    {
+        this.shootDelay = shipController.ShipProfile.attackSpeed * (100f/(100 + speedPercentAdd));
+        this.shootTimer = shootDelay;
     }
 }

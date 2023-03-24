@@ -8,25 +8,22 @@ public class ShipController : GameMonoBehaviour
     [SerializeField] protected ShipMovement shipMovement;
 
     [SerializeField] protected Animator engineAnimator;
+    public Animator EngineAnimator => engineAnimator;
 
     [SerializeField] protected Animator weaponAnimator;
+    public Animator WeaponAnimator => weaponAnimator;
 
     [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
+    public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
 
     [SerializeField] protected AbilityController ability;
     public AbilityController Ability => ability;
 
-    public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
-
-
-
-    public Animator WeaponAnimator => weaponAnimator;
-
-
-    public Animator EngineAnimator => engineAnimator;
-
     [SerializeField] protected ShieldCtrl shield;
     public ShieldCtrl Shield => shield;
+
+    [SerializeField] protected ShipProfileSO shipProfile;
+    public ShipProfileSO ShipProfile => shipProfile;
 
 
     protected override void LoadComponents()
@@ -37,6 +34,15 @@ public class ShipController : GameMonoBehaviour
         this.LoadWeaponAnimator();
         this.LoadShipDamageReceiver();
         this.LoadAbility();
+        this.LoadShipProfile();
+    }
+
+    private void LoadShipProfile()
+    {
+        if (this.shipProfile != null) return;
+        string resPath = "Ship/" + transform.name;
+        this.shipProfile = Resources.Load<ShipProfileSO>(resPath);
+        Debug.Log(transform.name + ": LoadShipProfile", gameObject);
     }
 
     private void LoadAbility()

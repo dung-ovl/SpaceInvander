@@ -17,7 +17,7 @@ public class ShipMovement : ShipAbstract
     {
         this.GetTargetPosition();
         this.Moving();
-        this.ApplyEnginePoweringAnimation();
+        this.OnMovingAnimation();
     }
 
     protected virtual void GetTargetPosition()
@@ -35,9 +35,10 @@ public class ShipMovement : ShipAbstract
             return;
         }
         this.isMoving = false;
+
     }
 
-    protected virtual void ApplyEnginePoweringAnimation()
+    protected virtual void OnMovingAnimation()
     {
         if (this.isMoving)
         {
