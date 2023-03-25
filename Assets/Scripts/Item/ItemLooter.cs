@@ -42,8 +42,7 @@ public class ItemLooter : ShipAbstract
         Debug.Log("Picked " + itemCode.ToString());
         if (itemCode == ItemCode.ShieldItem)
         {
-            this.ShipController.Shield.ActiveShield.SetLifeTime(5f);
-            this.ShipController.Shield.ActiveShield.Shield();
+            this.ShipController.Ability.ShieldAbility.Active();
         }
         if (itemCode == ItemCode.HealItem)
         {

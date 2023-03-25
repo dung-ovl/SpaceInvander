@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldCtrl : GameMonoBehaviour
+public class ShieldAbility : AbilityAbstract
 {
     [SerializeField] protected Transform model;
     public Transform Model { get => model; }
@@ -10,6 +10,12 @@ public class ShieldCtrl : GameMonoBehaviour
     [SerializeField] protected ActiveShield activeShield;
 
     public ActiveShield ActiveShield { get => activeShield; }
+
+    [SerializeField] protected float timeExists = 5f;
+    public float TimeExists { get { return timeExists; } set { timeExists = value; } }
+
+    [SerializeField] protected float timeRemains = 0;
+    public float TimeRemains { get { return timeRemains; } set { timeRemains = value; } }
 
     protected override void LoadComponents()
     {
@@ -30,5 +36,10 @@ public class ShieldCtrl : GameMonoBehaviour
         if (this.activeShield != null) return;
         this.activeShield = transform.GetComponentInChildren<ActiveShield>();
         Debug.Log(transform.name + ": LoadActiveShield", gameObject);
+    }
+    public override void Active()
+    {
+        this.activeShield.SetTimeExists(5f);
+        this.activeShield.Shield();
     }
 }
