@@ -56,3 +56,9 @@ TagManager:
   - name: Weapon
     uniqueID: 2360536949
     locked: 0
+  - name: Fx
+    uniqueID: 3116550699
+    locked: 0
+  - name: Item
+    uniqueID: 3081033659
+    locked: 0

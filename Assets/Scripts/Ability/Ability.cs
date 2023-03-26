@@ -1,19 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbilityAbstract : GameMonoBehaviour
+public abstract class Ability : GameMonoBehaviour
 {
     [Header("Ability")]
     [SerializeField] protected bool isActived = false;
-    public bool IsActived { get { return isActived; } set { isActived = value; } }
+    public bool IsActived => isActived;
 
     [SerializeField] protected AbilityController abilityController;
-    public AbilityController AbilityController { get { return abilityController; } }
+    public AbilityController AbilityController => abilityController;
+
+    [SerializeField] protected AbilityProfileSO abilityProfile;
+
+    public AbilityProfileSO AbilityProfileSO => abilityProfile;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadAbilityController();
+        this.LoadAbilityProfile();
+    }
+
+    protected virtual void LoadAbilityProfile()
+    {
+        if (this.abilityProfile != null) return;
+        string resPath = "Ability/" + transform.name;
+        this.abilityProfile = Resources.Load<AbilityProfileSO>(resPath);
+        Debug.Log(transform.name + ": LoadAbilityProfile", gameObject);
     }
 
     protected virtual void LoadAbilityController()

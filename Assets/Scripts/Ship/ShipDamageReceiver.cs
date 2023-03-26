@@ -22,16 +22,10 @@ public class ShipDamageReceiver : DamageReceiver
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    protected override void Reborn()
+    protected override void SetupMaxHealth()
     {
-        SetupMaxHealth();
-        base.Reborn();
-    }
-
-    protected override void SetupMaxHealth(int maxHealthPointAdd = 0)
-    {
-        base.SetupMaxHealth(maxHealthPointAdd);
-        this.maxHealthPoint = shipController.ShipProfile.maxHeath + maxHealthPointAdd;
+        baseMaxHealthPoint = shipController.ShipProfile.maxHeath;
+        base.SetupMaxHealth();
     }
 
     protected override void OnDead()

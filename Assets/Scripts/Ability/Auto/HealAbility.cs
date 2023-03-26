@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealAbility : AbilityAbstract
+public class HealAbility : Ability
 {
     [Header("Heal")]
     [SerializeField] protected DamageReceiver damageReceiver;

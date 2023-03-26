@@ -26,14 +26,14 @@ public class ActiveShield : ShieldAbstract
         if (!this.ShieldAbility.IsActived)
         {
             this.ShieldAbility.Model.gameObject.SetActive(true);
-            this.ShieldAbility.IsActived = true;
+            //this.ShieldAbility.IsActived = true;
         }
     }
 
     public void DisableShield()
     {
         this.ShieldAbility.Model.gameObject.SetActive(false);
-        this.ShieldAbility.IsActived = false;
+        //this.ShieldAbility.IsActived = false;
     }
 
     public void SetTimeExists(float time)

@@ -6,6 +6,8 @@ public abstract class DamageReceiver : GameMonoBehaviour
 {
     [Header("DamageReceiver")]
     [SerializeField] protected float healthPoint = 10f;
+    [SerializeField] protected float baseMaxHealthPoint = 10f;
+    [SerializeField] protected float maxHealthPointBonus = 0f;
     [SerializeField] protected float maxHealthPoint = 10f;
 
     public float MaxHealthPoint => maxHealthPoint;
@@ -30,6 +32,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
     }
     protected virtual void Reborn()
     {
+        SetupMaxHealth();
         this.healthPoint = this.maxHealthPoint;
         this.isDead = false;
     }
@@ -59,9 +62,14 @@ public abstract class DamageReceiver : GameMonoBehaviour
         this.OnDead();
     }
 
-    protected virtual void SetupMaxHealth(int maxHealthPointAdd = 0)
+    protected virtual void SetupMaxHealth()
     {
-        this.maxHealthPoint = this.maxHealthPoint + maxHealthPointAdd;
+        this.maxHealthPoint = this.baseMaxHealthPoint + this.maxHealthPointBonus;
+    }
+
+    protected virtual void SetMaxHealthPointBonus(float point)
+    {
+        this.maxHealthPointBonus = point;
     }
     protected abstract void OnDead();
 }

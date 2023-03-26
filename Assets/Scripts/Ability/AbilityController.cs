@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AbilityController : ShipAbstract
@@ -9,11 +11,22 @@ public class AbilityController : ShipAbstract
 
     [SerializeField] protected ShieldAbility shieldAbility;
     public ShieldAbility ShieldAbility => shieldAbility;
+
+    [SerializeField] protected List<Ability> abilities;
+    public List<Ability> Abilities => abilities;
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadAbilityController();
         this.LoadShieldAbility();
+        this.LoadAbilities();
+    }
+
+    protected virtual void LoadAbilities()
+    {
+        if (abilities.Count > 0) return;
+        abilities = transform.GetComponentsInChildren<Ability>().ToList();
+        Debug.Log(transform.name + ": LoadAbilities", gameObject);
     }
 
     protected virtual void LoadAbilityController()

@@ -42,11 +42,11 @@ public class ItemLooter : ShipAbstract
         Debug.Log("Picked " + itemCode.ToString());
         if (itemCode == ItemCode.ShieldItem)
         {
-            this.ShipController.Ability.ShieldAbility.Active();
+            this.ShipController.AbilityController.ShieldAbility.Active();
         }
         if (itemCode == ItemCode.HealItem)
         {
-            this.ShipController.Ability.HealAbility.Active();
+            this.ShipController.AbilityController.HealAbility.Active();
         }
         itemPickupable.Picked();
     }

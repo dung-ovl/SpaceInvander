@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldAbility : AbilityAbstract
+public class ShieldAbility : Ability
 {
     [SerializeField] protected Transform model;
     public Transform Model { get => model; }
