@@ -18,20 +18,20 @@ public class ShipShooting : ShipAbstract
 
     private void Update()
     {
-        
+        this.Shooting();
+        this.OnShootingAnimation();
     }
 
     private void FixedUpdate()
     {
-        this.Shooting();
-        this.OnShootingAnimation();
+        
     }
 
 
     protected virtual void Shooting()
     {
         if (!this.isShooting) return;
-        shootTimer += Time.fixedDeltaTime;
+        shootTimer += Time.deltaTime;
         if (shootTimer < shootDelay) return;
         shootTimer = 0;
         Vector3 spawnPos = transform.position;
@@ -53,10 +53,10 @@ public class ShipShooting : ShipAbstract
     {
         if (!this.isShooting)
         {
-            shipController.WeaponAnimator.SetBool("isShooting", false);
+            shipController.ShipModel.WeaponAnimator.SetBool("isShooting", false);
             return;
         }
-        shipController.WeaponAnimator.SetBool("isShooting", true);
+        shipController.ShipModel.WeaponAnimator.SetBool("isShooting", true);
     }
 
     protected virtual void SetupShootSpeed(int speedPercentAdd = 0)

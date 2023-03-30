@@ -7,35 +7,37 @@ public class ShipController : GameMonoBehaviour
 {
     [SerializeField] protected ShipMovement shipMovement;
 
-    [SerializeField] protected Animator engineAnimator;
-    public Animator EngineAnimator => engineAnimator;
-
-    [SerializeField] protected Animator weaponAnimator;
-    public Animator WeaponAnimator => weaponAnimator;
-
     [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
     public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
 
     [SerializeField] protected AbilityController abilityController;
     public AbilityController AbilityController => abilityController;
 
-
     [SerializeField] protected ShipProfileSO shipProfile;
     public ShipProfileSO ShipProfile => shipProfile;
+
+    [SerializeField] protected ShipModel shipModel;
+    public ShipModel ShipModel => shipModel;
 
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShipMovement();
-        this.LoadEngineAnimator();
-        this.LoadWeaponAnimator();
         this.LoadShipDamageReceiver();
         this.LoadAbility();
         this.LoadShipProfile();
+        this.LoadShipModel();
     }
 
-    private void LoadShipProfile()
+    protected virtual void LoadShipModel()
+    {
+        if (this.shipModel != null) return;
+        this.shipModel = GetComponentInChildren<ShipModel>();
+        Debug.Log(transform.name + ": LoadShipProfile", gameObject);
+    }
+
+    protected virtual void LoadShipProfile()
     {
         if (this.shipProfile != null) return;
         string resPath = "Ship/" + transform.name;
@@ -43,7 +45,7 @@ public class ShipController : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadShipProfile", gameObject);
     }
 
-    private void LoadAbility()
+    protected virtual void LoadAbility()
     {
         if (this.abilityController != null) return;
         this.abilityController = GetComponentInChildren<AbilityController>();
@@ -64,20 +66,6 @@ public class ShipController : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadShipMovement", gameObject);
     }
 
-    protected virtual void LoadEngineAnimator()
-    {
-        if (this.engineAnimator != null) return;
-        Transform engine = transform.Find("Model/Engine");
-        this.engineAnimator = engine.GetComponent<Animator>();
-        Debug.Log(transform.name + ": LoadEngineAnimator", gameObject);
-    }
 
-    protected virtual void LoadWeaponAnimator()
-    {
-        if (this.weaponAnimator != null) return;
-        Transform weapon = transform.Find("Model/Weapon");
-        this.weaponAnimator = weapon.GetComponent<Animator>();
-        Debug.Log(transform.name + ": LoadWeaponAnimator", gameObject);
-    }
 
 }

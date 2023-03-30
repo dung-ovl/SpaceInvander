@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BackgroundScroll : GameMonoBehaviour
 {
-    [SerializeField] protected float scrollSpeed = 0.1f;
+    [SerializeField] protected float scrollSpeed = 0.05f;
     [SerializeField] protected Vector3 startPos = Vector3.zero;
     [SerializeField] protected Renderer meshRenderer;
 
@@ -24,7 +24,7 @@ public class BackgroundScroll : GameMonoBehaviour
 
     private void Update()
     {
-        ScrollDown();
+        this.ScrollDown();
     }
 
     protected virtual void ScrollDown()

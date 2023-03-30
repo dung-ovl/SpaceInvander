@@ -39,12 +39,12 @@ public class InputManager : GameMonoBehaviour
 
     private void Update()
     {
-        
+        this.GetMousePos();
     }
 
     private void FixedUpdate()
     {
-        this.GetMousePos();
+        
     }
 
     protected virtual void GetMousePos()

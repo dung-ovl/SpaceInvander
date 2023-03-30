@@ -12,12 +12,17 @@ public class ShipMovement : ShipAbstract
 
     [SerializeField] protected bool isMoving;
 
-
-    private void FixedUpdate()
+    private void Update()
     {
         this.GetTargetPosition();
         this.Moving();
         this.OnMovingAnimation();
+    }
+
+
+    private void FixedUpdate()
+    {
+        
     }
 
     protected virtual void GetTargetPosition()
@@ -42,10 +47,10 @@ public class ShipMovement : ShipAbstract
     {
         if (this.isMoving)
         {
-            shipController.EngineAnimator.SetBool("isMoving", true);
+            shipController.ShipModel.EngineAnimator.SetBool("isMoving", true);
             return;
         }
-        shipController.EngineAnimator.SetBool("isMoving", false);
+        shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
     }
 /*    protected virtual void CheckMoving()
     {
