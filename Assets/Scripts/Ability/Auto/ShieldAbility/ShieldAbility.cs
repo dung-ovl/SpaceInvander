@@ -2,44 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShieldAbility : Ability
+[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(Rigidbody))]
+public class ShieldAbility : SustentiveAbility
 {
-    [SerializeField] protected Transform model;
-    public Transform Model { get => model; }
-
-    [SerializeField] protected ActiveShield activeShield;
-
-    public ActiveShield ActiveShield { get => activeShield; }
-
-    [SerializeField] protected float timeExists = 5f;
-    public float TimeExists { get { return timeExists; } set { timeExists = value; } }
-
-    [SerializeField] protected float timeRemains = 0;
-    public float TimeRemains { get { return timeRemains; } set { timeRemains = value; } }
+    [SerializeField] protected SphereCollider _collider;
+    [SerializeField] protected Rigidbody _rigibody;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadModel();
-        this.LoadActiveShield();
+        this.LoadTrigger();
+        this.LoadRigibody();
     }
 
-    protected virtual void LoadModel()
+    protected override void ResetValue()
     {
-        if (this.model != null) return;
-        this.model = transform.Find("Model");
-        Debug.Log(transform.name + ": LoadModel", gameObject);
+        base.ResetValue();
+        this.SetupTimeExist();
     }
 
-    protected virtual void LoadActiveShield()
+    protected override void SetupTimeExist()
     {
-        if (this.activeShield != null) return;
-        this.activeShield = transform.GetComponentInChildren<ActiveShield>();
-        Debug.Log(transform.name + ": LoadActiveShield", gameObject);
+        this.bonusTimeExists = this.abilityController.ShipController.ShipProfile.shieldTimeUp;
+        base.SetupTimeExist();
     }
-    public override void Active()
+
+    protected virtual void LoadTrigger()
     {
-        this.activeShield.SetTimeExists(5f);
-        this.activeShield.Shield();
+        if (this._collider != null) return;
+        this._collider = transform.GetComponent<SphereCollider>();
+        this._collider.isTrigger = true;
+        this._collider.radius = 0.3f;
+        Debug.LogWarning(transform.name + ": LoadTrigger", gameObject);
+    }
+
+    protected virtual void LoadRigibody()
+    {
+        if (this._rigibody != null) return;
+        this._rigibody = transform.GetComponent<Rigidbody>();
+        this._rigibody.useGravity = false;
+        this._rigibody.isKinematic = true;
+        Debug.LogWarning(transform.name + ": LoadTrigger", gameObject);
+    }
+
+    protected virtual void OnTriggerEnter(Collider collider)
+    {
+        Debug.Log("Thang nay ne" + collider.transform.name);
+        return;
     }
 }

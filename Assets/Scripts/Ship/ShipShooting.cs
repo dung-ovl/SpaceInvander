@@ -59,7 +59,7 @@ public class ShipShooting : ShipAbstract
         shipController.ShipModel.WeaponAnimator.SetBool("isShooting", true);
     }
 
-    protected virtual void SetupShootSpeed(int speedPercentAdd = 0)
+    public virtual void SetupShootSpeed(int speedPercentAdd = 0)
     {
         this.shootDelay = shipController.ShipProfile.attackSpeed * (100f/(100 + speedPercentAdd));
         this.shootTimer = shootDelay;

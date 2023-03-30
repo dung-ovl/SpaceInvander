@@ -7,7 +7,7 @@ public abstract class Ability : GameMonoBehaviour
 {
     [Header("Ability")]
     [SerializeField] protected bool isActived = false;
-    public bool IsActived => isActived;
+    public bool IsActived { get => isActived; set => isActived = value; }
 
     [SerializeField] protected AbilityController abilityController;
     public AbilityController AbilityController => abilityController;

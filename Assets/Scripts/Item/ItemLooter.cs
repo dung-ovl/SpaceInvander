@@ -48,6 +48,10 @@ public class ItemLooter : ShipAbstract
         {
             this.ShipController.AbilityController.HealAbility.Active();
         }
+        if (itemCode == ItemCode.PowerUpItem)
+        {
+            this.ShipController.AbilityController.PowerUpAbility.Active();
+        }    
         itemPickupable.Picked();
     }
 }

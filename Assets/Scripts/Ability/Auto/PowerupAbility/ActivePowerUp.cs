@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveShield : ActiveSustentiveAbility
+public class ActivePowerUp : ActiveSustentiveAbility
 {
     public override void Activating()
     {
         base.Activating();
-        Debug.Log("Shield Activating");
+        this.SustentiveAbility.AbilityController.ShipController.ShipShooting.SetupShootSpeed(100);
     }
 
     public override void DisableActivating()
     {
         base.DisableActivating();
-        Debug.Log("Shield Disable");
+        this.SustentiveAbility.AbilityController.ShipController.ShipShooting.SetupShootSpeed();
     }
 }
