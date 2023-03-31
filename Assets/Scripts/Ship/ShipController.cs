@@ -19,6 +19,9 @@ public class ShipController : GameMonoBehaviour
     [SerializeField] protected ShipModel shipModel;
     public ShipModel ShipModel => shipModel;
 
+    [SerializeField] protected ShipLevel shipLevel;
+    public ShipLevel ShipLevel => shipLevel;
+
 
     protected override void LoadComponents()
     {
@@ -28,6 +31,14 @@ public class ShipController : GameMonoBehaviour
         this.LoadAbility();
         this.LoadShipProfile();
         this.LoadShipModel();
+        this.LoadShipLevel();
+    }
+
+    private void LoadShipLevel()
+    {
+        if (this.shipLevel != null) return;
+        this.shipLevel = GetComponentInChildren<ShipLevel>();
+        Debug.Log(transform.name + ": LoadShipLevel", gameObject);
     }
 
     protected virtual void LoadShipModel()

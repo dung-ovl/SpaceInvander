@@ -67,9 +67,5 @@ public abstract class DamageReceiver : GameMonoBehaviour
         this.maxHealthPoint = this.baseMaxHealthPoint + this.maxHealthPointBonus;
     }
 
-    protected virtual void SetMaxHealthPointBonus(float point)
-    {
-        this.maxHealthPointBonus = point;
-    }
     protected abstract void OnDead();
 }

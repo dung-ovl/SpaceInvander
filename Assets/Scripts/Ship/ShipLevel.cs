@@ -1,20 +1,29 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipDamageReceiver : DamageReceiver
+public class ShipLevel : Level
 {
-
     [SerializeField] protected ShipController shipController;
     public ShipController ShipController => shipController;
+
+    protected override void Start()
+    {
+        base.Start();
+        this.ActiveShootPointObjWithCurrentLevel();
+    }
+
+    private void FixedUpdate()
+    {
+        this.ActiveShootPointObjWithCurrentLevel();
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShipController();
-       
-    }
 
+    }
     protected virtual void LoadShipController()
     {
         if (shipController != null) return;
@@ -22,14 +31,16 @@ public class ShipDamageReceiver : DamageReceiver
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    protected override void SetupMaxHealth()
+    public virtual void ActiveShootPointObjWithCurrentLevel()
     {
-        baseMaxHealthPoint = shipController.ShipProfile.maxHeath;
-        base.SetupMaxHealth();
+        shipController.ShipModel.ShipShootPoint.ShipShootPointObjActive(this.levelCurrent - 1);
     }
 
-    protected override void OnDead()
+    public override void LevelUp()
     {
-        Debug.Log("Dead");
+        base.LevelUp();
+
     }
+
+
 }

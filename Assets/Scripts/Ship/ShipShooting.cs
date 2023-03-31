@@ -9,11 +9,26 @@ public class ShipShooting : ShipAbstract
     [SerializeField] protected bool isShooting = true;
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
+    [SerializeField] protected List<Transform> shipShootPoints;
+    [SerializeField] string bulletName = "no-name";
 
     protected override void ResetValue()
     {
         base.ResetValue();
         this.SetupShootSpeed();
+        this.LoadBulletName();
+        
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        this.LoadShootPoints();
+    }
+
+    protected virtual void LoadBulletName()
+    {
+        this.bulletName = BulletSpawner.Instance.BulletOne;
     }
 
     private void Update()
@@ -24,11 +39,47 @@ public class ShipShooting : ShipAbstract
 
     private void FixedUpdate()
     {
-        
+        this.LoadShootPoints();
     }
 
-
+    private void LoadShootPoints()
+    {
+        Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipShootPointObj();
+        this.shipShootPoints.Clear();
+        foreach (Transform shootPoint in currentShootPointObj)
+        {
+            this.shipShootPoints.Add(shootPoint);
+        }
+    }
+    
     protected virtual void Shooting()
+    {
+        if (this.shipShootPoints.Count <= 0)
+        {
+            this.ShootingWithNoShootPoint();
+            return;
+        }
+        this.ShootingWithShootPoint();
+    }
+
+    protected virtual void ShootingWithShootPoint()
+    {
+        if (!this.isShooting) return;
+        shootTimer += Time.deltaTime;
+        if (shootTimer < shootDelay) return;
+        shootTimer = 0;
+        foreach (Transform shootPoint in shipShootPoints)
+        {
+            Vector3 spawnPos = shootPoint.position;
+            Quaternion rotation = transform.parent.rotation;
+            Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
+            if (newBullet == null) return;
+            newBullet.gameObject.SetActive(true);
+            Debug.Log("Shoot");
+        }
+    }
+
+    protected virtual void ShootingWithNoShootPoint()
     {
         if (!this.isShooting) return;
         shootTimer += Time.deltaTime;
@@ -36,18 +87,12 @@ public class ShipShooting : ShipAbstract
         shootTimer = 0;
         Vector3 spawnPos = transform.position;
         Quaternion rotation = transform.parent.rotation;
-        string bulletName = "";
-        for (int i = -2; i <= 2; i++)
-        {
-            Vector3 spawn = spawnPos + Vector3.right * i / 30 + Vector3.up * -Mathf.Abs(i) / 30 ;
-            Quaternion rot = Quaternion.AngleAxis(-i * 5, Vector3.forward);
-            bulletName = BulletSpawner.Instance.BulletOne;
-            Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawn, rot);
-            if (newBullet == null) return;
-            newBullet.gameObject.SetActive(true);
-            Debug.Log("Shoot");
-        }
+        Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
+        if (newBullet == null) return;
+        newBullet.gameObject.SetActive(true);
+        Debug.Log("Shoot");
     }
+
 
     protected virtual void OnShootingAnimation()
     {

@@ -39,7 +39,7 @@ public class InputManager : GameMonoBehaviour
 
     private void Update()
     {
-        this.GetMousePos();
+        this.SetMousePos();
     }
 
     private void FixedUpdate()
@@ -47,7 +47,7 @@ public class InputManager : GameMonoBehaviour
         
     }
 
-    protected virtual void GetMousePos()
+    protected virtual void SetMousePos()
     {
         this.mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
