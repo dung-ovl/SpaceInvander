@@ -220,7 +220,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &58799274 stripped
 Transform:
@@ -926,7 +926,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 840351444}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &619575847
 MonoBehaviour:
@@ -1067,7 +1067,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1340983544}
   - {fileID: 619575845}
   m_Father: {fileID: 1429413310}
   m_RootOrder: 1
@@ -1567,7 +1566,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 840351444}
+  m_Father: {fileID: 2058936324}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1340983545
@@ -2258,6 +2257,8 @@ MonoBehaviour:
   isShooting: 1
   shootDelay: 0.2
   shootTimer: 0.2
+  shipShootPoints: []
+  bulletName: no-name
 --- !u!1 &1927559061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,65 +2304,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sustentiveAbility: {fileID: 2058936325}
---- !u!1 &2058936323
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2058936324}
-  - component: {fileID: 2058936325}
-  m_Layer: 0
-  m_Name: PowerUp
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2058936324
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058936323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1810228347}
-  - {fileID: 1927559062}
-  m_Father: {fileID: 1429413310}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2058936325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058936323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 528abfc676e17ea48a5f1e56ad026e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isActived: 0
-  abilityController: {fileID: 1429413309}
-  abilityProfile: {fileID: 0}
-  model: {fileID: 1810228347}
-  activeSusAbility: {fileID: 0}
-  timeExists: 5
-  baseTimeExists: 5
-  bonusTimeExists: 0
-  timeRemains: 0
-  shootDelay: 0.2
-  shootTimer: 0.2
-  shipShootPoints: []
-  bulletName: SrangeBullet
 --- !u!1 &1990139071
 GameObject:
   m_ObjectHideFlags: 0
@@ -2485,6 +2427,61 @@ MonoBehaviour:
   levelCurrent: 1
   levelMax: 99
   shipController: {fileID: 1561879891}
+--- !u!1 &2058936323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058936324}
+  - component: {fileID: 2058936325}
+  m_Layer: 0
+  m_Name: PowerUp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058936324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058936323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1340983544}
+  - {fileID: 1927559062}
+  m_Father: {fileID: 1429413310}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2058936325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058936323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528abfc676e17ea48a5f1e56ad026e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isActived: 0
+  abilityController: {fileID: 1429413309}
+  abilityProfile: {fileID: 11400000, guid: 84c4d5b72cd95464980e2b33c59d1d69, type: 2}
+  model: {fileID: 1340983544}
+  activeSusAbility: {fileID: 1927559063}
+  timeExists: 5
+  baseTimeExists: 5
+  bonusTimeExists: 0
+  timeRemains: 0
 --- !u!1 &2110157248
 GameObject:
   m_ObjectHideFlags: 0
