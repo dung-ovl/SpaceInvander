@@ -7,6 +7,9 @@ public class ShipController : GameMonoBehaviour
 {
     [SerializeField] protected ShipMovement shipMovement;
 
+    [SerializeField] protected ShipShooting shipShooting;
+    public ShipShooting ShipShooting => shipShooting;
+ 
     [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
     public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
 
@@ -27,6 +30,7 @@ public class ShipController : GameMonoBehaviour
     {
         base.LoadComponents();
         this.LoadShipMovement();
+        this.LoadShipShooting();
         this.LoadShipDamageReceiver();
         this.LoadAbility();
         this.LoadShipProfile();
@@ -77,6 +81,11 @@ public class ShipController : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadShipMovement", gameObject);
     }
 
-
+    protected virtual void LoadShipShooting()
+    {
+        if (this.shipShooting != null) return;
+        this.shipShooting = GetComponentInChildren<ShipShooting>();
+        Debug.Log(transform.name + ": LoadShipShooting", gameObject);
+    }
 
 }

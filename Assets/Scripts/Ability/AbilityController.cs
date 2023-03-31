@@ -12,6 +12,9 @@ public class AbilityController : ShipAbstract
     [SerializeField] protected ShieldAbility shieldAbility;
     public ShieldAbility ShieldAbility => shieldAbility;
 
+    [SerializeField] protected PowerUpAbility powerUpAbility;
+    public PowerUpAbility PowerUpAbility => powerUpAbility;
+
     [SerializeField] protected List<Ability> abilities;
     public List<Ability> Abilities => abilities;
     protected override void LoadComponents()
@@ -19,6 +22,7 @@ public class AbilityController : ShipAbstract
         base.LoadComponents();
         this.LoadAbilityController();
         this.LoadShieldAbility();
+        this.LoadPowerUpAbility();
         this.LoadAbilities();
     }
 
@@ -41,5 +45,12 @@ public class AbilityController : ShipAbstract
         if (shieldAbility != null) return;
         shieldAbility = transform.GetComponentInChildren<ShieldAbility>();
         Debug.Log(transform.name + ": LoadShieldAbility", gameObject);
+    }
+
+    protected virtual void LoadPowerUpAbility()
+    {
+        if (powerUpAbility != null) return;
+        powerUpAbility = transform.GetComponentInChildren<PowerUpAbility>();
+        Debug.Log(transform.name + ": LoadPowerUpAbility", gameObject);
     }
 }
