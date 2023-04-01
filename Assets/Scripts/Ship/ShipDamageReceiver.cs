@@ -8,11 +8,23 @@ public class ShipDamageReceiver : DamageReceiver
 
     [SerializeField] protected ShipController shipController;
     public ShipController ShipController => shipController;
+
+    protected override void Start()
+    {
+        base.Start();
+        PlayerHealthBar.Instance.SetMaxHealth(this.maxHealthPoint);
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        PlayerHealthBar.Instance.SetHealth(this.healthPoint);
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShipController();
-       
     }
 
     protected virtual void LoadShipController()

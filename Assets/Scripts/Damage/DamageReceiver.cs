@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public abstract class DamageReceiver : GameMonoBehaviour
 {
     [Header("DamageReceiver")]
@@ -9,10 +12,35 @@ public abstract class DamageReceiver : GameMonoBehaviour
     [SerializeField] protected float baseMaxHealthPoint = 10f;
     [SerializeField] protected float maxHealthPointBonus = 0f;
     [SerializeField] protected float maxHealthPoint = 10f;
+    [SerializeField] protected Collider sphereCollider;
+    [SerializeField] protected Rigidbody _rigidbody;
 
     public float MaxHealthPoint => maxHealthPoint;
     [SerializeField] protected bool isDead = false;
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadCollider();
+        this.LoadRigidBody();
+    }
+
+    protected virtual void LoadRigidBody()
+    {
+        if (this._rigidbody != null) return;
+        this._rigidbody = GetComponent<Rigidbody>();
+        this._rigidbody.isKinematic = true;
+        this._rigidbody.useGravity = false;
+        Debug.Log(transform.name + "LoadCollider", gameObject);
+    }
+
+    protected virtual void LoadCollider()
+    {
+        if (this.sphereCollider != null) return;
+        this.sphereCollider = GetComponent<SphereCollider>();
+        this.sphereCollider.isTrigger = true; ;
+        Debug.Log(transform.name + "LoadCollider", gameObject);
+    }
 
     protected override void ResetValue()
     {

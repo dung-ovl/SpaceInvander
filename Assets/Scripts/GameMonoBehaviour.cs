@@ -23,7 +23,7 @@ public class GameMonoBehaviour : MonoBehaviour
 
     protected virtual void Start()
     {
-
+        
     }
 
     protected virtual void LoadComponents()

@@ -6,7 +6,7 @@ public class Level : GameMonoBehaviour
 {
     [Header("Level")]
     [SerializeField] protected int levelCurrent = 1;
-    [SerializeField] protected int levelMax = 99;
+    [SerializeField] protected int levelMax = 10;
 
     public int LevelCurrent => levelCurrent;
     public int LevelMax => levelMax;

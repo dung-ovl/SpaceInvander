@@ -7,7 +7,7 @@ public class BulletSpawner : Spawner
     [Header("BulletSpawner")]
     private static BulletSpawner instance;
 
-    public static BulletSpawner Instance { get => instance; }
+    public static BulletSpawner Instance => instance;
     public string BulletOne = "SurikenBullet";
     public string BulletTwo = "SnakeBullet";
 

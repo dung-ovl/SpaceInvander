@@ -39,7 +39,6 @@ public class ShipLevel : Level
     public override void LevelUp()
     {
         base.LevelUp();
-
     }
 
 

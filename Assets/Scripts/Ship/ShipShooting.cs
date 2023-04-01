@@ -15,15 +15,14 @@ public class ShipShooting : ShipAbstract
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.SetupShootSpeed();
-        this.LoadBulletName();
-        
+        this.SetupShootSpeed();  
     }
 
     protected override void Start()
     {
         base.Start();
         this.LoadShootPoints();
+        this.LoadBulletName();
     }
 
     protected virtual void LoadBulletName()
@@ -75,6 +74,8 @@ public class ShipShooting : ShipAbstract
             Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
+            BulletController bulletController = newBullet.GetComponent<BulletController>();
+            bulletController.SetShooter(transform.parent);
             Debug.Log("Shoot");
         }
     }

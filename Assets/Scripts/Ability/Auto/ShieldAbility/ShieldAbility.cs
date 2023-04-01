@@ -48,7 +48,8 @@ public class ShieldAbility : SustentiveAbility
 
     protected virtual void OnTriggerEnter(Collider collider)
     {
-        Debug.Log("Thang nay ne" + collider.transform.name);
+        DamageSender damageSender = collider.GetComponentInChildren<DamageSender>();
+        if (damageSender == null) return;
         return;
     }
 }

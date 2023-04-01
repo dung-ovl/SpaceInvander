@@ -51,7 +51,11 @@ public class ItemLooter : ShipAbstract
         if (itemCode == ItemCode.PowerUpItem)
         {
             this.ShipController.AbilityController.PowerUpAbility.Active();
-        }    
+        }
+        if (itemCode == ItemCode.LevelUpItem)
+        {
+            this.ShipController.ShipLevel.LevelUp();
+        }
         itemPickupable.Picked();
     }
 }
