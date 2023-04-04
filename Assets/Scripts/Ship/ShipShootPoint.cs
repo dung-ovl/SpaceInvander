@@ -38,7 +38,7 @@ public class ShipShootPoint : ShipAbstract
     protected virtual void LoadShipShootPointObjs()
     {
         if (this.shipShootPointsEachLevel.Count > 0) return;
-        Transform currentShip = transform.Find("Ship");
+        Transform currentShip = transform.Find("Base");
         foreach (Transform shootPonts in currentShip)
         {
             this.shipShootPointsEachLevel.Add(shootPonts);

@@ -12,7 +12,7 @@ public class DamageSender : GameMonoBehaviour
         if (damageReceiver == null) return;
 
         this.Send(damageReceiver);
-        //this.CreateImpactFX();
+        this.CreateImpactFX();
     }
 
     public virtual void Send(DamageReceiver damageReceiver)
@@ -33,6 +33,6 @@ public class DamageSender : GameMonoBehaviour
 
     protected virtual string GetImpactFXName()
     {
-        return null;
+        return FXSpawner.Instance.Impact1;
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Despawn : MonoBehaviour
+public abstract class Despawn : GameMonoBehaviour
 {
     protected virtual void FixedUpdate()
     {

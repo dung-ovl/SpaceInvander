@@ -47,6 +47,12 @@ TagManager:
   - name: Engine
     uniqueID: 2380689503
     locked: 0
+  - name: Enemy
+    uniqueID: 3809089289
+    locked: 0
+  - name: FX
+    uniqueID: 3116550699
+    locked: 0
   - name: Bullet
     uniqueID: 4131812275
     locked: 0
@@ -55,9 +61,6 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 2360536949
-    locked: 0
-  - name: Fx
-    uniqueID: 3116550699
     locked: 0
   - name: Item
     uniqueID: 3081033659

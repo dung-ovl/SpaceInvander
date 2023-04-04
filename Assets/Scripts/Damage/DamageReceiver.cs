@@ -60,7 +60,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
     }
     protected virtual void Reborn()
     {
-        SetupMaxHealth();
+        this.SetupMaxHealth();
         this.healthPoint = this.maxHealthPoint;
         this.isDead = false;
     }
