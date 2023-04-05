@@ -22,7 +22,7 @@ public class BulletDamageSender : DamageSender
     public override void Send(DamageReceiver damageReceiver)
     {
         base.Send(damageReceiver);
-        this.DestroyBullet();
+        //this.DestroyBullet();
     }
 
     protected virtual void DestroyBullet()

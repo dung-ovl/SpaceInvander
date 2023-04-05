@@ -27,6 +27,7 @@ public class BulletImpact : BulletAbstract
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.transform.parent == this.bulletController.Shooter) return;
+        //if (other.GetComponent<>)
         this.bulletController.BulletDamageSender.Send(other.transform);
         Vector3 hitPos = other.transform.position;
         Quaternion hitRot = other.transform.rotation;
@@ -45,4 +46,9 @@ public class BulletImpact : BulletAbstract
     {
         return FXSpawner.Instance.Impact1;
     }
+
+    protected virtual void Bounce(Collider collider)
+    {
+
+    }    
 }

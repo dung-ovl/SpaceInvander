@@ -8,7 +8,7 @@ public class BulletSpawner : Spawner
     private static BulletSpawner instance;
 
     public static BulletSpawner Instance => instance;
-    public string BulletOne = "SurikenBullet";
+    public string BulletOne = "SrangeBullet";
     public string BulletTwo = "SnakeBullet";
 
     protected override void Awake()
