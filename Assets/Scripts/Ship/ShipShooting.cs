@@ -70,12 +70,13 @@ public class ShipShooting : ShipAbstract
         foreach (Transform shootPoint in shipShootPoints)
         {
             Vector3 spawnPos = shootPoint.position;
-            Quaternion rotation = transform.parent.rotation;
+            Quaternion rotation = shootPoint.rotation;
             Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
             BulletController bulletController = newBullet.GetComponent<BulletController>();
             bulletController.SetShooter(transform.parent);
+            bulletController.BulletBouncy.startPos = spawnPos;
             Debug.Log("Shoot");
         }
     }

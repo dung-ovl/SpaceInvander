@@ -28,6 +28,14 @@ public class ShipMovement : ShipAbstract
     protected virtual void GetTargetPosition()
     {
         this.targetPosition = InputManager.Instance.MouseWorldPos;
+        if (this.targetPosition.x < -0.766f)
+        {
+            this.targetPosition.x = -0.766f;
+        }
+        else if (this.targetPosition.x > 0.766f)
+        {
+            this.targetPosition.x = 0.766f;
+        }
         this.targetPosition.z = 0;
     }
 
