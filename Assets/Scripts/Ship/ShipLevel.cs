@@ -10,12 +10,12 @@ public class ShipLevel : Level
     protected override void Start()
     {
         base.Start();
-        this.ActiveShootPointObjWithCurrentLevel();
+        //this.ActiveShootPointObjWithCurrentLevel();
     }
 
     private void FixedUpdate()
     {
-        this.ActiveShootPointObjWithCurrentLevel();
+        //this.ActiveShootPointObjWithCurrentLevel();
     }
 
     protected override void LoadComponents()
@@ -31,10 +31,10 @@ public class ShipLevel : Level
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    public virtual void ActiveShootPointObjWithCurrentLevel()
+    /*public virtual void ActiveShootPointObjWithCurrentLevel()
     {
-        shipController.ShipModel.ShipShootPoint.ShipShootPointObjActive(this.levelCurrent - 1);
-    }
+        shipController.ShipModel.ShipShootPoint.ActiveShipShootPointObj(this.levelCurrent - 1);
+    }*/
 
     public override void LevelUp()
     {

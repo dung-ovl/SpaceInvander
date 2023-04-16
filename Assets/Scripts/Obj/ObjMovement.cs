@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
-public class ObjMovement : GameMonoBehaviour
+public abstract class ObjMovement : GameMonoBehaviour
 {
 
     [SerializeField] protected Vector3 targetPosition;
@@ -15,37 +15,25 @@ public class ObjMovement : GameMonoBehaviour
     private void Update()
     {
         this.GetTargetPosition();
-        this.Moving();
-        this.OnMovingAnimation();
+        this.CheckOnMovingAndMoving();
     }
 
-
-    private void FixedUpdate()
-    {
-        
-    }
-
-    protected virtual void GetTargetPosition()
-    {
-        this.targetPosition = InputManager.Instance.MouseWorldPos;
-        this.targetPosition.z = 0;
-    }
+    protected abstract void GetTargetPosition();
 
     protected virtual void Moving()
     {
+        transform.parent.position = this.targetPosition;
+    }
+
+    protected virtual void CheckOnMovingAndMoving()
+    {
         if (transform.parent.position != this.targetPosition)
         {
-            transform.parent.position = this.targetPosition;
+            this.Moving();
             this.isMoving = true;
             return;
         }
         this.isMoving = false;
-
-    }
-
-    protected virtual void OnMovingAnimation()
-    {
-        
     }
 /*    protected virtual void CheckMoving()
     {

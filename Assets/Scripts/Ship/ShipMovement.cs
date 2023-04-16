@@ -5,42 +5,22 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
-public class ShipMovement : ShipAbstract
+public class ShipMovement : ObjFollowMouse
 {
+    [SerializeField] protected ShipController shipController;
+    public ShipController ShipController => shipController;
 
-    [SerializeField] protected Vector3 targetPosition;
-
-    [SerializeField] protected bool isMoving;
-
-    private void Update()
+    protected override void LoadComponents()
     {
-        this.GetTargetPosition();
-        this.Moving();
-        this.OnMovingAnimation();
+        base.LoadComponents();
+        this.LoadShipController();
     }
 
-
-    private void FixedUpdate()
+    protected virtual void LoadShipController()
     {
-        
-    }
-
-    protected virtual void GetTargetPosition()
-    {
-        this.targetPosition = InputManager.Instance.MouseWorldPos;
-        this.targetPosition.z = 0;
-    }
-
-    protected virtual void Moving()
-    {
-        if (transform.parent.position != this.targetPosition)
-        {
-            transform.parent.position = this.targetPosition;
-            this.isMoving = true;
-            return;
-        }
-        this.isMoving = false;
-
+        if (shipController != null) return;
+        shipController = transform.parent.GetComponent<ShipController>();
+        Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
     protected virtual void OnMovingAnimation()
@@ -52,10 +32,11 @@ public class ShipMovement : ShipAbstract
         }
         shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
     }
-/*    protected virtual void CheckMoving()
-    {
-        this.isMoving = InputManager.Instance.OnMoving;
-    }*/
+
+    /*    protected virtual void CheckMoving()
+   {
+       this.isMoving = InputManager.Instance.OnMoving;
+   }*/
 }
 
 

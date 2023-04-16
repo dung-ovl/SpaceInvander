@@ -16,18 +16,18 @@ public class ShipShootPoint : ShipAbstract
     protected override void Start()
     {
         base.Start();
+        this.ActiveShipShootPointObjWithLevel(this.shipController.ShipLevel.LevelCurrent);
     }
 
     private void FixedUpdate()
     {
-        
+        this.ActiveShipShootPointObjWithLevel(this.shipController.ShipLevel.LevelCurrent);
     }
 
     protected virtual void SetCurrentIndex(int index)
     {
         this.currentIndex = index;
     }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -62,7 +62,7 @@ public class ShipShootPoint : ShipAbstract
         }
     }
 
-    public virtual void ShipShootPointObjActive(int index)
+    public virtual void ActiveShipShootPointObj(int index)
     {
         this.HideShipShootPointObjs();
         if (index >= this.shipShootPointsEachLevel.Count) index = this.shipShootPointsEachLevel.Count - 1;
@@ -76,5 +76,10 @@ public class ShipShootPoint : ShipAbstract
     public virtual Transform CurrentShipShootPointObj()
     {
         return shipShootPointsEachLevel[this.currentIndex];
+    }
+
+    protected virtual void ActiveShipShootPointObjWithLevel(int level)
+    {
+        this.ActiveShipShootPointObj(level - 1);
     }
 }

@@ -21,7 +21,7 @@ public class ShipShooting : ShipAbstract
     protected override void Start()
     {
         base.Start();
-        this.LoadShootPoints();
+        this.LoadCurrentShootPoints();
         this.LoadBulletName();
     }
 
@@ -38,10 +38,10 @@ public class ShipShooting : ShipAbstract
 
     private void FixedUpdate()
     {
-        this.LoadShootPoints();
+        this.LoadCurrentShootPoints();
     }
 
-    private void LoadShootPoints()
+    private void LoadCurrentShootPoints()
     {
         Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipShootPointObj();
         this.shipShootPoints.Clear();
@@ -70,7 +70,7 @@ public class ShipShooting : ShipAbstract
         foreach (Transform shootPoint in shipShootPoints)
         {
             Vector3 spawnPos = shootPoint.position;
-            Quaternion rotation = transform.parent.rotation;
+            Quaternion rotation = shootPoint.rotation;
             Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);

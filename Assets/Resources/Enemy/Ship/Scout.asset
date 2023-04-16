@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Scout
   m_EditorClassIdentifier: 
   enemyName: Scout
-  maxHp: 50
-  enemyShipName: Scout
+  maxHp: 20
   type: 1
