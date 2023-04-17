@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -11,9 +12,11 @@ public class BoxFormation : FormationBase {
     [SerializeField] private bool _pivotInMiddle = true;
     [SerializeField] private bool _hollow = false;
     [SerializeField] private float _nthOffset = 0;
-
+   
     public override List<Vector3> GetPositions()
     {
+        List<int> indicesToRemove = GetHolePositions();
+
         List<Vector3> unitPositions = new List<Vector3>();
         var unitsPerRow = Mathf.Min(_columnCount, _posCount);
         float offsetX = (unitsPerRow - 1) * _spread / 2f;
@@ -56,13 +59,13 @@ public class BoxFormation : FormationBase {
                 {
                     if (_pivotInMiddle)
                         UnitFormationHelper.ApplyFormationCentering(ref unitPositions, rowCount, _spread);
-                    return unitPositions;
+                    return unitPositions.Where((item, index) => !indicesToRemove.Contains(index)).ToList();
                 }
             }
         }
 
         if (_pivotInMiddle)
             UnitFormationHelper.ApplyFormationCentering(ref unitPositions, rowCount, _spread);
-        return unitPositions;
+        return unitPositions.Where((item, index) => !indicesToRemove.Contains(index)).ToList();
     }
 }

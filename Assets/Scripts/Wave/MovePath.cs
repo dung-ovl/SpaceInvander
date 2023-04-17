@@ -1,30 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePath : GameMonoBehaviour
 {
-    [SerializeField] List<Transform> path;
-    [SerializeField] List<Transform> spawnpoints;
-    public List<Transform> Spawnpoints => spawnpoints;
+    [SerializeField] List<Transform> _points;
+    public List<Transform> Points => _points;
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadSpawnerPoints();
+        this.LoadPathPoints();
     }
 
-    private void LoadSpawnerPoints()
+    private void LoadPathPoints()
     {
-        if (this.spawnpoints != null) return;
-
-        foreach (Transform t in transform)
+        if (_points.Count > 0) return;
+        foreach (Transform prefab in transform)
         {
-            path.Add(t);
+            this._points.Add(prefab);
         }
-        foreach (Transform t in this.path)
-        {
-            spawnpoints.Add(t.Find("SpawnPoint"));
-        }
-        Debug.Log(transform.name + ": LoadWaveProfile", gameObject);
+        Debug.Log(transform.name + ": LoadPathPoints", gameObject);
     }
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 [Serializable]
-public class Wave
+public enum State
 {
-
+    NotStarted = 0,
+    Started = 1,
+    Completed = 2,
 }

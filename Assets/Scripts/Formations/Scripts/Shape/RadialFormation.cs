@@ -31,13 +31,13 @@ public class RadialFormation : FormationBase {
                 var x = Mathf.Cos(angle) * radius;
                 var y = Mathf.Sin(angle) * radius;
 
-                var pos = new Vector3(x, y, 0) + transform.position;
+                var pos = new Vector3(x, y, 0) ;
 
                 //pos += GetNoise(pos);
 
                 pos *= _spread;
 
-                posL.Add(pos);
+                posL.Add(pos + transform.position);
             }
 
             ringOffset += _ringOffset;
