@@ -5312,7 +5312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd9b66638e775843928b58547e7ff79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletController: {fileID: 4580544274321715808}
+  bulletController: {fileID: 1214683836}
   sphereCollider: {fileID: 1648713186}
 --- !u!1 &1654358999
 GameObject:
