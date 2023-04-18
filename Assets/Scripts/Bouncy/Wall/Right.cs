@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(BoxCollider))]
 public class Right : GameMonoBehaviour
 {
     [Header("LeftWall")]
-    [SerializeField] protected BoxCollider2D box;
+    [SerializeField] protected BoxCollider box;
 
     protected override void LoadComponents()
     {
@@ -16,6 +16,6 @@ public class Right : GameMonoBehaviour
 
     protected virtual void LoadWall()
     {
-        box = GetComponent<BoxCollider2D>();
+        box = GetComponent<BoxCollider>();
     }
 }

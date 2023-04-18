@@ -16,13 +16,26 @@ public class BulletController : GameMonoBehaviour
 
     [SerializeField] protected BulletBouncy bulletBouncy;
     public BulletBouncy BulletBouncy => bulletBouncy;
-    
+
+
+    [SerializeField] protected BulletPower bulletPower;
+    public BulletPower BulletPower => bulletPower;
+
+    public bool isSendDamage;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        isSendDamage = true;
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadBulletDespawn();
         this.LoadBulletDamageSender();
         this.LoadBulletBouncy();
+        this.LoadBulletPower();
     }
 
     protected virtual void LoadBulletDamageSender()
@@ -44,6 +57,13 @@ public class BulletController : GameMonoBehaviour
         if (this.bulletDespawn != null) return;
         this.bulletDespawn = transform.GetComponentInChildren<BulletDespawn>();
         //Debug.Log(transform.name + ": LoadBulletDespawn", gameObject);
+    }
+
+    protected virtual void LoadBulletPower()
+    {
+        if (this.bulletPower != null) return;
+        this.bulletPower = transform.GetComponentInChildren<BulletPower>();
+        //Debug.Log(transform.name + ": LoadBulletPower", gameObject);
     }
 
     public virtual void SetShooter(Transform shooter)

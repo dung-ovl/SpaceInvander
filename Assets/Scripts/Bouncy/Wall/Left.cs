@@ -5,7 +5,7 @@ using UnityEngine;
 public class Left : GameMonoBehaviour
 {
     [Header("LeftWall")]
-    [SerializeField] protected BoxCollider2D box;
+    [SerializeField] protected BoxCollider box;
 
     protected override void LoadComponents()
     {
@@ -15,6 +15,6 @@ public class Left : GameMonoBehaviour
 
     protected virtual void LoadWall()
     {
-        box = GetComponent<BoxCollider2D>();
+        box = GetComponent<BoxCollider>();
     }
 }

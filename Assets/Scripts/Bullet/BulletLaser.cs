@@ -1,41 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequireComponent(typeof(LineRenderer))]
+using System;
 public class BulletLaser : GameMonoBehaviour
 {
-    [SerializeField] protected float distanceRay = 100f;
-    [SerializeField] protected LineRenderer lineRenderer;
-    [SerializeField] protected Transform laserFirePoint;
-    [SerializeField] protected Transform endFirePoint;
+    LaserBeam beam;
+    [SerializeField] protected Transform position;
+    [SerializeField] protected DamageSender damageSender;
+    public DamageSender DamageSender => damageSender;
+    [SerializeField] protected bool isLaser;
 
-    public DamageSender damageSender = new BulletDamageSender();
-    protected void Update()
-    {
-        ShootLaser();
-    }
+    public string laserName;
 
-    protected virtual void ShootLaser()
+    public Transform Position { get { return position; }  set { position = value; } }
+    public bool IsLaser { get { return isLaser; } set{ isLaser = value; } }
+    protected virtual void FixedUpdate()
     {
-        Draw2DRay(laserFirePoint.position, endFirePoint.position);
-        Vector2 direction = endFirePoint.position - laserFirePoint.position;
-        RaycastHit hit;
-        if (Physics.Raycast(laserFirePoint.position, direction.normalized, out hit, direction.magnitude))
+        if (isLaser)
         {
-            DamageReceiver damage = hit.collider.GetComponent<DamageReceiver>();
-            if (damage != null && damage.transform.parent.name != "Ship")
-            {
-                Draw2DRay(laserFirePoint.position, hit.point);
-                Debug.Log("Laser trung roi " + hit.collider.transform.parent.name);
-                damageSender.transform.position = hit.point;
-                damageSender.Send(damage.transform);
-            }
+            Destroy(GameObject.Find(laserName));
+            Vector3 end = new Vector3(position.position.x + 5 * Mathf.Sin(-position.eulerAngles.z * Mathf.Deg2Rad), position.position.y + 5 * Mathf.Cos(-position.eulerAngles.z * Mathf.Deg2Rad));
+
+            Vector3 direction = end - position.position;
+            beam = new LaserBeam(position.position, direction, damageSender, laserName);
         }
     }
 
-    protected virtual void Draw2DRay(Vector2 startPos, Vector2 endPos)
+    protected override void LoadComponents()
     {
-        lineRenderer.SetPosition(0, startPos);
-        lineRenderer.SetPosition(1, endPos);
+        base.LoadComponents();
+        this.LoadDamageSender();
+    }
+
+    protected virtual void LoadDamageSender()
+    {
+        if (this.damageSender != null) return;
+        this.damageSender = transform.GetComponentInChildren<DamageSender>();
+        Debug.Log(transform.name + " LoadDamageSender ", gameObject);
     }
 }

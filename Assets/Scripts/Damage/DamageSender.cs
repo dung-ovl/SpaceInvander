@@ -5,12 +5,12 @@ using UnityEngine;
 public class DamageSender : GameMonoBehaviour
 {
     [SerializeField] private float damage = 2f;
-
+    [SerializeField] protected Vector3 hitPos;
+    public Vector3 HitPos { get { return hitPos; } set { hitPos = value; } }
     public virtual void Send(Transform obj)
     {
         DamageReceiver damageReceiver = obj.GetComponentInChildren<DamageReceiver>();
         if (damageReceiver == null) return;
-
         this.Send(damageReceiver);
         this.CreateImpactFX();
     }
@@ -24,7 +24,6 @@ public class DamageSender : GameMonoBehaviour
     protected virtual void CreateImpactFX()
     {
         string fxImpactName = GetImpactFXName();
-        Vector3 hitPos = transform.position;
         Quaternion hitRot = transform.rotation;
         Transform newFxImpact = FXSpawner.Instance.Spawn(fxImpactName, hitPos, hitRot);
         if (newFxImpact == null) return;
