@@ -19,10 +19,10 @@ public class BulletDamageSender : DamageSender
         Debug.Log(transform.name + ": LoadBulletController", gameObject);
     }
 
-    public override void Send(DamageReceiver damageReceiver)
+    public override void Send(Transform transform)
     {
-        base.Send(damageReceiver);
-        this.DestroyBullet();
+        base.Send(transform);
+        //this.DestroyBullet();
     }
 
     protected virtual void DestroyBullet()

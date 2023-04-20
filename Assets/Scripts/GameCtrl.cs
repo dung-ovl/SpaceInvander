@@ -12,6 +12,9 @@ public class GameCtrl : GameMonoBehaviour
     [SerializeField] protected Camera mainCamera;
     public Camera MainCamera { get => mainCamera; }
 
+    [SerializeField] protected Transform currentShip;
+    public Transform CurrentShip { get => currentShip; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,6 +26,7 @@ public class GameCtrl : GameMonoBehaviour
     {
         base.LoadComponents();
         this.LoadCamera();
+        this.LoadCurrentShip();
     }
 
     protected virtual void LoadCamera()
@@ -30,5 +34,12 @@ public class GameCtrl : GameMonoBehaviour
         if (this.mainCamera != null) return;
         this.mainCamera = GameCtrl.FindObjectOfType<Camera>();
         Debug.Log(transform.name + ": LoadCamera", gameObject);
+    }
+
+    protected virtual void LoadCurrentShip()
+    {
+        if (this.currentShip != null) return;
+        this.currentShip = GameObject.Find("Ship").transform;
+        Debug.Log(transform.name + ": LoadCurrentShip", gameObject);
     }
 }

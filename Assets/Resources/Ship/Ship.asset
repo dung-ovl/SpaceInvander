@@ -15,6 +15,6 @@ MonoBehaviour:
   shipName: Broya
   maxHeath: 100
   damage: 1
-  attackSpeed: 0.15
+  attackSpeed: 0.5
   shieldTimeUp: 2
   powerTimeUp: 0

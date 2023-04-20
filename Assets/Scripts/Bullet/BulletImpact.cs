@@ -27,10 +27,13 @@ public class BulletImpact : BulletAbstract
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.transform.parent == this.bulletController.Shooter) return;
-        this.bulletController.BulletDamageSender.Send(other.transform);
-        Vector3 hitPos = other.transform.position;
-        Quaternion hitRot = other.transform.rotation;
-        //this.CreateImpactFX(hitPos, hitRot);
+        DamageReceiver bulletDamageSender = other.GetComponent<DamageReceiver>();
+        if (bulletDamageSender != null && this.BulletController.isSendDamage)
+        {
+            this.bulletController.BulletDamageSender.HitPos = transform.position;
+            this.bulletController.BulletDamageSender.Send(other.transform);
+            
+        }//this.CreateImpactFX(hitPos, hitRot);
     }
 
     protected virtual void CreateImpactFX(Vector3 hitPos, Quaternion hitRot)
