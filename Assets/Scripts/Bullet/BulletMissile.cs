@@ -4,32 +4,30 @@ using UnityEngine;
 
 public class BulletMissile : GameMonoBehaviour
 {
-    public Transform target;
-    public float time;
-    bool iss = true;
-    public float rotSpeed = 3f;
-    public bool isTarget = false;
+    
+    bool isTarget = false;
 
-    [SerializeField] protected Transform spawnMis;
-    public Transform spawnMissile => spawnMis;
+    [SerializeField] protected float rotSpeed;
+    public float RotSpeed => rotSpeed;
 
-    protected override void Start()
-    {
-        base.Start();
-    }
+    [SerializeField] protected Transform target;
+    public Transform Target => target;
+
+    [SerializeField] protected bool isAiming = false;
+    public bool IsAiming => isAiming;
+
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        time = 0;
-        rotSpeed = 7f;
-        isTarget = false;
-
+        this.rotSpeed = 7f;
+        this.isTarget = true;
         Invoke("SetIsTarget", 1);
     }
 
     protected virtual void FixedUpdate()
     {
+        if (!this.isAiming) return;
         try
         {
             target = GameObject.FindGameObjectWithTag("EnemyTarget").transform;
@@ -38,19 +36,16 @@ public class BulletMissile : GameMonoBehaviour
         {
             return;
         }
-        {
-            LookAtTarget();
-        }
+        LookAtTarget();
     }
 
     protected virtual void LookAtTarget()
     {
-        if (isTarget)
+        if (this.isTarget)
         {
             Vector3 diff = this.target.position - transform.parent.position;
             diff.Normalize();
             float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-
             float timeSpeed = this.rotSpeed * Time.fixedDeltaTime;
             Quaternion targetEuler = Quaternion.Euler(0f, 0f, rot_z - 90);
             Quaternion currentEuler = Quaternion.Lerp(transform.parent.rotation, targetEuler, timeSpeed);
@@ -60,6 +55,6 @@ public class BulletMissile : GameMonoBehaviour
 
     protected virtual void SetIsTarget()
     {
-        isTarget = true;
+        this.isTarget = true;
     }
 }

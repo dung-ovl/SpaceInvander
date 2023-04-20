@@ -2,26 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPower : BulletAbstract
+public class BulletSeparate : BulletAbstract
 {
-    public int timesSeparation;
-    public int quantityOfEachTimes;
-    public float timeWait;
-    public float angleSeparation;
-    float timeCount;
+    public float timeCount;
 
-    protected override void LoadComponents()
+    [SerializeField] protected int timesSeparation;
+    public int TimesSeparation => timesSeparation;
+
+    [SerializeField] protected int quantityOfEachTimes;
+    public int QuantityOfEachTimes => quantityOfEachTimes;
+
+    [SerializeField] protected int baseQuantity = 2;
+    public int BaseQuantity => baseQuantity;
+
+    [SerializeField] protected float timeWait;
+    public float TimeWait => timeWait;
+
+    [SerializeField] protected float angleSeparation;
+    public float AngleSeparation => angleSeparation;
+
+    [SerializeField] protected bool isSeparating = false;
+    public bool IsSeparating => isSeparating;  
+
+    protected override void OnEnable()
     {
-        base.LoadComponents();
-        timeWait = 0.5f;
-        quantityOfEachTimes = 2;
-        timesSeparation = 2;
-        angleSeparation = 20;
-        timeCount = 0;
+        base.OnEnable();
+        this.timeWait = 0.2f;
+        this.quantityOfEachTimes = this.baseQuantity;
+        this.timesSeparation = 2;
+        this.angleSeparation = 10;
+        this.timeCount = 0;
     }
 
     protected virtual void FixedUpdate()
     {
+        if (!this.isSeparating) return;
         if (timesSeparation >= 1)
         {
             this.BulletController.isSendDamage = false;
@@ -31,8 +46,8 @@ public class BulletPower : BulletAbstract
 
     protected virtual void Separate()
     {
-        timeCount += Time.fixedDeltaTime;
-        if (timeCount < timeWait) return;
+        this.timeCount += Time.fixedDeltaTime;
+        if (this.timeCount < this.timeWait) return;
         this.CreateImpactFX();
         float tempAngle = Mathf.Abs(angleSeparation) * 2 / (quantityOfEachTimes - 1);
         float angle = angleSeparation;
@@ -46,6 +61,7 @@ public class BulletPower : BulletAbstract
             newBullet.gameObject.SetActive(true);
             BulletController bulletController = newBullet.GetComponent<BulletController>();
             bulletController.BulletPower.timesSeparation = timesSeparation - 1;
+            bulletController.BulletPower.isSeparating = true;
             bulletController.SetShooter(GameCtrl.Instance.CurrentShip);
             bulletController.BulletBouncy.startPos = transform.parent.position;
             Debug.Log("Separate " + i);
