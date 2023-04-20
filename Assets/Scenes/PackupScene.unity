@@ -484,8 +484,9 @@ MonoBehaviour:
   - {fileID: 2128447219}
   poolObjs: []
   holder: {fileID: 916012984}
-  BulletOne: SurikenBullet
-  BulletTwo: SnakeBullet
+  BulletOne: SrangeBullet
+  BulletTwo: Laser
+  BulletThree: Laser
 --- !u!1 &99608121
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
+  currentShip: {fileID: 0}
 --- !u!4 &189112836
 Transform:
   m_ObjectHideFlags: 0
@@ -3077,6 +3079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  hitPos: {x: 0, y: 0, z: 0}
   bulletController: {fileID: 4580544274321715808}
 --- !u!1 &1070484108
 GameObject:
@@ -3600,6 +3603,11 @@ MonoBehaviour:
   bulletDespawn: {fileID: 1240439314}
   bulletDamageSender: {fileID: 1635527387}
   shooter: {fileID: 0}
+  bulletBouncy: {fileID: 0}
+  bulletMissile: {fileID: 0}
+  bulletCircle: {fileID: 0}
+  bulletPower: {fileID: 0}
+  isSendDamage: 0
 --- !u!1 &1223036298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5085,6 +5093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  hitPos: {x: 0, y: 0, z: 0}
   bulletController: {fileID: 4580544274321715808}
 --- !u!1 &1645680308
 GameObject:
@@ -5819,6 +5828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  hitPos: {x: 0, y: 0, z: 0}
   bulletController: {fileID: 4580544274321715808}
 --- !u!1 &1733995783
 GameObject:
@@ -6081,10 +6091,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipController: {fileID: 1561879891}
   isShooting: 1
+  isSpawnLaser: 0
   shootDelay: 0.15
   shootTimer: 0.15
   shipShootPoints: []
   bulletName: no-name
+  bulletNames: []
 --- !u!1 &1855563963
 GameObject:
   m_ObjectHideFlags: 0
@@ -6545,7 +6557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d95dacd830154448d6b7ec431daf4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCurrent: 5
+  levelCurrent: 3
   levelMax: 99
   shipController: {fileID: 1561879891}
 --- !u!1 &2030823912
@@ -6881,6 +6893,11 @@ MonoBehaviour:
   bulletDespawn: {fileID: 1600102353}
   bulletDamageSender: {fileID: 1064858583}
   shooter: {fileID: 0}
+  bulletBouncy: {fileID: 0}
+  bulletMissile: {fileID: 0}
+  bulletCircle: {fileID: 0}
+  bulletPower: {fileID: 0}
+  isSendDamage: 0
 --- !u!1 &572862291304699606
 GameObject:
   m_ObjectHideFlags: 0
@@ -7435,6 +7452,11 @@ MonoBehaviour:
   bulletDespawn: {fileID: 3246385944393227717}
   bulletDamageSender: {fileID: 1722828975}
   shooter: {fileID: 0}
+  bulletBouncy: {fileID: 0}
+  bulletMissile: {fileID: 0}
+  bulletCircle: {fileID: 0}
+  bulletPower: {fileID: 0}
+  isSendDamage: 0
 --- !u!1 &4580544274359341752
 GameObject:
   m_ObjectHideFlags: 0

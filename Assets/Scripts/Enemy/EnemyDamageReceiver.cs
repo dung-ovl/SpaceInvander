@@ -37,6 +37,6 @@ public class EnemyDamageReceiver : DamageReceiver
 
     protected virtual string GetOnDeadFXName()
     {
-        return FXSpawner.Instance.E1ScountDead;
+        return FXSpawner.Instance.E1_Detruction;
     }
 }

@@ -8,7 +8,7 @@ public class FXSpawner : Spawner
     public static FXSpawner Instance { get => instance; }
 
     public string Impact1 = "Impact_1";
-    public string E1ScountDead = "E1_Scount_Dead";
+    public string E1_Detruction = "E1_Detruction";
     protected override void Awake()
     {
         base.Awake();

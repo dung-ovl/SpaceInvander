@@ -86,7 +86,7 @@ public class ShipShooting : ShipAbstract
                 newBullet.gameObject.SetActive(true);
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
-                bulletController.BulletBouncy.startPos = spawnPos;
+                //bulletController.BulletBouncy.startPos = spawnPos;
                 Debug.Log("Shoot");
             }
             else
