@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class BulletFly : Flyable
 {
+    private float rotSpeed = 1.0f;
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.moveSpeed = 2f;
+  
+    }
+
+    protected override void Fly()
+    {
+        base.Fly();
     }
 }

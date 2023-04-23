@@ -3,22 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealAbility : AbilityAbstract
+public class HealAbility : Ability
 {
     [Header("Heal")]
     [SerializeField] protected DamageReceiver damageReceiver;
-    [SerializeField] protected float healPoint = 5f;
+    [SerializeField] protected float healPercent = 0.3f;
 
 
 
     protected virtual void FixedUpdate()
     {
-        Invoke("Test", 2f);
-    }
-
-    protected virtual void Test()
-    {
-        this.Active();
+        
     }
 
     protected override void LoadComponents()
@@ -36,8 +31,10 @@ public class HealAbility : AbilityAbstract
 
     public override void Active()
     {
-     
+        if (damageReceiver == null) return;
+        float healPoint = healPercent * damageReceiver.MaxHealthPoint;
         this.damageReceiver.AddHealthPoint(healPoint);
+        Debug.Log(healPoint);
     }
 
 }

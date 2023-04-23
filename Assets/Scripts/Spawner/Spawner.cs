@@ -74,25 +74,31 @@ public class Spawner : GameMonoBehaviour
         return prefabs.Find(prefab => prefab.name == prefabName);
     }
 
-    protected virtual Transform GetObjectFromPool(Transform prefabs)
+    protected virtual Transform GetObjectFromPool(Transform prefab)
     {
         foreach (Transform poolObj in poolObjs)
         {
-            if (prefabs.name == poolObj.name)
+            if (prefab.name == poolObj.name)
             {
                 this.poolObjs.Remove(poolObj);
                 return poolObj;
             }
         }
 
-        Transform newPrefab = Instantiate(prefabs);
-        newPrefab.name = prefabs.name;
+        Transform newPrefab = Instantiate(prefab);
+        newPrefab.name = prefab.name;
         return newPrefab;
     }
+
 
     public virtual void Despawn(Transform obj)
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+    }
+
+    public virtual bool CheckObjectInPool(Transform prefab)
+    {
+        return poolObjs.Contains(prefab);
     }
 }

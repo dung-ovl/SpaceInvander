@@ -7,43 +7,64 @@ public class ShipController : GameMonoBehaviour
 {
     [SerializeField] protected ShipMovement shipMovement;
 
-    [SerializeField] protected Animator engineAnimator;
-
-    [SerializeField] protected Animator weaponAnimator;
-
+    [SerializeField] protected ShipShooting shipShooting;
+    public ShipShooting ShipShooting => shipShooting;
+ 
     [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
-
-    [SerializeField] protected AbilityController ability;
-    public AbilityController Ability => ability;
-
     public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
 
+    [SerializeField] protected AbilityController abilityController;
+    public AbilityController AbilityController => abilityController;
 
+    [SerializeField] protected ShipProfileSO shipProfile;
+    public ShipProfileSO ShipProfile => shipProfile;
 
-    public Animator WeaponAnimator => weaponAnimator;
+    [SerializeField] protected ShipModel shipModel;
+    public ShipModel ShipModel => shipModel;
 
-
-    public Animator EngineAnimator => engineAnimator;
-
-    [SerializeField] protected ShieldCtrl shield;
-    public ShieldCtrl Shield => shield;
+    [SerializeField] protected ShipLevel shipLevel;
+    public ShipLevel ShipLevel => shipLevel;
 
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadShipMovement();
-        this.LoadEngineAnimator();
-        this.LoadWeaponAnimator();
+        this.LoadShipShooting();
         this.LoadShipDamageReceiver();
         this.LoadAbility();
+        this.LoadShipProfile();
+        this.LoadShipModel();
+        this.LoadShipLevel();
     }
 
-    private void LoadAbility()
+    private void LoadShipLevel()
     {
-        if (this.ability != null) return;
-        this.ability = GetComponentInChildren<AbilityController>();
-        Debug.Log(transform.name + ": LoadAbility", gameObject);
+        if (this.shipLevel != null) return;
+        this.shipLevel = GetComponentInChildren<ShipLevel>();
+        Debug.Log(transform.name + ": LoadShipLevel", gameObject);
+    }
+
+    protected virtual void LoadShipModel()
+    {
+        if (this.shipModel != null) return;
+        this.shipModel = GetComponentInChildren<ShipModel>();
+        Debug.Log(transform.name + ": LoadShipProfile", gameObject);
+    }
+
+    protected virtual void LoadShipProfile()
+    {
+        if (this.shipProfile != null) return;
+        string resPath = "Ship/" + transform.name;
+        this.shipProfile = Resources.Load<ShipProfileSO>(resPath);
+        Debug.Log(transform.name + ": LoadShipProfile", gameObject);
+    }
+
+    protected virtual void LoadAbility()
+    {
+        if (this.abilityController != null) return;
+        this.abilityController = GetComponentInChildren<AbilityController>();
+        Debug.Log(transform.name + ": LoadAbilityController", gameObject);
     }
 
     protected virtual void LoadShipDamageReceiver()
@@ -60,26 +81,11 @@ public class ShipController : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadShipMovement", gameObject);
     }
 
-    protected virtual void LoadEngineAnimator()
+    protected virtual void LoadShipShooting()
     {
-        if (this.engineAnimator != null) return;
-        Transform engine = transform.Find("Model/Engine");
-        this.engineAnimator = engine.GetComponent<Animator>();
-        Debug.Log(transform.name + ": LoadEngineAnimator", gameObject);
+        if (this.shipShooting != null) return;
+        this.shipShooting = GetComponentInChildren<ShipShooting>();
+        Debug.Log(transform.name + ": LoadShipShooting", gameObject);
     }
 
-    protected virtual void LoadWeaponAnimator()
-    {
-        if (this.weaponAnimator != null) return;
-        Transform weapon = transform.Find("Model/Weapon");
-        this.weaponAnimator = weapon.GetComponent<Animator>();
-        Debug.Log(transform.name + ": LoadWeaponAnimator", gameObject);
-    }
-
-    protected virtual void LoadShield()
-    {
-        if (this.shield != null) return;
-        this.shield = transform.GetComponentInChildren<ShieldCtrl>();
-        Debug.Log(transform.name + ": LoadShield", gameObject);
-    }
 }

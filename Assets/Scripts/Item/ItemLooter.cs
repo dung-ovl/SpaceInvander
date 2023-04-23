@@ -42,12 +42,19 @@ public class ItemLooter : ShipAbstract
         Debug.Log("Picked " + itemCode.ToString());
         if (itemCode == ItemCode.ShieldItem)
         {
-            this.ShipController.Shield.ActiveShield.SetLifeTime(5f);
-            this.ShipController.Shield.ActiveShield.Shield();
+            this.ShipController.AbilityController.ShieldAbility.Active();
         }
         if (itemCode == ItemCode.HealItem)
         {
-            this.ShipController.Ability.HealAbility.Active();
+            this.ShipController.AbilityController.HealAbility.Active();
+        }
+        if (itemCode == ItemCode.PowerUpItem)
+        {
+            this.ShipController.AbilityController.PowerUpAbility.Active();
+        }
+        if (itemCode == ItemCode.LevelUpItem)
+        {
+            this.ShipController.ShipLevel.LevelUp();
         }
         itemPickupable.Picked();
     }

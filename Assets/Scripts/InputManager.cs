@@ -39,15 +39,15 @@ public class InputManager : GameMonoBehaviour
 
     private void Update()
     {
-        
+        this.SetMousePos();
     }
 
     private void FixedUpdate()
     {
-        this.GetMousePos();
+        
     }
 
-    protected virtual void GetMousePos()
+    protected virtual void SetMousePos()
     {
         this.mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }

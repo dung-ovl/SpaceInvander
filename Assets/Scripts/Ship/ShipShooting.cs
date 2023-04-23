@@ -5,53 +5,137 @@ using UnityEngine;
 
 public class ShipShooting : ShipAbstract
 {
+    [Header("ShipShooting")]
     [SerializeField] protected bool isShooting = true;
-    [SerializeField] protected float shootDelay = 0.2f;
+    public int isSpawnLaser;
+    [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
+    [SerializeField] protected List<Transform> shipShootPoints;
+    [SerializeField] string bulletName = "no-name";
+
+    public List<String> bulletNames = new List<string>();
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.SetupShootSpeed();  
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        this.LoadCurrentShootPoints();
+        this.LoadBulletName();
+        isSpawnLaser = 0;
+    }
+
+    protected virtual void LoadBulletName()
+    {
+        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
+        this.bulletName = BulletSpawner.Instance.BulletOne;
+        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
+        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
+    }
 
     private void Update()
     {
-        this.CheckShooting();
+        this.Shooting();
+        this.OnShootingAnimation();
     }
 
     private void FixedUpdate()
     {
-        this.Shooting();
+        this.LoadCurrentShootPoints();
     }
 
-
+    private void LoadCurrentShootPoints()
+    {
+        Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipShootPointObj();
+        this.shipShootPoints.Clear();
+        foreach (Transform shootPoint in currentShootPointObj)
+        {
+            this.shipShootPoints.Add(shootPoint);
+        }
+    }
+    
     protected virtual void Shooting()
     {
-        if (!isShooting)
+        if (this.shipShootPoints.Count <= 0)
         {
-            shipController.WeaponAnimator.SetBool("isShooting", false);
+            this.ShootingWithNoShootPoint();
             return;
         }
-        shipController.WeaponAnimator.SetBool("isShooting", true);
-        shootTimer += Time.fixedDeltaTime;
+        this.ShootingWithShootPoint();
+    }
+
+    protected virtual void ShootingWithShootPoint()
+    {
+        if (!this.isShooting) return;
+        shootTimer += Time.deltaTime;
         if (shootTimer < shootDelay) return;
         shootTimer = 0;
-
-        Vector3 spawnPos = transform.position;
-        Quaternion rotation = transform.parent.rotation;
-
-        string bulletName = "";
-        for (int i = -2; i <= 2; i++)
+        int count = 0;
+        foreach (Transform shootPoint in shipShootPoints)
         {
-            Vector3 spawn = spawnPos + Vector3.right * i / 30 + Vector3.up * -Mathf.Abs(i) / 30 ;
-            Quaternion rot = Quaternion.AngleAxis(-i * 5, Vector3.forward);
-            bulletName = BulletSpawner.Instance.BulletOne;
-            Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawn, rot);
-            if (newBullet == null) return;
-            newBullet.gameObject.SetActive(true);
-            Debug.Log("Shoot");
+            Vector3 spawnPos = shootPoint.position;
+            Quaternion rotation = shootPoint.rotation;
+            if (this.bulletNames[count] != BulletSpawner.Instance.BulletThree)
+            {
+                Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletNames[count], spawnPos, rotation);
+                if (newBullet == null) return;
+                newBullet.gameObject.SetActive(true);
+                BulletController bulletController = newBullet.GetComponent<BulletController>();
+                bulletController.SetShooter(transform.parent);
+                //bulletController.BulletBouncy.startPos = spawnPos;
+                Debug.Log("Shoot");
+            }
+            else
+            {
+                if (isSpawnLaser < 2)
+                {
+                    Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletNames[count], spawnPos, rotation);
+                    if (newBullet == null) return;
+                    newBullet.gameObject.SetActive(true);
+                    BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
+                    bulletLaser.laserName = "laser" + isSpawnLaser;
+                    bulletLaser.IsLaser = true;
+                    bulletLaser.Position = shootPoint;
+                    isSpawnLaser++;
+                    Debug.Log("Laser lan " + isSpawnLaser);
+                }
+            }
+            count++;
         }
     }
 
-   
-
-    protected virtual void CheckShooting()
+    protected virtual void ShootingWithNoShootPoint()
     {
-        
+        if (!this.isShooting) return;
+        shootTimer += Time.deltaTime;
+        if (shootTimer < shootDelay) return;
+        shootTimer = 0;
+        Vector3 spawnPos = transform.position;
+        Quaternion rotation = transform.parent.rotation;
+        Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
+        if (newBullet == null) return;
+        newBullet.gameObject.SetActive(true);
+        Debug.Log("Shoot");
+    }
+
+
+    protected virtual void OnShootingAnimation()
+    {
+        if (!this.isShooting)
+        {
+            shipController.ShipModel.WeaponAnimator.SetBool("isShooting", false);
+            return;
+        }
+        shipController.ShipModel.WeaponAnimator.SetBool("isShooting", true);
+    }
+
+    public virtual void SetupShootSpeed(int speedPercentAdd = 0)
+    {
+        this.shootDelay = shipController.ShipProfile.attackSpeed * (100f/(100 + speedPercentAdd));
+        this.shootTimer = shootDelay;
     }
 }

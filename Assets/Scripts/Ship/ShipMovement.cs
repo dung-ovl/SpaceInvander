@@ -5,51 +5,45 @@ using TMPro;
 using UnityEngine;
 using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
-public class ShipMovement : ShipAbstract
+public class ShipMovement : ObjFollowMouse
 {
+    [SerializeField] protected ShipController shipController;
+    public ShipController ShipController => shipController;
 
-    [SerializeField] protected Vector3 targetPosition;
-
-    [SerializeField] protected bool isMoving;
-
-
-    private void FixedUpdate()
+    protected override void LoadComponents()
     {
-        this.GetTargetPosition();
-        this.Moving();
-        this.ApplyEnginePoweringAnimation();
+        base.LoadComponents();
+        this.LoadShipController();
     }
 
-    protected virtual void GetTargetPosition()
+    protected virtual void LoadShipController()
     {
-        this.targetPosition = InputManager.Instance.MouseWorldPos;
-        this.targetPosition.z = 0;
+        if (shipController != null) return;
+        shipController = transform.parent.GetComponent<ShipController>();
+        Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    protected virtual void Moving()
-    {
-        if (transform.parent.position != this.targetPosition)
-        {
-            transform.parent.position = this.targetPosition;
-            this.isMoving = true;
-            return;
-        }
-        this.isMoving = false;
-    }
-
-    protected virtual void ApplyEnginePoweringAnimation()
+    protected virtual void OnMovingAnimation()
     {
         if (this.isMoving)
         {
-            shipController.EngineAnimator.SetBool("isMoving", true);
+            shipController.ShipModel.EngineAnimator.SetBool("isMoving", true);
             return;
         }
-        shipController.EngineAnimator.SetBool("isMoving", false);
+        shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
     }
-/*    protected virtual void CheckMoving()
+
+    protected override void GetTargetPosition()
     {
-        this.isMoving = InputManager.Instance.OnMoving;
-    }*/
+        base.GetTargetPosition();
+        float limitPosX = Math.Clamp(targetPosition.x, GameCtrl.Instance.M_minX, GameCtrl.Instance.M_maxX);
+        float limitPosY = Math.Clamp(targetPosition.y, GameCtrl.Instance.M_minY, GameCtrl.Instance.M_maxY);
+        targetPosition = new Vector3(limitPosX, limitPosY);
+    }
+    /*    protected virtual void CheckMoving()
+   {
+       this.isMoving = InputManager.Instance.OnMoving;
+   }*/
 }
 
 
