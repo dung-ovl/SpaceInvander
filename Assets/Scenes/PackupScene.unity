@@ -482,6 +482,7 @@ MonoBehaviour:
   - {fileID: 4580544274321715792}
   - {fileID: 1214683835}
   - {fileID: 2128447219}
+  - {fileID: 1889380633}
   poolObjs: []
   holder: {fileID: 916012984}
   BulletOne: SrangeBullet
@@ -926,7 +927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 519420031}
-  currentShip: {fileID: 0}
+  currentShip: {fileID: 1137556343}
+  limitOffset: 0
 --- !u!4 &189112836
 Transform:
   m_ObjectHideFlags: 0
@@ -973,6 +975,7 @@ Transform:
   - {fileID: 4580544274321715792}
   - {fileID: 1214683835}
   - {fileID: 2128447219}
+  - {fileID: 1889380633}
   m_Father: {fileID: 58799274}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2461,7 +2464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelay: 2
   isFollowPathDone: 0
-  _formation: {fileID: 0}
+  _formation: {fileID: 5568599887025968174}
   _paths:
   - {fileID: 714712351}
   - {fileID: 142488587}
@@ -2470,6 +2473,7 @@ MonoBehaviour:
   currentState: 0
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
+  isUnitInFormationPoint: 0
 --- !u!1 &913937409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3931,7 +3935,7 @@ GameObject:
   - component: {fileID: 1328434344}
   m_Layer: 0
   m_Name: DamageReceiver
-  m_TagString: Untagged
+  m_TagString: EnemyTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4090,7 +4094,7 @@ MonoBehaviour:
   poolObjs: []
   holder: {fileID: 1474413541}
   Impact1: Impact_3
-  E1ScountDead: E1_Detruction
+  E1_Detruction: E1_Detruction
 --- !u!1 &1340983543
 GameObject:
   m_ObjectHideFlags: 0
@@ -6092,8 +6096,8 @@ MonoBehaviour:
   shipController: {fileID: 1561879891}
   isShooting: 1
   isSpawnLaser: 0
-  shootDelay: 0.15
-  shootTimer: 0.15
+  shootDelay: 0.5
+  shootTimer: 0.5
   shipShootPoints: []
   bulletName: no-name
   bulletNames: []
@@ -6235,6 +6239,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b740048dd430c740bbce4312f84da0d, type: 3}
+--- !u!1 &1889380632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889380633}
+  - component: {fileID: 1889380634}
+  m_Layer: 0
+  m_Name: Laser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1889380633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889380632}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1982238470}
+  m_Father: {fileID: 216340699}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1889380634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889380632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e173e9ac52e29424b89f77b3c13de5fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {fileID: 0}
+  damageSender: {fileID: 1982238471}
+  isLaser: 1
+  laserName: 
 --- !u!1 &1921886776
 GameObject:
   m_ObjectHideFlags: 0
@@ -6406,6 +6459,52 @@ MonoBehaviour:
   - {fileID: 1482889184}
   poolObjs: []
   holder: {fileID: 2012854549}
+--- !u!1 &1982238469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1982238470}
+  - component: {fileID: 1982238471}
+  m_Layer: 0
+  m_Name: DamageSender
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1982238470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982238469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1889380633}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982238471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982238469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e5490eb53332a428c47187b813a2c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0.5
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1990139071
 GameObject:
   m_ObjectHideFlags: 0
@@ -6648,6 +6747,7 @@ MonoBehaviour:
   currentState: 0
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
+  isUnitInFormationPoint: 0
 --- !u!1 &2058936323
 GameObject:
   m_ObjectHideFlags: 0
@@ -7334,7 +7434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e458b3b0294684bbcaaea413312f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 20
+  disLimit: 2
   distance: 0
 --- !u!4 &3851992344607610487
 Transform:
@@ -7878,7 +7978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _posCount: 49
-  _spread: 0.2
+  _spread: 0.25
   hole: 1 2 3 4 5 7 9 10 11 13 14 15 19 20 21 27 29 33 36 38 40 43 45 47
   _columnCount: 7
   _centerUnits: 1

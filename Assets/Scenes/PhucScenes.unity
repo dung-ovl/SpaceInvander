@@ -4790,7 +4790,7 @@ MonoBehaviour:
   poolObjs: []
   holder: {fileID: 1474413541}
   Impact1: Impact_1
-  E1ScountDead: E1_Scount_Dead
+  E1_Detruction: E1_Detruction
 --- !u!1 &1340983543
 GameObject:
   m_ObjectHideFlags: 0
