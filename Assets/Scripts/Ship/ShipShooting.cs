@@ -33,8 +33,8 @@ public class ShipShooting : ShipAbstract
     {
         this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
         this.bulletName = BulletSpawner.Instance.BulletOne;
-        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
-        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
+        this.bulletNames.Add(BulletSpawner.Instance.BulletThree);
+        this.bulletNames.Add(BulletSpawner.Instance.BulletThree);
     }
 
     private void Update()

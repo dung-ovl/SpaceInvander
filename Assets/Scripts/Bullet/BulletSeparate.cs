@@ -60,10 +60,12 @@ public class BulletSeparate : BulletAbstract
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
             BulletController bulletController = newBullet.GetComponent<BulletController>();
-            bulletController.BulletPower.timesSeparation = timesSeparation - 1;
-            bulletController.BulletPower.isSeparating = true;
             bulletController.SetShooter(GameCtrl.Instance.CurrentShip);
-            bulletController.BulletBouncy.startPos = transform.parent.position;
+
+            BulletSeparate bulletSeparate = newBullet.GetComponentInChildren<BulletSeparate>();
+            bulletSeparate.timesSeparation = timesSeparation - 1;
+            bulletSeparate.isSeparating = true;
+            
             Debug.Log("Separate " + i);
             angle -= tempAngle;
         }
