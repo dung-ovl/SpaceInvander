@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBeam : GameMonoBehaviour
+public class LaserBeam 
 {
     RaycastHit oldhit;
     RaycastHit newHit;

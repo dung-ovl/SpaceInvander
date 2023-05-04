@@ -58,7 +58,7 @@ public class EnemyFormationManager : GameMonoBehaviour {
     {
         _formationPoints = points .ToList();
     }
-    protected virtual void FormationOscillatesY()
+    protected virtual void FormationUnitOscillatesY()
     {
         for (var i = 0; i < _spawnedUnits.Count; i++)
         {

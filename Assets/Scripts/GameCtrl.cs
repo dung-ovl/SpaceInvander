@@ -15,6 +15,19 @@ public class GameCtrl : GameMonoBehaviour
     [SerializeField] protected Transform currentShip;
     public Transform CurrentShip { get => currentShip; }
 
+    private float m_minX;
+    public float M_minX => m_minX;
+    private float m_maxX;
+    public float M_maxX => m_maxX;
+    private float m_minY;
+    public float M_minY => m_minY;
+
+    private float m_maxY;
+    public float M_maxY => m_maxY;
+
+    [SerializeField] protected float limitOffset = 0;
+
+
     protected override void Awake()
     {
         base.Awake();
@@ -27,6 +40,20 @@ public class GameCtrl : GameMonoBehaviour
         base.LoadComponents();
         this.LoadCamera();
         this.LoadCurrentShip();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        this.LimitCalculate();
+    }
+
+    private void LimitCalculate()
+    {
+        this.m_minX = this.mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + limitOffset;
+        this.m_maxX = this.mainCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - limitOffset;
+        this.m_minY = this.mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + limitOffset;
+        this.m_maxY = this.mainCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - limitOffset;
     }
 
     protected virtual void LoadCamera()

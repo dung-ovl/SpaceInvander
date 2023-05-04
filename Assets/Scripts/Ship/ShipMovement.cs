@@ -33,6 +33,13 @@ public class ShipMovement : ObjFollowMouse
         shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
     }
 
+    protected override void GetTargetPosition()
+    {
+        base.GetTargetPosition();
+        float limitPosX = Math.Clamp(targetPosition.x, GameCtrl.Instance.M_minX, GameCtrl.Instance.M_maxX);
+        float limitPosY = Math.Clamp(targetPosition.y, GameCtrl.Instance.M_minY, GameCtrl.Instance.M_maxY);
+        targetPosition = new Vector3(limitPosX, limitPosY);
+    }
     /*    protected virtual void CheckMoving()
    {
        this.isMoving = InputManager.Instance.OnMoving;
