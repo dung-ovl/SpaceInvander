@@ -14,13 +14,21 @@ public class WaveController : GameMonoBehaviour
 
     public MovePath MovePath => movePath;
 
+    private static WaveController instance;
+    public static WaveController Instance { get => instance; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        WaveController.instance = this;
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadWaveSO();
         this.LoadMovePath();
     }
-
     private void LoadMovePath()
     {
         if (this.movePath != null) return;

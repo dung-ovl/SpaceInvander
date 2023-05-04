@@ -14,6 +14,7 @@ using static UnityEditor.Progress;
 public class WaveManager : GameMonoBehaviour
 {
     [SerializeField] private float startDelay = 2f;
+    public float StartDelay => startDelay;
     [SerializeField] private bool isFollowPathDone = false;
     [SerializeField] private FormationBase _formation;
     [SerializeField] private List<MovePath> _paths;
@@ -30,6 +31,15 @@ public class WaveManager : GameMonoBehaviour
 
     private List<float> _speeds = new List<float>();
     private float amplitudeOscillates = 0.03f;
+
+    private static WaveManager instance;
+    public static WaveManager Instance { get => instance; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        WaveManager.instance = this;
+    }
     protected override void OnEnable()
     {
         base.OnEnable();

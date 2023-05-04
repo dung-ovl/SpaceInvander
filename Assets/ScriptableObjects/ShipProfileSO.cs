@@ -11,4 +11,5 @@ public class ShipProfileSO : ScriptableObject
     public float attackSpeed = 0.2f;
     public float shieldTimeUp = 0f;
     public float powerTimeUp = 0f;
+    public List<string> bulletList;
 }
