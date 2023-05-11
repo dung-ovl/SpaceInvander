@@ -19,7 +19,7 @@ MonoBehaviour:
   shieldTimeUp: 2
   powerTimeUp: 0
   bulletList:
-  - Laser
+  - SrangeBullet
   - Laser
   - Laser
   - SurikenBullet
