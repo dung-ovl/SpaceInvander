@@ -7,7 +7,7 @@ public class ShipShooting : ShipAbstract
 {
     [Header("ShipShooting")]
     [SerializeField] protected bool isShooting = true;
-    public int isSpawnLaser;
+    public int numberLaser;
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
     [SerializeField] protected List<Transform> shipShootPoints;
@@ -26,15 +26,17 @@ public class ShipShooting : ShipAbstract
         base.Start();
         this.LoadCurrentShootPoints();
         this.LoadBulletName();
-        isSpawnLaser = 0;
     }
 
     protected virtual void LoadBulletName()
     {
-        this.bulletNames.Add(BulletSpawner.Instance.BulletOne);
-        this.bulletName = BulletSpawner.Instance.BulletOne;
-        this.bulletNames.Add(BulletSpawner.Instance.BulletThree);
-        this.bulletNames.Add(BulletSpawner.Instance.BulletThree);
+        this.bulletNames = ShipController.ShipProfile.bulletList;
+        numberLaser = 0;
+        foreach (string name in this.bulletNames)
+        {
+            if (name == "Laser")
+                numberLaser++;
+        }
     }
 
     private void Update()
@@ -86,22 +88,20 @@ public class ShipShooting : ShipAbstract
                 newBullet.gameObject.SetActive(true);
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
-                //bulletController.BulletBouncy.startPos = spawnPos;
                 Debug.Log("Shoot");
             }
             else
             {
-                if (isSpawnLaser < 2)
+                if (numberLaser >= 1)
                 {
                     Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletNames[count], spawnPos, rotation);
                     if (newBullet == null) return;
                     newBullet.gameObject.SetActive(true);
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                    bulletLaser.laserName = "laser" + isSpawnLaser;
+                    bulletLaser.laserName = "laser" + numberLaser;
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
-                    isSpawnLaser++;
-                    Debug.Log("Laser lan " + isSpawnLaser);
+                    numberLaser--;
                 }
             }
             count++;

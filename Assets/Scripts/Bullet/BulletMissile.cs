@@ -16,12 +16,15 @@ public class BulletMissile : GameMonoBehaviour
     [SerializeField] protected bool isAiming = false;
     public bool IsAiming => isAiming;
 
-
+    public Vector3 end;
+    public float time;
+    public AnimationCurve curve;
     protected override void OnEnable()
     {
         base.OnEnable();
-        this.rotSpeed = 7f;
+        this.rotSpeed = 5f;
         this.isTarget = true;
+        end = transform.parent.position;
         Invoke("SetIsTarget", 1);
     }
 
@@ -50,11 +53,22 @@ public class BulletMissile : GameMonoBehaviour
             Quaternion targetEuler = Quaternion.Euler(0f, 0f, rot_z - 90);
             Quaternion currentEuler = Quaternion.Lerp(transform.parent.rotation, targetEuler, timeSpeed);
             transform.parent.rotation = currentEuler;
+            //if (CheckDistance(target.position))
+            //{
+            //    this.isTarget = false;
+            //    return;
+            //}
+            //transform.parent.rotation = targetEuler;
         }
     }
 
     protected virtual void SetIsTarget()
     {
         this.isTarget = true;
+    }
+
+    protected virtual bool CheckDistance(Vector3 target)
+    {
+        return Mathf.Abs(target.y - transform.parent.position.y) < 0.2f;
     }
 }
