@@ -20,7 +20,6 @@ public class DamageSender : GameMonoBehaviour
         damageReceiver.DeductHealthPoint(this.damage);
     }
 
-
     protected virtual void CreateImpactFX()
     {
         string fxImpactName = GetImpactFXName();

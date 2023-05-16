@@ -33,19 +33,6 @@ public class BulletImpact : BulletAbstract
             this.bulletController.BulletDamageSender.HitPos = transform.position;
             this.bulletController.BulletDamageSender.Send(other.transform);
             
-        }//this.CreateImpactFX(hitPos, hitRot);
-    }
-
-    protected virtual void CreateImpactFX(Vector3 hitPos, Quaternion hitRot)
-    {
-        string fxImpactName = GetImpactFXName();
-        Transform newFxImpact = FXSpawner.Instance.Spawn(fxImpactName, hitPos, hitRot);
-        if (newFxImpact == null) return;
-        newFxImpact.gameObject.SetActive(true);
-    }
-
-    protected virtual string GetImpactFXName()
-    {
-        return FXSpawner.Instance.Impact1;
+        }
     }
 }
