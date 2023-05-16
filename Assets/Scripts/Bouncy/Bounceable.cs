@@ -23,44 +23,64 @@ public class Bounceable : GameMonoBehaviour
         Debug.Log(transform.name + ": LoadCircleCollider", gameObject);
     }
 
-    protected virtual void OnTriggerEnter(Collider collider2D)
+    protected virtual void OnTriggerEnter(Collider collider)
     {
-        Left left = collider2D.GetComponent<Left>();
-        Right right = collider2D.GetComponent<Right>();
+        Left left = collider.GetComponent<Left>();
+        Right right = collider.GetComponent<Right>();
         if (left != null)
         {
-            Vector3 vecStart = transform.parent.position - startPos;
-            Vector3 res = Vector3.Reflect(vecStart, Vector3.right);
-            res = -res;
-            res.Normalize();
-            float rot_z = Mathf.Atan2(res.y, res.x) * Mathf.Rad2Deg;
-            Debug.Log("Left " + rot_z);
-            if (res.x > 0)
-            {
-                transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-            }
-            else
-            {
-                transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
-            }
-            startPos = transform.parent.position;
+            if (CheckDistance(collider))
+                return;
+            ColliderLeftWall();
         }
         else if (right != null)
         {
-            Vector3 vecStart = transform.parent.position - startPos;
-            Vector3 res = Vector3.Reflect(vecStart, Vector3.left);
-            Debug.Log(res.x + " " + res.y);
-            float rot_z = Mathf.Atan(res.y / res.x) * Mathf.Rad2Deg;
-            Debug.Log("Right " + rot_z);
-            if (res.x > 0)
-            {
-                transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
-            }
-            else
-            {
-                transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
-            }
-            startPos = transform.parent.position;
+            if (CheckDistance(collider))
+                return;
+            ColliderRightWall();
         }
+        else
+        {
+            return;
+        }
+    }
+
+    protected virtual bool CheckDistance(Collider collider)
+    {
+        return collider.bounds.Contains(startPos);
+    }
+
+    protected virtual void ColliderLeftWall()
+    {
+        Vector3 vecStart = transform.parent.position - startPos;
+        Vector3 res = Vector3.Reflect(vecStart, Vector3.right);
+        res = -res;
+        res.Normalize();
+        float rot_z = Mathf.Atan2(res.y, res.x) * Mathf.Rad2Deg;
+        if (res.x > 0)
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        }
+        else
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+        }
+        startPos = transform.parent.position;
+    }
+
+    protected virtual void ColliderRightWall()
+    {
+        Vector3 vecStart = transform.parent.position - startPos;
+        Vector3 res = Vector3.Reflect(vecStart, Vector3.left);
+        float rot_z = Mathf.Atan(res.y / res.x) * Mathf.Rad2Deg;
+        if (res.x > 0)
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        }
+        else
+        {
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+        }
+        startPos = transform.parent.position;
     }
 }

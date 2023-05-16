@@ -11,6 +11,7 @@ public class BulletSpawner : Spawner
     public string BulletOne = "SrangeBullet";
     public string BulletTwo = "Laser";
     public string BulletThree = "Laser";
+    public string Bullet4 = "SurikenBullet";
 
     protected override void Awake()
     {

@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : GameMonoBehaviour
 {
+
     [SerializeField] private List<WaveManager> waves;
     [SerializeField] private int currentWaveIndex = 0;
 
-
     private State currentState = State.NotStarted;
-    private bool levelCompleted = false;
 
+    private static LevelManager instance;
+    public static LevelManager Instance { get => instance; }
 
-    private void Start()
+    protected override void Awake()
     {
-         this.StartLevel();
+        base.Awake();
+        LevelManager.instance = this;
+    }
+
+
+    protected override void Start()
+    {
+        base.Start();
+        this.StartLevel();
     }
 
     void Update()
@@ -32,6 +41,7 @@ public class LevelManager : MonoBehaviour
                 if (currentWaveIndex < waves.Count)
                 {
                     waves[currentWaveIndex].gameObject.SetActive(true);
+                    this.SetUpAndShowWaveNotification();
                     waves[currentWaveIndex].StartWave();
                 }
             }
@@ -50,6 +60,7 @@ public class LevelManager : MonoBehaviour
         {
             if (waves.Count <= 0) return;
             waves[currentWaveIndex].gameObject.SetActive(true);
+            this.SetUpAndShowWaveNotification();
             waves[currentWaveIndex].StartWave();
             currentState = State.Started;
         }
@@ -59,6 +70,13 @@ public class LevelManager : MonoBehaviour
     {
         currentState = State.Completed;
         Debug.Log("End level");
+    }
+    private void SetUpAndShowWaveNotification()
+    {
+        WaveNotification.Instance.SetMaxWave(waves.Count);
+        WaveNotification.Instance.SetTimeShow(waves.Count);
+        WaveNotification.Instance.SetCurrentWave(currentWaveIndex + 1);
+        WaveNotification.Instance.ShowTextInTime();
     }
 
     /*    IEnumerator SpawnWave()

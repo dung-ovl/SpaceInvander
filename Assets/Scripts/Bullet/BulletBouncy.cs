@@ -10,6 +10,7 @@ public class BulletBouncy : Bounceable
     protected override void OnEnable()
     {
         base.OnEnable();
+        startPos = transform.parent.position;
     }
 
     protected override void OnTriggerEnter(Collider collider2D)

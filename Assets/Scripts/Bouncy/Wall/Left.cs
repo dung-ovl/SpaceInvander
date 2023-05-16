@@ -1,20 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Left : GameMonoBehaviour
+public class Left : Wall
 {
-    [Header("LeftWall")]
-    [SerializeField] protected BoxCollider box;
+    //[Header("LeftWall")]
 
-    protected override void LoadComponents()
+    protected override void Start()
     {
-        base.LoadComponents();
-        this.LoadWall();
-    }
-
-    protected virtual void LoadWall()
-    {
-        box = GetComponent<BoxCollider>();
+        base.Start();
+        this.SetPosition(GameCtrl.Instance.M_minX - this.boxCollider.size.x / 2 - offsetPos, 0);
     }
 }

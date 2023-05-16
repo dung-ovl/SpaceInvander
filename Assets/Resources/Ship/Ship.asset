@@ -15,6 +15,15 @@ MonoBehaviour:
   shipName: Broya
   maxHeath: 100
   damage: 1
-  attackSpeed: 0.2
+  attackSpeed: 1
   shieldTimeUp: 2
   powerTimeUp: 0
+  bulletList:
+  - SrangeBullet
+  - Laser
+  - Laser
+  - SurikenBullet
+  - SurikenBullet
+  - SurikenBullet
+  - SurikenBullet
+  - SurikenBullet

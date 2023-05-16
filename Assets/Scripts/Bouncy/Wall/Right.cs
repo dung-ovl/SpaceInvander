@@ -2,20 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(BoxCollider))]
-public class Right : GameMonoBehaviour
+public class Right : Wall
 {
-    [Header("LeftWall")]
-    [SerializeField] protected BoxCollider box;
-
-    protected override void LoadComponents()
+    //[Header("LeftWall")]
+    protected override void Start()
     {
-        base.LoadComponents();
-        this.LoadWall();
-    }
-
-    protected virtual void LoadWall()
-    {
-        box = GetComponent<BoxCollider>();
+        base.Start();
+        this.SetPosition(GameCtrl.Instance.M_maxX + this.boxCollider.size.x / 2 + offsetPos, 0);
     }
 }
