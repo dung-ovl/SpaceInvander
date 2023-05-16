@@ -77,6 +77,10 @@ public class FormationWaveManager : WaveManager
                 this._unitOscillatesSpeeds.Add(Random.Range(0.05f, 0.08f));
                 yield return new WaitForSeconds(0.02f);
             }
+            else
+            {
+                i--;
+            }
         }
         this.isWaveSpawnComplete = true;
     }

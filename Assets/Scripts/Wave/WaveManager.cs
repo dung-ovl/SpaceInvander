@@ -112,8 +112,8 @@ public class WaveManager : GameMonoBehaviour
             if (this.SpawnEnemyInPath(ramdomPath.Key))
             {
                 movePaths[ramdomPath.Key] -= 1;
+                yield return new WaitForSeconds(3f);
             }
-            yield return new WaitForSeconds(3f);
         }
         this.isWaveSpawnComplete = true;
     }
@@ -125,9 +125,10 @@ public class WaveManager : GameMonoBehaviour
         Quaternion enemyRot = Quaternion.Euler(0, 0, 0);
         Transform newEnemy = EnemySpawner.Instance.Spawn(enemyName, spawnPos, enemyRot);
         if (newEnemy == null) return false;
-        if (this._spawnedUnits.Contains(newEnemy)) return false;
-
-        this._spawnedUnits.Add(newEnemy);
+        if (!this._spawnedUnits.Contains(newEnemy))
+        {
+            this._spawnedUnits.Add(newEnemy);
+        }
         newEnemy.gameObject.SetActive(true);
         return true;
     }
