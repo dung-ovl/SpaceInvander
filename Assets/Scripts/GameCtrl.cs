@@ -40,12 +40,12 @@ public class GameCtrl : GameMonoBehaviour
         base.LoadComponents();
         this.LoadCamera();
         this.LoadCurrentShip();
+        this.LimitCalculate();
     }
 
     protected override void Start()
     {
         base.Start();
-        this.LimitCalculate();
     }
 
     private void LimitCalculate()
