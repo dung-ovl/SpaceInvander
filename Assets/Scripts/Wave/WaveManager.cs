@@ -14,6 +14,7 @@ public class WaveManager : GameMonoBehaviour
     [SerializeField] protected List<Transform> _spawnedUnits;
     [SerializeField] protected State currentState;
     [SerializeField] protected int amountOfUnit = 7;
+    [SerializeField] protected string enemyName = "no-name";
 
     public State CurrentState => currentState;
     public bool isWaveSpawnComplete = false;
@@ -121,7 +122,6 @@ public class WaveManager : GameMonoBehaviour
     protected virtual bool SpawnEnemyInPath(MovePath movePath)
     {
         Vector3 spawnPos = movePath.Points[0].transform.position;
-        string enemyName = EnemySpawner.Instance.E1Scout;
         Quaternion enemyRot = Quaternion.Euler(0, 0, 0);
         Transform newEnemy = EnemySpawner.Instance.Spawn(enemyName, spawnPos, enemyRot);
         if (newEnemy == null) return false;

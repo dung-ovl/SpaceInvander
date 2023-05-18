@@ -12,13 +12,11 @@ public class ShipDamageReceiver : DamageReceiver
     protected override void Start()
     {
         base.Start();
-        PlayerHealthBar.Instance.SetMaxHealth(this.maxHealthPoint);
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        PlayerHealthBar.Instance.SetHealth(this.healthPoint);
     }
 
     protected override void LoadComponents()

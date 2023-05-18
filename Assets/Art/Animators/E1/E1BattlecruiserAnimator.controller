@@ -83,7 +83,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: E1ScoutAnimator
+  m_Name: E1BattlecruiserAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isShooting
@@ -126,7 +126,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 00303845a5f412141801eb0eb690db63, type: 2}
+  m_Motion: {fileID: 7400000, guid: 43037d91e117fe245ad1db9c0615bd21, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

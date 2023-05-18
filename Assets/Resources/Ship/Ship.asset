@@ -20,8 +20,8 @@ MonoBehaviour:
   powerTimeUp: 0
   bulletList:
   - SrangeBullet
-  - Laser
-  - Laser
+  - SrangeBullet
+  - SrangeBullet
   - SurikenBullet
   - SurikenBullet
   - SurikenBullet
