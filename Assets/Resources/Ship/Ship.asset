@@ -18,12 +18,17 @@ MonoBehaviour:
   attackSpeed: 1
   shieldTimeUp: 2
   powerTimeUp: 0
-  bulletList:
-  - SrangeBullet
-  - SrangeBullet
-  - SrangeBullet
-  - SurikenBullet
-  - SurikenBullet
-  - SurikenBullet
-  - SurikenBullet
-  - SurikenBullet
+  mainBulletList:
+  - Name: SurikenBullet
+    Rot: 0
+  - Name: SurikenBullet
+    Rot: 0
+  - Name: SurikenBullet
+    Rot: 0
+  - Name: SurikenBullet
+    Rot: 0
+  - Name: SurikenBullet
+    Rot: -10
+  subBulletList:
+  - Name: 
+    Rot: 0
