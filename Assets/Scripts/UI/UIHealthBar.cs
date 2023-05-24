@@ -4,16 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHealthBar : GameMonoBehaviour
+public class UIHealthBar : GameMonoBehaviour
 {
     public Slider slider;
-    private static PlayerHealthBar instance;
-    public static PlayerHealthBar Instance { get => instance; }
 
     protected override void Awake()
     {
         base.Awake(); 
-        instance = this;
     }
 
     protected override void LoadComponents()

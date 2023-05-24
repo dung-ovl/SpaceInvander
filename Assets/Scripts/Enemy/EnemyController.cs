@@ -11,11 +11,23 @@ public class EnemyController : GameMonoBehaviour
     [SerializeField] protected EnemyModel enemyModel;
     public EnemyModel EnemyModel => enemyModel;
 
+    [SerializeField] protected EnemyProfileSO enemyProfile;
+    public EnemyProfileSO EnemyProfile => enemyProfile;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         this.LoadEnemyDespawn();
         this.LoadEnemyModel();
+        this.LoadEnemyProfile();
+    }
+
+    private void LoadEnemyProfile()
+    {
+        if (this.enemyProfile != null) return;
+        string resPath = "Enemy/" + transform.name;
+        this.enemyProfile = Resources.Load<EnemyProfileSO>(resPath);
+        Debug.Log(transform.name + ": LoadEnemyProfile", gameObject);
     }
 
     private void LoadEnemyModel()

@@ -15,6 +15,9 @@ public class GameCtrl : GameMonoBehaviour
     [SerializeField] protected Transform currentShip;
     public Transform CurrentShip { get => currentShip; }
 
+    [SerializeField] protected Transform currentBoss;
+    public Transform CurrentBoss { get => currentBoss; }
+
     private float m_minX;
     public float M_minX => m_minX;
     private float m_maxX;
@@ -40,12 +43,12 @@ public class GameCtrl : GameMonoBehaviour
         base.LoadComponents();
         this.LoadCamera();
         this.LoadCurrentShip();
+        this.LimitCalculate();
     }
 
     protected override void Start()
     {
         base.Start();
-        this.LimitCalculate();
     }
 
     private void LimitCalculate()

@@ -10,7 +10,6 @@ public class LevelManager : GameMonoBehaviour
     [SerializeField] private int currentWaveIndex = 0;
 
     private State currentState = State.NotStarted;
-    private bool levelCompleted = false;
 
     private static LevelManager instance;
     public static LevelManager Instance { get => instance; }

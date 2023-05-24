@@ -39,4 +39,10 @@ public class EnemyDamageReceiver : DamageReceiver
     {
         return FXSpawner.Instance.E1_Detruction;
     }
+
+    protected override void SetupMaxHealth()
+    {
+        baseMaxHealthPoint = enemyController.EnemyProfile.maxHp;
+        base.SetupMaxHealth();
+    }
 }

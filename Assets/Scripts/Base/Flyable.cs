@@ -7,6 +7,11 @@ public class Flyable : GameMonoBehaviour
     [SerializeField] protected float moveSpeed = 1f;
     [SerializeField] protected Vector3 direction = Vector3.up;
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+    }
+
     protected virtual void Update()
     {
         this.Fly();
