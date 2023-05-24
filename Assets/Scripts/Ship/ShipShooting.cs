@@ -33,7 +33,11 @@ public class ShipShooting : ShipAbstract
     protected virtual void LoadBulletName()
     {
         this.bulletNames = ShipController.ShipProfile.mainBulletList;
-        numberLaser = 0;
+        foreach (var bullet in this.bulletNames)
+        {
+            if (bullet.Name == "Laser")
+                numberLaser++;
+        }
     }
 
     private void Update()
@@ -90,6 +94,7 @@ public class ShipShooting : ShipAbstract
             }
             else
             {
+                if (numberLaser < 1) return;
                 Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                 if (newBullet == null) return;
                 newBullet.gameObject.SetActive(true);
@@ -97,6 +102,7 @@ public class ShipShooting : ShipAbstract
                 bulletLaser.laserName = "laser" + numberLaser;
                 bulletLaser.IsLaser = true;
                 bulletLaser.Position = shootPoint;
+                numberLaser--;
             }
             count++;
         }
