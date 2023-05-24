@@ -30,13 +30,19 @@ public class Bounceable : GameMonoBehaviour
         if (left != null)
         {
             if (CheckDistance(collider))
+            {
+                Debug.Log("Contain");
                 return;
+            }
             ColliderLeftWall();
         }
         else if (right != null)
         {
             if (CheckDistance(collider))
+            {
+                Debug.Log("Contain");
                 return;
+            }
             ColliderRightWall();
         }
         else

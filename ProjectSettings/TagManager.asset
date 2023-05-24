@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnemyTarget
   - Wall
+  - CircleLine
   layers:
   - Default
   - TransparentFX
