@@ -23,18 +23,21 @@ public class BulletCircle : GameMonoBehaviour
     LineRenderer lineRenderer;
     GameObject laserObj;
 
+    int count;
+
 
     protected override void OnEnable()
     {
         base.OnEnable();
         this.timeAwait = 0.8f;
         this.timeRemain = this.timeAwait;
-
+        this.Radius = 0.5f;
         CreateLineRen();
     }
 
     protected void Update()
     {
+        
         if (!this.isCircling) return;
         this.timeRemain -= Time.deltaTime;
         if (this.timeRemain > 0) return;
@@ -52,7 +55,7 @@ public class BulletCircle : GameMonoBehaviour
     {
         this.lineRenderer = new LineRenderer();
         this.laserObj = new GameObject();
-        this.laserObj.name = "OK";
+        this.laserObj.tag = "CircleLine";
         this.lineRenderer = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
         this.lineRenderer.startWidth = 0.02f;
         this.lineRenderer.endWidth = 0.02f;

@@ -55,7 +55,7 @@ public class BulletSeparate : BulletAbstract
             Vector3 rot = transform.parent.rotation.eulerAngles;
             rot = new Vector3(rot.x, rot.y, rot.z + angle);
 
-            Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.Instance.BulletOne, transform.position, Quaternion.Euler(rot));
+            Transform newBullet = BulletSpawner.Instance.Spawn("SplitBullet", transform.position, Quaternion.Euler(rot));
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
 
