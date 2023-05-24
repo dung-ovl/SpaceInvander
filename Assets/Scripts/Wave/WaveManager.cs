@@ -139,7 +139,8 @@ public class WaveManager : GameMonoBehaviour
         if (!this.isWaveSpawnComplete) return;
         foreach (var spawnedUnit in this._spawnedUnits)
         {
-            if (!EnemySpawner.Instance.CheckObjectInPool(spawnedUnit)) return;
+            if (!EnemySpawner.Instance.CheckObjectInPool(spawnedUnit))
+                return;
         }
         this._spawnedUnits.Clear();
         this.isAllSpawnedUnitsDead = true;

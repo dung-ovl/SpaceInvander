@@ -11,7 +11,7 @@ public class WaveNotification : GameMonoBehaviour
 
     [SerializeField] private float timeShow = 2f;
 
-    [SerializeField] private TextMeshProUGUI textGUI;
+    [SerializeField] private TMP_Text textGUI;
 
     [SerializeField] private string TextGeneral = "wave 0/0" ;
 
@@ -42,7 +42,7 @@ public class WaveNotification : GameMonoBehaviour
     private void LoadTextMeshPro()
     {
         if (textGUI != null) return;
-        this.textGUI = GetComponentInChildren<TextMeshProUGUI>();
+        this.textGUI = transform.GetComponentInChildren<TMP_Text>();
         Debug.Log(transform.name + ": LoadTextMeshPro", gameObject);
     }
 

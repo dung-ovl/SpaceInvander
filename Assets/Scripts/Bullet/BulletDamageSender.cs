@@ -22,6 +22,7 @@ public class BulletDamageSender : DamageSender
     public override void Send(Transform transform)
     {
         base.Send(transform);
+
         this.DestroyBullet();
     }
 

@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +22,22 @@ public class LevelManager : GameMonoBehaviour
         LevelManager.instance = this;
     }
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        //this.LoadWaves();
+    }
+
+    private void LoadWaves()
+    {
+        if (waves.Count > 0) return;
+        foreach (Transform wave in transform)
+        {
+            wave.gameObject.SetActive(false);
+            this.waves.Add(wave.transform.GetComponent<WaveManager>());
+        }
+        Debug.Log(transform.name + ": LoadWaves", gameObject);
+    }
 
     protected override void Start()
     {

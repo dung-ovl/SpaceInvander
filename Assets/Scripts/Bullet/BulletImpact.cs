@@ -28,8 +28,8 @@ public class BulletImpact : BulletAbstract
     {
         Debug.Log(collision.transform.parent.name);
         if (collision.transform.parent == this.bulletController.Shooter) return;
-        DamageReceiver bulletDamageSender = collision.GetComponent<DamageReceiver>();
-        if (bulletDamageSender != null && this.BulletController.isSendDamage)
+        DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
+        if (damageReceiver != null && this.BulletController.isSendDamage)
         {
             this.bulletController.BulletDamageSender.HitPos = transform.position;
             this.bulletController.BulletDamageSender.Send(collision.transform);
