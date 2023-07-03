@@ -2007,7 +2007,7 @@ GameObject:
   - component: {fileID: 501273700}
   m_Layer: 0
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: EnemyTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3125,7 +3125,7 @@ GameObject:
   - component: {fileID: 768728834}
   m_Layer: 0
   m_Name: E1Battlecruiser
-  m_TagString: Untagged
+  m_TagString: EnemyTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3716,7 +3716,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1413199131}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &872341160
 MonoBehaviour:
@@ -4365,6 +4365,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960093491}
+  - component: {fileID: 960093492}
   m_Layer: 0
   m_Name: EnemyShooting
   m_TagString: Untagged
@@ -4379,14 +4380,33 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960093490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1413199131}
-  m_RootOrder: 4
+  m_Father: {fileID: 1086134051}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960093492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960093490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db126637ae70a9a409884c1b524dbe1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyBossBehaviour: {fileID: 0}
+  isActive: 1
+  shootDelay: 5
+  shootTimer: 0
+  startAngle: 270
+  endAngle: 270
+  bulletAmount: 1
 --- !u!1 &987996291
 GameObject:
   m_ObjectHideFlags: 0
@@ -4948,6 +4968,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1413199131}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1086134050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086134051}
+  m_Layer: 0
+  m_Name: EnemyBehaviour
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1086134051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086134050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 960093491}
+  m_Father: {fileID: 1413199131}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104815940
 GameObject:
@@ -6307,7 +6359,7 @@ GameObject:
   - component: {fileID: 1413199132}
   m_Layer: 0
   m_Name: E1Scout
-  m_TagString: Untagged
+  m_TagString: EnemyTarget
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6328,8 +6380,8 @@ Transform:
   - {fileID: 948553789}
   - {fileID: 1328434343}
   - {fileID: 1084781330}
-  - {fileID: 960093491}
   - {fileID: 872341159}
+  - {fileID: 1086134051}
   m_Father: {fileID: 823828796}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9589,6 +9641,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 934259844, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 934259844, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.data[0]
+      value: EnemyTarget
+      objectReference: {fileID: 0}
     - target: {fileID: 1216902480, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -9608,6 +9668,14 @@ PrefabInstance:
     - target: {fileID: 1717869269, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717869272, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1717869272, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.data[0]
+      value: EnemyTarget
       objectReference: {fileID: 0}
     - target: {fileID: 147214269148166385, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Layer
@@ -9708,6 +9776,14 @@ PrefabInstance:
     - target: {fileID: 147214269834548307, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Name
       value: BulletSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 147214269914972139, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147214269914972139, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: ignoresTag.Array.data[0]
+      value: EnemyTarget
       objectReference: {fileID: 0}
     - target: {fileID: 147214269914972148, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Layer

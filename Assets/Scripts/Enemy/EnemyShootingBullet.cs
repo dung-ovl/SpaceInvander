@@ -29,7 +29,6 @@ public abstract class EnemyShootingBullet : EnemyBossBehaviour
     {
         Transform _minePrefabs = BulletSpawner.Instance.Spawn("Bomb", bulDir, rot);
         if (_minePrefabs == null) return;
-        this._enemyBossBehaviour.EnemyController.EnemyModel.BaseAnimator.SetTrigger("Shooting");
         BulletController bulletController = _minePrefabs.GetComponent<BulletController>();
         bulletController.SetShooter(transform.parent.parent);
         _minePrefabs.gameObject.SetActive(true);

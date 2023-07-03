@@ -11,6 +11,8 @@ public class BulletImpact : BulletAbstract
 
     [SerializeField] protected bool isDestroyOnImpact = true;
 
+    [SerializeField] protected List<string> ignoresTag;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -31,8 +33,9 @@ public class BulletImpact : BulletAbstract
         //Debug.Log(collision.transform.parent.name);
         if (collision.transform.parent == this.bulletController.Shooter) return;
         if (collision.transform.tag == "Wall") return;
+        string tag = collision.transform.tag;
         DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
-        if (damageReceiver != null && this.BulletController.isSendDamage)
+        if (damageReceiver != null && this.BulletController.isSendDamage && !ignoresTag.Contains(tag))
         {
             this.bulletController.BulletDamageSender.HitPos = collision.ClosestPoint(transform.position);
             this.bulletController.BulletDamageSender.Send(collision.transform, isDestroyOnImpact);
