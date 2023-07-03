@@ -36,4 +36,9 @@ public class UIHealthBar : GameMonoBehaviour
     {
         slider.value = health;
     }
+
+    public void SetHealthBarActive(bool isActive)
+    {
+        this.gameObject.SetActive(isActive);
+    }
 }

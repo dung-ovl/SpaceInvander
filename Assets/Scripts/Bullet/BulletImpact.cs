@@ -9,6 +9,8 @@ public class BulletImpact : BulletAbstract
 {
     [SerializeField] protected Collider2D sphereCollider;
 
+    [SerializeField] protected bool isDestroyOnImpact = true;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -31,8 +33,8 @@ public class BulletImpact : BulletAbstract
         DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
         if (damageReceiver != null && this.BulletController.isSendDamage)
         {
-            this.bulletController.BulletDamageSender.HitPos = transform.position;
-            this.bulletController.BulletDamageSender.Send(collision.transform);
+            this.bulletController.BulletDamageSender.HitPos = collision.ClosestPoint(transform.position);
+            this.bulletController.BulletDamageSender.Send(collision.transform, isDestroyOnImpact);
 
         }
     }

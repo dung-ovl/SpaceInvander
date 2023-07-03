@@ -22,6 +22,19 @@ public class BulletController : GameMonoBehaviour
         isSendDamage = true;
     }
 
+    private void Update()
+    {
+        this.ShooterCheck();
+    }
+
+    private void ShooterCheck()
+    {
+        if (!this.shooter.gameObject.activeSelf)
+        {
+            BulletSpawner.Instance.Despawn(transform);
+        }
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

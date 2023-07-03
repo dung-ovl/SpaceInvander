@@ -10,3 +10,9 @@ public class ShipPointInfo
     public string Name;
     public float Rot;
 }
+
+[Serializable]
+public class ShipPointLevelInfo
+{
+    public List<ShipPointInfo> Levels;
+}

@@ -5,26 +5,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUIHealthBar : UIHealthBar
+public class PlayerUIHealthBar : DamageReceiverHealthBar
 {
-    [SerializeField] private ShipDamageReceiver shipDamageReceiver;
-    public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
-
-    
     protected override void Start()
     {
         this.LoadShipDamageReceiver();
-        this.SetMaxHealth(shipDamageReceiver.MaxHealthPoint);
     }
 
     private void LoadShipDamageReceiver()
     {
-        if (shipDamageReceiver != null) return;
-        this.shipDamageReceiver = GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipDamageReceiver;
-    }
-
-    private void Update()
-    {
-        this.SetHealth(shipDamageReceiver.HealthPoint);
+        if (damageReceiver != null) return;
+        this.damageReceiver = GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipDamageReceiver;
     }
 }

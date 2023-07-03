@@ -26,6 +26,13 @@ public class BulletDamageSender : DamageSender
         this.DestroyBullet();
     }
 
+    public virtual void Send(Transform transform, bool isDespawnOnImpact)
+    {
+        base.Send(transform);
+        if (!isDespawnOnImpact) return;
+        this.DestroyBullet();
+    }
+
     protected virtual void DestroyBullet()
     {
         if (this.bulletController.BulletDespawn != null)

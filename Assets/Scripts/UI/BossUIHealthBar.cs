@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossUIHealthBar : UIHealthBar
+public class BossUIHealthBar : DamageReceiverHealthBar
 {
     private static BossUIHealthBar instance;
 
@@ -14,5 +14,11 @@ public class BossUIHealthBar : UIHealthBar
     {
         base.Awake();
         BossUIHealthBar.instance = this;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+        this.SetHealthBarActive(false);
     }
 }

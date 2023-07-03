@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShipSubShooting : ShipShooting
+{
+    override protected void LoadBulletName()
+    {
+        this.bulletNames = ShipController.ShipProfile.subBulletList;
+        numberLaser = 0;
+    }
+
+    protected override void LoadCurrentShootPoints()
+    {
+        Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipSubShootPointObj();
+        this.shipShootPoints.Clear();
+        foreach (Transform shootPoint in currentShootPointObj)
+        {
+            this.shipShootPoints.Add(shootPoint);
+        }
+    }
+
+    protected override int CalculateShootPointIndex()
+    {
+        int index = this.ShipController.ShipLevel.LevelCurrent / 5;
+        if (index < 0)
+        {
+            index = 0;
+        }
+        else if (index >= bulletNames.Count)
+        {
+            index = bulletNames.Count - 1;
+        }
+        return index;
+    }
+
+    public override float CalculateAttackSpeed(int speedPercentAdd)
+    {
+        return shipController.ShipProfile.subAttackSpeed * (100f / (100 + speedPercentAdd));
+    }
+
+    protected override void SetupDamage()
+    {
+        this.damage = shipController.ShipProfile.subDamage;
+    }
+}

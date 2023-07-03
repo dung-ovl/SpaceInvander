@@ -13,7 +13,7 @@ public class WaveManager : GameMonoBehaviour
     [SerializeField] protected List<MovePath> _paths;
     [SerializeField] protected List<Transform> _spawnedUnits;
     [SerializeField] protected State currentState;
-    [SerializeField] protected int amountOfUnit = 7;
+    [SerializeField] protected int amountOfUnit = 1;
     [SerializeField] protected string enemyName = "no-name";
 
     public State CurrentState => currentState;
@@ -34,6 +34,7 @@ public class WaveManager : GameMonoBehaviour
     {
         this.CheckOnWaveCompleted();
         this.CheckOnAllUnitDead();
+        this.CheckIsWaveSpawnComplete();
     }
     protected override void LoadComponents()
     {
@@ -73,6 +74,7 @@ public class WaveManager : GameMonoBehaviour
     {
         yield return new WaitForSeconds(this.startDelay);
         StartCoroutine(this.SpawnEnemyRandom());
+
     }
 
     protected Dictionary<MovePath, int> GetPathAndAmount(int posCount, int pathCount)
@@ -146,4 +148,11 @@ public class WaveManager : GameMonoBehaviour
         this.isAllSpawnedUnitsDead = true;
     }
 
+    protected void CheckIsWaveSpawnComplete()
+    {
+        if (this._spawnedUnits.Count == amountOfUnit)
+        {
+            isWaveSpawnComplete = true;
+        }
+    }
 }

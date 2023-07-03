@@ -9,13 +9,6 @@ public class HealAbility : Ability
     [SerializeField] protected DamageReceiver damageReceiver;
     [SerializeField] protected float healPercent = 0.3f;
 
-
-
-    protected virtual void FixedUpdate()
-    {
-        
-    }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();

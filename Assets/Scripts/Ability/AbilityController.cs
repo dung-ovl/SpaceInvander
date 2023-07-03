@@ -15,15 +15,27 @@ public class AbilityController : ShipAbstract
     [SerializeField] protected PowerUpAbility powerUpAbility;
     public PowerUpAbility PowerUpAbility => powerUpAbility;
 
+    [SerializeField] protected FireMissileAbility fireMissileAbility;
+
+    public FireMissileAbility FireMissileAbility => fireMissileAbility;
+
     [SerializeField] protected List<Ability> abilities;
     public List<Ability> Abilities => abilities;
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadAbilityController();
+        this.LoadHealAbility();
         this.LoadShieldAbility();
         this.LoadPowerUpAbility();
         this.LoadAbilities();
+        this.LoadFireMissileAbility();
+    }
+
+    private void LoadFireMissileAbility()
+    {
+        if (fireMissileAbility != null) return;
+        fireMissileAbility = transform.GetComponentInChildren<FireMissileAbility>();
+        Debug.Log(transform.name + ": LoadFireMissileAbility", gameObject);
     }
 
     protected virtual void LoadAbilities()
@@ -33,7 +45,7 @@ public class AbilityController : ShipAbstract
         Debug.Log(transform.name + ": LoadAbilities", gameObject);
     }
 
-    protected virtual void LoadAbilityController()
+    protected virtual void LoadHealAbility()
     {
         if (healAbility != null) return;
         healAbility = transform.GetComponentInChildren<HealAbility>();
@@ -52,5 +64,10 @@ public class AbilityController : ShipAbstract
         if (powerUpAbility != null) return;
         powerUpAbility = transform.GetComponentInChildren<PowerUpAbility>();
         Debug.Log(transform.name + ": LoadPowerUpAbility", gameObject);
+    }
+
+    public virtual Ability GetAbilityByCodeName(AbilityCode abilityCode)
+    {
+        return abilities.Find(ability => ability.AbilityProfileSO.abilityCode == abilityCode);
     }
 }

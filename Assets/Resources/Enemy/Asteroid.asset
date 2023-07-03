@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Asteroid
   m_EditorClassIdentifier: 
   enemyName: Junk
-  maxHp: 50
+  maxHp: 20

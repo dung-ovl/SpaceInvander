@@ -18,6 +18,9 @@ public abstract class DamageReceiver : GameMonoBehaviour
     public float MaxHealthPoint => maxHealthPoint;
     public float HealthPoint => healthPoint;
     [SerializeField] protected bool isDead = false;
+    [SerializeField] protected string onDeadFXName = "E1_Detruction";
+
+    [SerializeField] protected bool isInvulnerable = false;
 
     protected override void LoadComponents()
     {
@@ -73,6 +76,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
 
     public virtual void DeductHealthPoint(float hp)
     {
+        if (this.isInvulnerable) return;
         this.healthPoint -= hp;
         if (this.healthPoint < 0) healthPoint = 0;
 
@@ -93,6 +97,11 @@ public abstract class DamageReceiver : GameMonoBehaviour
     protected virtual void SetupMaxHealth()
     {
         this.maxHealthPoint = this.baseMaxHealthPoint + this.maxHealthPointBonus;
+    }
+
+    public void SetInvulnerable(bool isInvulnerable)
+    {
+        this.isInvulnerable = isInvulnerable;
     }
 
     protected abstract void OnDead();

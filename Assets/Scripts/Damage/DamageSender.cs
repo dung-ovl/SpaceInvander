@@ -33,4 +33,9 @@ public class DamageSender : GameMonoBehaviour
     {
         return FXSpawner.Instance.Impact1;
     }
+
+    public virtual void SetDamage(float damage)
+    {
+        this.damage = damage;
+    }
 }

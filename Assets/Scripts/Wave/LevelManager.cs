@@ -16,6 +16,10 @@ public class LevelManager : GameMonoBehaviour
     private static LevelManager instance;
     public static LevelManager Instance { get => instance; }
 
+    public int CurrentWaveIndex { get => currentWaveIndex; }
+
+    public int MaxWave { get => waves.Count; }
+
     protected override void Awake()
     {
         base.Awake();
@@ -25,7 +29,7 @@ public class LevelManager : GameMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        //this.LoadWaves();
+        this.LoadWaves();
     }
 
     private void LoadWaves()

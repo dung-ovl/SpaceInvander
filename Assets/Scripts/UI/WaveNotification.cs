@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveNotification : GameMonoBehaviour
@@ -24,10 +25,11 @@ public class WaveNotification : GameMonoBehaviour
         WaveNotification.instance = this;
     }
 
-    public void Update()
+    protected void Update()
     {
         this.textGUI.text = TextGeneral;
     }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

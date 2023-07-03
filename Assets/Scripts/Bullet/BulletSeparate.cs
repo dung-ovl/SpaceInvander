@@ -22,7 +22,10 @@ public class BulletSeparate : BulletAbstract
     public float AngleSeparation => angleSeparation;
 
     [SerializeField] protected bool isSeparating = false;
-    public bool IsSeparating => isSeparating;  
+    public bool IsSeparating => isSeparating;
+
+    [SerializeField] protected Transform parent;
+    public Transform Parent => parent;
 
     protected override void OnEnable()
     {
@@ -55,12 +58,12 @@ public class BulletSeparate : BulletAbstract
             Vector3 rot = transform.parent.rotation.eulerAngles;
             rot = new Vector3(rot.x, rot.y, rot.z + angle);
 
-            Transform newBullet = BulletSpawner.Instance.Spawn("SplitBullet", transform.position, Quaternion.Euler(rot));
+            Transform newBullet = BulletSpawner.Instance.Spawn(this.transform.parent.name, transform.position, Quaternion.Euler(rot));
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
 
             BulletController bulletController = newBullet.GetComponent<BulletController>();
-            bulletController.SetShooter(GameCtrl.Instance.CurrentShip);
+            bulletController.SetShooter(this.bulletController.Shooter);
 
             BulletSeparate bulletSeparate = newBullet.GetComponentInChildren<BulletSeparate>();
             bulletSeparate.timesSeparation = timesSeparation - 1;
@@ -69,5 +72,10 @@ public class BulletSeparate : BulletAbstract
             angle -= tempAngle;
         }
         this.bulletController.BulletDespawn.DespawnObject();
+    }
+
+    protected virtual void SetParent(Transform parent)
+    {
+        this.parent = parent;
     }
 }

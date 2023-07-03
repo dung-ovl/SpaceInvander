@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class ShipMovement : ObjFollowMouse
 {
@@ -23,7 +22,7 @@ public class ShipMovement : ObjFollowMouse
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    protected virtual void OnMovingAnimation()
+/*    protected virtual void OnMovingAnimation()
     {
         if (this.isMoving)
         {
@@ -31,7 +30,7 @@ public class ShipMovement : ObjFollowMouse
             return;
         }
         shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
-    }
+    }*/
 
     protected override void GetTargetPosition()
     {
