@@ -181,6 +181,7 @@ public class ShipShooting : ShipAbstract
     public virtual void SetDamage(Transform newBullet)
     {
         DamageSender damageSender = newBullet.GetComponentInChildren<DamageSender>();
+        
         Debug.Log("SettDamage");
         if (damageSender != null)
         {
