@@ -2403,7 +2403,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147214270306790408}
-  - component: {fileID: 147214270306790414}
   - component: {fileID: 147214270306790409}
   m_Layer: 2
   m_Name: BouncyBullet
@@ -2427,19 +2426,6 @@ Transform:
   m_Father: {fileID: 147214270944378046}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &147214270306790414
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147214270306790411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.02
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &147214270306790409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2452,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6a9cc3a57c7cd4badd1426da7a62dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleCollider2: {fileID: 147214270306790414}
+  circleCollider2: {fileID: 0}
   startPos: {x: 0, y: 0, z: 0}
   isBouncing: 1
 --- !u!1 &147214270317512442
