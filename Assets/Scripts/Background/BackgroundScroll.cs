@@ -33,15 +33,6 @@ public class BackgroundScroll : GameMonoBehaviour
         float x_offset = scrollSpeed * Time.deltaTime;
         offset += new Vector3(0, x_offset, 0);
         meshRenderer.material.mainTextureOffset = offset;
-       /* transform.Translate(Vector3.down * scrollSpeed * Time.deltaTime);
-        this.MoveOnTop();*/
     }
 
-    /*private void MoveOnTop()
-    {
-        if (transform.position.y <= -4)
-        {
-            transform.position = new Vector3(0, 3.99f, 0);
-        }
-    }*/
 }

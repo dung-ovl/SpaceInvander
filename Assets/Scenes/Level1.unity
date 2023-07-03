@@ -1100,9 +1100,9 @@ RectTransform:
   m_Father: {fileID: 11846702}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96.2704, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &206823720
@@ -1196,7 +1196,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 206823718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a06ced09b8fbe7479e25c655a103066, type: 3}
+  m_Script: {fileID: 11500000, guid: d369e1b1fd62f2b448f3f557ffb995c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 206823720}
@@ -1433,10 +1433,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 308708831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f89c223c9ca66d428c7fe6d9d6332cf, type: 3}
+  m_Script: {fileID: 11500000, guid: da8d69e1d26124a4c8645f649bbc11ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
+  txt: {fileID: 308708833}
 --- !u!1 &330535739
 GameObject:
   m_ObjectHideFlags: 0
@@ -3870,7 +3870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &883190897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4699,7 +4699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62533d214efe90c4b97d340b23e4dd13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  txt: {fileID: 0}
 --- !u!1 &1033998952
 GameObject:
   m_ObjectHideFlags: 0
@@ -4768,9 +4767,9 @@ RectTransform:
   m_Father: {fileID: 11846702}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 288.81122, y: -50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 110, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1053127473
@@ -4864,10 +4863,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1053127471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac224291307dbb74392ed1009a8a1a4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3439e6def274e4a4697bb21ef43cb781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  button: {fileID: 1053127473}
 --- !u!1 &1079557966
 GameObject:
   m_ObjectHideFlags: 0
@@ -7494,10 +7493,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1648021363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c7936c8d20be23438f34818c452ebdd, type: 3}
+  m_Script: {fileID: 11500000, guid: 5df184b4abf1b614399666024a6a791f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  button: {fileID: 1648021365}
 --- !u!1 &1652910581
 GameObject:
   m_ObjectHideFlags: 0
@@ -9633,6 +9632,10 @@ PrefabInstance:
     - target: {fileID: 147214269834548307, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Name
       value: BulletSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 147214270998575680, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1776414332303202225, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_IsActive
