@@ -16,74 +16,42 @@ MonoBehaviour:
   maxHeath: 125
   shieldTimeUp: 2
   powerTimeUp: 1
-  mainDamage: 1
+  mainDamage: 7
   mainAttackSpeed: 0.15
   mainBulletList:
   - Levels:
-    - Name: Ship_2_MainBullet_1
+    - Name: Ship_3_MainBullet_1
       Rot: 0
   - Levels:
-    - Name: Ship_2_MainBullet_1
-      Rot: -5
-    - Name: Ship_2_MainBullet_1
-      Rot: 5
-  - Levels:
-    - Name: Ship_2_MainBullet_1
+    - Name: Ship_3_MainBullet_1
       Rot: 0
-    - Name: Ship_2_MainBullet_1
-      Rot: -5
-    - Name: Ship_2_MainBullet_1
-      Rot: 5
   - Levels:
-    - Name: Ship_2_MainBullet_1
-      Rot: -4
-    - Name: Ship_2_MainBullet_1
-      Rot: 4
-    - Name: Ship_2_MainBullet_1
-      Rot: -7
-    - Name: Ship_2_MainBullet_1
-      Rot: 7
-  - Levels:
-    - Name: Ship_2_MainBullet_1
+    - Name: Ship_3_MainBullet_1
       Rot: 0
-    - Name: Ship_2_MainBullet_1
-      Rot: -4
-    - Name: Ship_2_MainBullet_1
-      Rot: 4
-    - Name: Ship_2_MainBullet_1
-      Rot: -7
-    - Name: Ship_2_MainBullet_1
-      Rot: 7
   - Levels:
-    - Name: Ship_2_MainBullet_1
-      Rot: -4
-    - Name: Ship_2_MainBullet_1
-      Rot: 4
-    - Name: Ship_2_MainBullet_1
-      Rot: -7
-    - Name: Ship_2_MainBullet_1
-      Rot: 7
-    - Name: Ship_2_MainBullet_1
-      Rot: -10
-    - Name: Ship_2_MainBullet_1
-      Rot: 10
-  - Levels:
-    - Name: Ship_2_MainBullet_1
+    - Name: Ship_3_MainBullet_1
       Rot: 0
-    - Name: Ship_2_MainBullet_1
-      Rot: -4
-    - Name: Ship_2_MainBullet_1
-      Rot: 4
-    - Name: Ship_2_MainBullet_1
-      Rot: -7
-    - Name: Ship_2_MainBullet_1
-      Rot: 7
-    - Name: Ship_2_MainBullet_1
-      Rot: -10
-    - Name: Ship_2_MainBullet_1
-      Rot: 10
-  subDamage: 20
-  subAttackSpeed: 2.5
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+  - Levels:
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+  - Levels:
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+  - Levels:
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+    - Name: Ship_3_MainBullet_1
+      Rot: 0
+  subDamage: 18
+  subAttackSpeed: 2
   subBulletList:
   - Levels:
     - Name: Ship_3_SubBullet_1
