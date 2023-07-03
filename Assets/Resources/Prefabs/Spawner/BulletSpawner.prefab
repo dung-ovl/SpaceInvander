@@ -279,6 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 1330173088}
   sphereCollider: {fileID: 934259843}
+  isDestroyOnImpact: 1
 --- !u!70 &934259843
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -752,6 +753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 1401087335}
   sphereCollider: {fileID: 1717869271}
+  isDestroyOnImpact: 1
 --- !u!70 &1717869271
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -846,6 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 147214270050384804}
   sphereCollider: {fileID: 147214269143689483}
+  isDestroyOnImpact: 1
 --- !u!135 &147214269143689483
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1393,6 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 147214270944378047}
   sphereCollider: {fileID: 147214269773784431}
+  isDestroyOnImpact: 1
 --- !u!135 &147214269773784431
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1515,6 +1519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 147214270509892437}
   sphereCollider: {fileID: 147214269914972138}
+  isDestroyOnImpact: 1
 --- !u!70 &147214269914972138
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1721,6 +1726,7 @@ MonoBehaviour:
   damageSender: {fileID: 147214270163906557}
   isLaser: 1
   laserName: 
+  Rot: 0
 --- !u!1 &147214270163906559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1835,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147214270306790408}
-  - component: {fileID: 147214270306790414}
   - component: {fileID: 147214270306790409}
   m_Layer: 2
   m_Name: BouncyBullet
@@ -1853,19 +1858,6 @@ Transform:
   m_Father: {fileID: 147214270944378046}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &147214270306790414
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147214270306790411}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.02
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &147214270306790409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,7 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff6a9cc3a57c7cd4badd1426da7a62dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleCollider2: {fileID: 147214270306790414}
+  circleCollider2: {fileID: 0}
   startPos: {x: 0, y: 0, z: 0}
   isBouncing: 1
 --- !u!1 &147214270317512442
@@ -2127,6 +2119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 147214270998575686}
   sphereCollider: {fileID: 147214270359092504}
+  isDestroyOnImpact: 1
 --- !u!58 &147214270359092504
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2701,6 +2694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 4438963902650208922}
   sphereCollider: {fileID: 147214270880912154}
+  isDestroyOnImpact: 1
 --- !u!135 &147214270880912154
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2761,6 +2755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 4438963902650208922}
   sphereCollider: {fileID: 147214270898951085}
+  isDestroyOnImpact: 1
 --- !u!70 &147214270898951085
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3169,6 +3164,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletController: {fileID: 616517791235433685}
   sphereCollider: {fileID: 8953397644337170578}
+  isDestroyOnImpact: 1
 --- !u!70 &8953397644337170578
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

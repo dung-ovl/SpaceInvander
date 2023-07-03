@@ -18,9 +18,9 @@ public class LaserBeam
         this.laserObj = new GameObject();
         this.laserObj.name = laserName;
         this.lineRenderer = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
-        this.lineRenderer.startWidth = 0.05f;
-        this.lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
+        this.lineRenderer.startWidth = 0.1f;
+        this.lineRenderer.endWidth = 0.1f;
+        lineRenderer.material = Resources.Load<Material>("Material/ShaderLaser");
         this.lineRenderer.startColor = Color.red;
         this.lineRenderer.endColor = Color.red;
         this.lineRenderer.sortingLayerName = "Bullet";
