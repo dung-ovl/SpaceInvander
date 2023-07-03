@@ -65,6 +65,7 @@ public class EnemyShootingMines : EnemyBossBehaviour
                 Transform _minePrefabs = BulletSpawner.Instance.Spawn("Mines", _mineHolder.position, _mineHolder.rotation);
                 if (_minePrefabs == null) continue;
                 this._enemyBossBehaviour.EnemyController.EnemyModel.BaseAnimator.SetTrigger("Shooting");
+                BulletDisperse bulletDisperse = _minePrefabs.GetComponent<BulletDisperse>();
                 BulletController bulletController = _minePrefabs.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent.parent);
                 _minePrefabs.gameObject.SetActive(true);

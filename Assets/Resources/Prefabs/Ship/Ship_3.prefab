@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 6186212836614859160}
   - component: {fileID: 6186212836614859161}
   m_Layer: 2
-  m_Name: Ship_2
+  m_Name: Ship_3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -210,7 +210,7 @@ MonoBehaviour:
   shipShooting: {fileID: 6186212836650524743}
   shipDamageReceiver: {fileID: 6186212838482558726}
   abilityController: {fileID: 6186212837187504863}
-  shipProfile: {fileID: 11400000, guid: a0a5c2fa8f358074391882cfd473f8c5, type: 2}
+  shipProfile: {fileID: 11400000, guid: 57e2f1c6ad1d05a4d8f0467b839174d5, type: 2}
   shipModel: {fileID: 6186212837870351031}
   shipLevel: {fileID: 6186212837924262203}
 --- !u!1 &6186212836650524740
@@ -1080,7 +1080,7 @@ SpriteRenderer:
   m_SortingLayerID: 1447412019
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a569d18cdc5358c44a83cdbabc91701b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c374ac2bb8ce14a41a406d0a7c95f39d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2439,7 +2439,7 @@ SpriteRenderer:
   m_SortingLayerID: 1447412019
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 932305717, guid: 97dde9566c15c88488ea2f1348a0f43c, type: 3}
+  m_Sprite: {fileID: 87620615, guid: 84e9ce946967ac746991adbc2d235874, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2460,7 +2460,7 @@ Animator:
   m_GameObject: {fileID: 6186212838389111110}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 265e8fb3dd16d514c8d8f40e435955cf, type: 2}
+  m_Controller: {fileID: 9100000, guid: 358df510fc34a9d4a99761695c6224a0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

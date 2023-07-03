@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 696b5019a3f94e74fa249f1120955101, type: 3}
-  m_Name: Ship_2
+  m_Name: Ship_3
   m_EditorClassIdentifier: 
-  shipName: Gurra
-  maxHeath: 100
-  shieldTimeUp: 0
+  shipName: Ina
+  maxHeath: 125
+  shieldTimeUp: 2
   powerTimeUp: 1
-  mainDamage: 5
-  mainAttackSpeed: 0.25
+  mainDamage: 1
+  mainAttackSpeed: 0.15
   mainBulletList:
   - Levels:
     - Name: Ship_2_MainBullet_1
@@ -82,20 +82,20 @@ MonoBehaviour:
       Rot: -10
     - Name: Ship_2_MainBullet_1
       Rot: 10
-  subDamage: 30
-  subAttackSpeed: 2
+  subDamage: 20
+  subAttackSpeed: 2.5
   subBulletList:
   - Levels:
-    - Name: Ship_2_SubBullet_1
-      Rot: 20
-    - Name: Ship_2_SubBullet_1
-      Rot: -20
+    - Name: Ship_3_SubBullet_1
+      Rot: 45
+    - Name: Ship_3_SubBullet_1
+      Rot: -45
   - Levels:
-    - Name: Ship_2_SubBullet_1
-      Rot: 20
-    - Name: Ship_2_SubBullet_1
-      Rot: -20
-    - Name: Ship_2_SubBullet_1
-      Rot: 30
-    - Name: Ship_2_SubBullet_1
-      Rot: -30
+    - Name: Ship_3_SubBullet_1
+      Rot: 45
+    - Name: Ship_3_SubBullet_1
+      Rot: -45
+    - Name: Ship_3_SubBullet_1
+      Rot: 60
+    - Name: Ship_3_SubBullet_1
+      Rot: -60

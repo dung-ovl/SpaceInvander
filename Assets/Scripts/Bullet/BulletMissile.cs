@@ -25,7 +25,7 @@ public class BulletMissile : GameMonoBehaviour
         this.rotSpeed = 7f;
         this.isTarget = true;
         end = transform.parent.position;
-        Invoke("SetIsTarget", 1);
+        Invoke("SetIsTarget", time);
     }
 
     protected virtual void FixedUpdate()

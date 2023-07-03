@@ -109,20 +109,16 @@ public class ShipShooting : ShipAbstract
             Vector3 spawnPos = shootPoint.position;
             Quaternion rotation = Quaternion.Euler(shootPoint.rotation.eulerAngles.x, shootPoint.rotation.eulerAngles.y, shipPointInfo[count].Rot);
             string bulletName = shipPointInfo[count].Name;
-
-            
             
             if (bulletName != BulletSpawner.Instance.BulletThree)
             {
                 Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                 if (newBullet == null) return;
+                this.SetDamage(newBullet);
                 newBullet.gameObject.SetActive(true);
-
-                SetDamage(newBullet);
 
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
-                Debug.Log("Shoot");
             }
             else
             {
@@ -132,7 +128,7 @@ public class ShipShooting : ShipAbstract
                     if (newBullet == null) return;
                     newBullet.gameObject.SetActive(true);
 
-                    SetDamage(newBullet);
+                    this.SetDamage(newBullet);
 
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
                     bulletLaser.laserName = "laser" + currentLaser;
@@ -184,9 +180,11 @@ public class ShipShooting : ShipAbstract
 
     public virtual void SetDamage(Transform newBullet)
     {
-        DamageSender damageSender = newBullet.GetComponent<DamageSender>();
+        DamageSender damageSender = newBullet.GetComponentInChildren<DamageSender>();
+        Debug.Log("SettDamage");
         if (damageSender != null)
         {
+            Debug.Log("SetDamage");
             damageSender.SetDamage(this.damage);
         }
     }    

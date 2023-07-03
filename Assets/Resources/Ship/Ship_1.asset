@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipName: AmeliaBoobson
   maxHeath: 100
-  shieldTimeUp: 2
+  shieldTimeUp: 0
   powerTimeUp: 0
-  mainDamage: 1
+  mainDamage: 3
   mainAttackSpeed: 0.15
   mainBulletList:
   - Levels:
