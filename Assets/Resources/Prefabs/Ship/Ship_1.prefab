@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 143043054}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 410416679}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -78,7 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 620919467}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 709219626}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -140,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 953102103}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_7
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -171,7 +171,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 979946277}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1020383678}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1091214298}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1179539762}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1243014366}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_6
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424548944}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1467990839}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_6
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1498393421}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_5
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -421,7 +421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543062820}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698388474}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1751459802}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -515,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779677600}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SubShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -548,7 +548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2011922041}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2012427182}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_5
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -616,7 +616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2021606905}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -647,7 +647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2099773103}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -679,7 +679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3469873122963928993}
   - component: {fileID: 3469873122963928994}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShipMovement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 3469873123599004161}
   - component: {fileID: 3469873123599004160}
   - component: {fileID: 3469873123599004175}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -833,7 +833,7 @@ GameObject:
   - component: {fileID: 3469873124160454455}
   - component: {fileID: 4022910738404160145}
   - component: {fileID: 1896006596}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShipShooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,6 +870,7 @@ MonoBehaviour:
   shipController: {fileID: 4022910738677866715}
   isShooting: 1
   numberLaser: 0
+  currentLaser: 0
   shootDelay: 0.05
   shootTimer: 1
   damage: 1
@@ -891,6 +892,7 @@ MonoBehaviour:
   shipController: {fileID: 4022910738677866715}
   isShooting: 1
   numberLaser: 0
+  currentLaser: 0
   shootDelay: 1
   shootTimer: 0.2
   damage: 1
@@ -907,7 +909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3469873124517417823}
   - component: {fileID: 3469873124517417808}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -992,7 +994,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910738048402222}
   - component: {fileID: 4022910738048402223}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShipLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1041,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910738080146828}
   - component: {fileID: 4022910738080146829}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1093,7 +1095,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738126451785}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_5
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1124,7 +1126,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738135629052}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1156,7 +1158,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910738208387614}
   - component: {fileID: 4022910738208387615}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ActivePowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738379715500}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1235,7 +1237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738388810358}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1266,7 +1268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738417741108}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1297,7 +1299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738543318953}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1328,7 +1330,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738548246244}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1359,7 +1361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738611346776}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1392,7 +1394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910738741351866}
   - component: {fileID: 4022910738741351865}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1440,7 +1442,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738789450871}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1474,7 +1476,7 @@ GameObject:
   - component: {fileID: 4022910738803971486}
   - component: {fileID: 4022910738803971485}
   - component: {fileID: 4022910738803971484}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ItemLooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1550,7 +1552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910738809280566}
   - component: {fileID: 4022910738809280565}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,7 +1609,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738845779971}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1638,7 +1640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738871194930}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1671,7 +1673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738900031485}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738957485383}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1740,7 +1742,7 @@ GameObject:
   - component: {fileID: 4022910738963762544}
   - component: {fileID: 4022910738963762546}
   - component: {fileID: 4022910738963762545}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1844,7 +1846,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910738974408932}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1875,7 +1877,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739023220387}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1907,7 +1909,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910739032997631}
   - component: {fileID: 4022910738677866715}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ship_1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1964,7 +1966,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739051569449}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -1996,7 +1998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910739117110409}
   - component: {fileID: 4022910739117110410}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2083,7 +2085,7 @@ GameObject:
   - component: {fileID: 4022910739234262789}
   - component: {fileID: 4022910739234262791}
   - component: {fileID: 4022910739234262790}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2190,7 +2192,7 @@ GameObject:
   - component: {fileID: 4022910739297696605}
   - component: {fileID: 4022910739297696607}
   - component: {fileID: 4022910739297696606}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2274,7 +2276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739302769237}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MainShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2313,7 +2315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910739584532397}
   - component: {fileID: 4022910739584532399}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ActiveShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2357,7 +2359,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739591304022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_4
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2388,7 +2390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739618950651}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_3
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2419,7 +2421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739701375404}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_2
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2452,7 +2454,7 @@ GameObject:
   - component: {fileID: 4022910739718824369}
   - component: {fileID: 4022910739718824371}
   - component: {fileID: 4022910739718824370}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2560,7 +2562,7 @@ GameObject:
   - component: {fileID: 4022910739740305899}
   - component: {fileID: 4022910739740305901}
   - component: {fileID: 4022910739740305902}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DamageReceiver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2650,7 +2652,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910739810009139}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,7 +2685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910740055737167}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2714,7 +2716,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910740086094887}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShootPoints_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2748,7 +2750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910740095631032}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: P_1
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -2780,7 +2782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022910740105765072}
   - component: {fileID: 4022910740105765073}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FireMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2831,7 +2833,7 @@ GameObject:
   - component: {fileID: 189510312489882623}
   - component: {fileID: 6282929047147659460}
   - component: {fileID: 6282929047147659461}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

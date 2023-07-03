@@ -28,8 +28,9 @@ public class BulletImpact : BulletAbstract
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.transform.parent.name);
+        //Debug.Log(collision.transform.parent.name);
         if (collision.transform.parent == this.bulletController.Shooter) return;
+        if (collision.transform.tag == "Wall") return;
         DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
         if (damageReceiver != null && this.BulletController.isSendDamage)
         {

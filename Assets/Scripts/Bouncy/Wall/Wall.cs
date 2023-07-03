@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public class Wall : GameMonoBehaviour
 {
     [Header("LeftWall")]
-    [SerializeField] protected BoxCollider boxCollider;
+    [SerializeField] protected BoxCollider2D boxCollider;
     [SerializeField] protected float offsetPos = 0.1f;
 
     protected override void LoadComponents()
@@ -24,6 +24,6 @@ public class Wall : GameMonoBehaviour
 
     protected virtual void LoadCollider()
     {
-        this.boxCollider = GetComponent<BoxCollider>();
+        this.boxCollider = GetComponent<BoxCollider2D>();
     }
 }

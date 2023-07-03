@@ -10,6 +10,7 @@ public class ShipShooting : ShipAbstract
     [Header("ShipShooting")]
     [SerializeField] protected bool isShooting = true;
     public int numberLaser;
+    public int currentLaser;
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
     [SerializeField] protected float damage = 1f;
@@ -41,6 +42,7 @@ public class ShipShooting : ShipAbstract
     {
         this.bulletNames = ShipController.ShipProfile.mainBulletList;
         numberLaser = 0;
+        currentLaser = 0;
     }
 
     private void Update()
@@ -96,33 +98,49 @@ public class ShipShooting : ShipAbstract
         int count = 0;
         int index = CalculateShootPointIndex();
         List<ShipPointInfo> shipPointInfo = bulletNames[index].Levels;
+        numberLaser = 0;
+        foreach (ShipPointInfo temp in shipPointInfo)
+        {
+            if (temp.Name == "Laser")
+                numberLaser++;    
+        }    
         foreach (Transform shootPoint in shipShootPoints)
         {
             Vector3 spawnPos = shootPoint.position;
             Quaternion rotation = Quaternion.Euler(shootPoint.rotation.eulerAngles.x, shootPoint.rotation.eulerAngles.y, shipPointInfo[count].Rot);
             string bulletName = shipPointInfo[count].Name;
 
-            Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
-            if (newBullet == null) return;
-            newBullet.gameObject.SetActive(true);
-
-            DamageSender damageSender = newBullet.GetComponent<DamageSender>();
-            if (damageSender != null)
-            {
-                damageSender.SetDamage(this.damage);
-            }
+            
+            
             if (bulletName != BulletSpawner.Instance.BulletThree)
             {
+                Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
+                if (newBullet == null) return;
+                newBullet.gameObject.SetActive(true);
+
+                SetDamage(newBullet);
+
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
                 Debug.Log("Shoot");
             }
             else
             {
-                BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                bulletLaser.laserName = "laser" + numberLaser;
-                bulletLaser.IsLaser = true;
-                bulletLaser.Position = shootPoint;
+                if (currentLaser < numberLaser)
+                {
+                    Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
+                    if (newBullet == null) return;
+                    newBullet.gameObject.SetActive(true);
+
+                    SetDamage(newBullet);
+
+                    BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
+                    bulletLaser.laserName = "laser" + currentLaser;
+                    bulletLaser.IsLaser = true;
+                    bulletLaser.Position = shootPoint;
+                    bulletLaser.Rot = shipPointInfo[count].Rot;
+                    currentLaser++;
+                }
             }
             count++;
         }
@@ -163,4 +181,13 @@ public class ShipShooting : ShipAbstract
     {
         return shipController.ShipProfile.mainAttackSpeed * (100f / (100 + speedPercentAdd));
     }
+
+    public virtual void SetDamage(Transform newBullet)
+    {
+        DamageSender damageSender = newBullet.GetComponent<DamageSender>();
+        if (damageSender != null)
+        {
+            damageSender.SetDamage(this.damage);
+        }
+    }    
 }
