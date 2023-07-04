@@ -13,6 +13,8 @@ public class LevelManager : GameMonoBehaviour
 
     private State currentState = State.NotStarted;
 
+    public State CurrentState { get => currentState; }
+
     private static LevelManager instance;
     public static LevelManager Instance { get => instance; }
 
@@ -46,7 +48,6 @@ public class LevelManager : GameMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.StartLevel();
     }
 
     void Update()
@@ -76,7 +77,7 @@ public class LevelManager : GameMonoBehaviour
     }
 
 
-    private void StartLevel()
+    public void StartLevel()
     {
         if (currentState == State.NotStarted)
         {

@@ -28,6 +28,10 @@ public class WaveNotification : GameMonoBehaviour
     protected void Update()
     {
         this.textGUI.text = TextGeneral;
+        if (currentTextWave <=0 )
+        {
+            TextGeneral = "Ready to start";
+        }
     }
 
     protected override void LoadComponents()

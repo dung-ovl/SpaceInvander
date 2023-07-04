@@ -8,8 +8,9 @@ public class BackgroundManager : GameMonoBehaviour
 {
     private static BackgroundManager instance;
     public static BackgroundManager Instance { get => instance; }
-    [SerializeField] protected List<BackgroundScroll> backgrounds;
+    [SerializeField] protected BackgroundScroll backgrounds;
 
+    public BackgroundScroll Backgrounds { get => backgrounds; }
 
     protected override void Awake()
     {
@@ -26,8 +27,7 @@ public class BackgroundManager : GameMonoBehaviour
 
     protected virtual void LoadBackgrounds()
     {
-        if (this.backgrounds.Count > 0) return;
-        this.backgrounds = transform.GetComponentsInChildren<BackgroundScroll>().ToList();
+        this.backgrounds = transform.GetComponentInChildren<BackgroundScroll>();
         Debug.Log(transform.name + ": LoadBackgrounds", gameObject);
     }
 

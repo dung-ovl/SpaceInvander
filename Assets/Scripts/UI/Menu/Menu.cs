@@ -12,4 +12,6 @@ public enum Menu
     LEVEL_SELECT,
     LOADING,
     PAUSE,
+    GAME_OVER,
+    GAME_WIN,
 }
