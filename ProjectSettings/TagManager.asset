@@ -7,6 +7,7 @@ TagManager:
   - EnemyTarget
   - Wall
   - CircleLine
+  - LaserLine
   layers:
   - Default
   - TransparentFX

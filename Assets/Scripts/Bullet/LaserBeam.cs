@@ -17,6 +17,7 @@ public class LaserBeam
         this.lineRenderer = new LineRenderer();
         this.laserObj = new GameObject();
         this.laserObj.name = laserName;
+        this.laserObj.tag = "LaserLine";
         this.lineRenderer = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
         this.lineRenderer.startWidth = 0.1f;
         this.lineRenderer.endWidth = 0.1f;

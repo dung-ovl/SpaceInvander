@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d82a768e2748084a9b37f13161fab66, type: 3}
   m_Name: LevelUpItem
   m_EditorClassIdentifier: 
-  itemCode: 4
+  itemCode: 3
   itemName: Level Up Item
