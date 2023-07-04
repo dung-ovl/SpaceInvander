@@ -39,6 +39,12 @@ public class ShipLevel : Level
     public override void LevelUp()
     {
         base.LevelUp();
+        int length = this.shipController.ShipShooting.currentLaser;
+        GameObject[] ls =  GameObject.FindGameObjectsWithTag("LaserLine");
+        foreach (GameObject a in ls)
+        {
+            Destroy(a);
+        }
         this.shipController.ShipShooting.currentLaser = 0;
     }
 
