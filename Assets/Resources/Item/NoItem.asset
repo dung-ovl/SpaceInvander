@@ -9,11 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53d8504b8c0f4b949a847803e9098ef8, type: 3}
-  m_Name: Asteroid
+  m_Script: {fileID: 11500000, guid: 7d82a768e2748084a9b37f13161fab66, type: 3}
+  m_Name: NoItem
   m_EditorClassIdentifier: 
-  enemyName: Junk
-  dropList:
-  - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
-    dropRate: 0
-  maxHp: 150
+  itemCode: 0
+  itemName: no-name

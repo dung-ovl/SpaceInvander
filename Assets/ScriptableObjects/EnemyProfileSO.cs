@@ -7,6 +7,9 @@ public class EnemyProfileSO : ScriptableObject
 {
     public string enemyName = "no-name";
     private EnemyType enemyType = EnemyType.NoType;
+
+	public List<DropRate> dropList;
+
 	public virtual EnemyType EnemyType{
 			get { return enemyType; }
 			protected set { enemyType = value; }
@@ -17,4 +20,5 @@ public class EnemyProfileSO : ScriptableObject
 	{
 		return enemyType.ToString();
 	}
+
 }

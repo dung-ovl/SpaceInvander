@@ -20,4 +20,7 @@ public class ShipProfileSO : ScriptableObject
     public float subAttackSpeed = 0.2f;
     public List<ShipPointLevelInfo> subBulletList;
 
+    public float countDownSkill1 = 10f;
+    public float countDownSkill2 = 10f;
+
 }

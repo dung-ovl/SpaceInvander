@@ -13,5 +13,14 @@ MonoBehaviour:
   m_Name: E1Scout
   m_EditorClassIdentifier: 
   enemyName: Scout
+  dropList:
+  - itemSO: {fileID: 11400000, guid: 1ed4c8bfb787e8b45a4b214b150877ad, type: 2}
+    dropRate: 0.1
+  - itemSO: {fileID: 11400000, guid: ec633bcfa42c21242afed4e13e879735, type: 2}
+    dropRate: 0.1
+  - itemSO: {fileID: 11400000, guid: 1080ea3cf4ee252469c851024326f02e, type: 2}
+    dropRate: 0.05
+  - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
+    dropRate: 0.05
   maxHp: 50
   type: 1

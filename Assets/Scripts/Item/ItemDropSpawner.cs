@@ -14,8 +14,9 @@ public class ItemDropSpawner : Spawner
         ItemDropSpawner.instance = this;
     }
 
-    public virtual void DropRandom()
+    public virtual void DropRandom(ItemCode itemCode, Vector3 pos, Quaternion rot)
     {
-        // Drop item randomly
+        Transform itemDrop = this.Spawn(itemCode.ToString(), pos, rot);
+        itemDrop.gameObject.SetActive(true);
     }
 }

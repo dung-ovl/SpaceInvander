@@ -25,6 +25,23 @@ public class EnemyDamageReceiver : DamageReceiver
     {
         this.OnDeadFX();
         this.enemyController.EnemyDespawn.DespawnObject();
+        DropOnDead();
+    }
+
+    protected virtual void DropOnDead()
+    {
+        Vector3 dropPos = transform.position;
+        Quaternion dropRot = transform.rotation;
+
+        List<DropRate> dropList = this.enemyController.EnemyProfile.dropList;
+        foreach (DropRate dropRate in dropList)
+        {
+            if (UnityEngine.Random.Range(0, 1f) <= dropRate.dropRate)
+            {
+                ItemDropSpawner.Instance.DropRandom(dropRate.itemSO.itemCode, dropPos, dropRot);
+                return;
+            }
+        }
     }
 
     protected virtual void OnDeadFX()
