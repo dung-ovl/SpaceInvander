@@ -121,9 +121,9 @@ public class GameManager : GameMonoBehaviour
     {
         if (LevelManager.Instance.CurrentState == State.Completed)
         {
-            if (onLoseTimer < onLoseDelay)
+            if (onWinTimer < onLoseDelay)
             {
-                onLoseTimer += Time.deltaTime;
+                onWinTimer += Time.deltaTime;
                 return;
             }
             SetShipPlayerMovementAndShooting(currentShipPlayer.gameObject, false);
