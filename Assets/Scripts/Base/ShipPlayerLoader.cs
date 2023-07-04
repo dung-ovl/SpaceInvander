@@ -27,6 +27,7 @@ public class ShipPlayerLoader : GameMonoBehaviour
         int shipIndex = PlayerPrefs.GetInt("SelectedShip", 0);
         if (shipIndex >= shipPlayerList.Count) shipIndex = 0;
         GameObject ship = Instantiate(shipPlayerList[shipIndex], Vector3.zero, Quaternion.identity);
+        GameManager.Instance.SetShipPlayerMovementAndShooting(ship, false);
     }
 
     private void LoadShipPlayer()

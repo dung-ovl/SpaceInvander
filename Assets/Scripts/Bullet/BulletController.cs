@@ -29,7 +29,7 @@ public class BulletController : GameMonoBehaviour
 
     private void ShooterCheck()
     {
-        if (!this.shooter.gameObject.activeSelf)
+        if (this.shooter == null || !this.shooter.gameObject.activeSelf)
         {
             BulletSpawner.Instance.Despawn(transform);
         }

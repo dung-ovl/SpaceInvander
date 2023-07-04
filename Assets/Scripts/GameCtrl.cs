@@ -49,11 +49,6 @@ public class GameCtrl : GameMonoBehaviour
         base.Start();
         LoadCurrentShip();
     }
-
-    private void Update()
-    {
-
-    }
     private void LimitCalculate()
     {
         this.m_minX = this.mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + limitOffset;

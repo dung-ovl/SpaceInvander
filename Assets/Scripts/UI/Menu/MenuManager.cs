@@ -49,6 +49,7 @@ public class MenuManager : GameMonoBehaviour
     protected virtual void LoadMenuList()
     {
         Transform prefabsObj = transform.Find("Menus");
+        menuList.Clear();
         foreach (Transform prefab in prefabsObj)
         {
             MenuController menuController = prefab.GetComponent<MenuController>();

@@ -35,4 +35,14 @@ public class BackgroundScroll : GameMonoBehaviour
         meshRenderer.material.mainTextureOffset = offset;
     }
 
+    public void SetScrollSpeed(float speed)
+    {
+        this.scrollSpeed = speed;
+    }
+
+    public void ResetScrollSpeed()
+    {
+        this.scrollSpeed = 0.05f;
+    }
+
 }

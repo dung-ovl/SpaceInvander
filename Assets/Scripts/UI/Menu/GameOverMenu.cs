@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreditMenuManager : MenuController
+public class GameOverMenu : MenuController
 {
-    // Start is called before the first frame update
     protected override void LoadMenuType()
     {
-        this.menuType = Menu.CREDITS;
+        this.menuType = Menu.GAME_OVER;
     }
 }
