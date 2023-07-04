@@ -64,6 +64,7 @@ public class BulletSeparate : BulletAbstract
 
             BulletController bulletController = newBullet.GetComponent<BulletController>();
             bulletController.SetShooter(this.bulletController.Shooter);
+            bulletController.BulletDamageSender.SetDamage(this.bulletController.BulletDamageSender.Damage / (this.timesSeparation * baseQuantity));
 
             BulletSeparate bulletSeparate = newBullet.GetComponentInChildren<BulletSeparate>();
             bulletSeparate.timesSeparation = timesSeparation - 1;
