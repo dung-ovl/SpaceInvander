@@ -22,11 +22,22 @@ public class BulletDamageSender : DamageSender
     public override void Send(Transform transform)
     {
         base.Send(transform);
+
+        this.DestroyBullet();
+    }
+
+    public virtual void Send(Transform transform, bool isDespawnOnImpact)
+    {
+        base.Send(transform);
+        if (!isDespawnOnImpact) return;
         this.DestroyBullet();
     }
 
     protected virtual void DestroyBullet()
     {
-        this.bulletController.BulletDespawn.DespawnObject();
+        if (this.bulletController.BulletDespawn != null)
+        {
+            this.bulletController.BulletDespawn.DespawnObject();
+        }
     }
 }

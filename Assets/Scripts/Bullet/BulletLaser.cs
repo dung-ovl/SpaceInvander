@@ -14,12 +14,14 @@ public class BulletLaser : GameMonoBehaviour
 
     public Transform Position { get { return position; }  set { position = value; } }
     public bool IsLaser { get { return isLaser; } set{ isLaser = value; } }
+
+    public float Rot;
     protected virtual void FixedUpdate()
     {
         if (isLaser)
         {
             Destroy(GameObject.Find(laserName));
-            Vector3 end = new Vector3(position.position.x + 5 * Mathf.Sin(-position.eulerAngles.z * Mathf.Deg2Rad), position.position.y + 5 * Mathf.Cos(-position.eulerAngles.z * Mathf.Deg2Rad));
+            Vector3 end = new Vector3(position.position.x + 5 * Mathf.Sin(-Rot), position.position.y + 5 * Mathf.Cos(-Rot));
 
             Vector3 direction = end - position.position;
             beam = new LaserBeam(position.position, direction, damageSender, laserName);

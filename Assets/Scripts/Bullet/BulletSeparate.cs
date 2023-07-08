@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BulletSeparate : BulletAbstract
 {
-    public float timeCount;
+    public float timeCount = 0;
 
-    [SerializeField] protected int timesSeparation;
+    [SerializeField] protected int timesSeparation = 2;
     public int TimesSeparation => timesSeparation;
 
-    [SerializeField] protected int quantityOfEachTimes;
+    [SerializeField] protected int quantityOfEachTimes = 2;
     public int QuantityOfEachTimes => quantityOfEachTimes;
 
     [SerializeField] protected int baseQuantity = 2;
@@ -18,16 +18,21 @@ public class BulletSeparate : BulletAbstract
     [SerializeField] protected float timeWait;
     public float TimeWait => timeWait;
 
-    [SerializeField] protected float angleSeparation;
+    [SerializeField] protected float angleSeparation = 10;
     public float AngleSeparation => angleSeparation;
 
     [SerializeField] protected bool isSeparating = false;
-    public bool IsSeparating => isSeparating;  
+    public bool IsSeparating => isSeparating;
+
+    [SerializeField] protected Transform parent;
+    public Transform Parent => parent;
+
+    [SerializeField] protected string nameChild;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        this.timeWait = 0.2f;
+        this.timeWait = 0.1f;
         this.quantityOfEachTimes = this.baseQuantity;
         this.timesSeparation = 2;
         this.angleSeparation = 10;
@@ -39,7 +44,6 @@ public class BulletSeparate : BulletAbstract
         if (!this.isSeparating) return;
         if (timesSeparation >= 1)
         {
-            this.BulletController.isSendDamage = false;
             Separate();
         }
     }
@@ -54,20 +58,27 @@ public class BulletSeparate : BulletAbstract
         {
             Vector3 rot = transform.parent.rotation.eulerAngles;
             rot = new Vector3(rot.x, rot.y, rot.z + angle);
-
-            Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.Instance.BulletOne, transform.position, Quaternion.Euler(rot));
+            angle -= tempAngle;
+            Transform newBullet = BulletSpawner.Instance.Spawn(nameChild, transform.position, Quaternion.Euler(rot));
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
 
             BulletController bulletController = newBullet.GetComponent<BulletController>();
-            bulletController.SetShooter(GameCtrl.Instance.CurrentShip);
+            bulletController.SetShooter(this.bulletController.Shooter);
+            bulletController.BulletDamageSender.SetDamage(this.bulletController.BulletDamageSender.Damage / (this.timesSeparation * baseQuantity));
 
             BulletSeparate bulletSeparate = newBullet.GetComponentInChildren<BulletSeparate>();
+            if (bulletSeparate == null) continue;
             bulletSeparate.timesSeparation = timesSeparation - 1;
             bulletSeparate.isSeparating = true;
 
-            angle -= tempAngle;
+            
         }
         this.bulletController.BulletDespawn.DespawnObject();
+    }
+
+    protected virtual void SetParent(Transform parent)
+    {
+        this.parent = parent;
     }
 }

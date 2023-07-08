@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
-[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Rigidbody2D))]
 public class ShieldAbility : SustentiveAbility
 {
-    [SerializeField] protected SphereCollider _collider;
-    [SerializeField] protected Rigidbody _rigibody;
+    [SerializeField] protected CircleCollider2D _collider;
+    [SerializeField] protected Rigidbody2D _rigibody;
 
     protected override void LoadComponents()
     {
@@ -31,7 +31,7 @@ public class ShieldAbility : SustentiveAbility
     protected virtual void LoadTrigger()
     {
         if (this._collider != null) return;
-        this._collider = transform.GetComponent<SphereCollider>();
+        this._collider = transform.GetComponent<CircleCollider2D>();
         this._collider.isTrigger = true;
         this._collider.radius = 0.3f;
         Debug.LogWarning(transform.name + ": LoadTrigger", gameObject);
@@ -40,8 +40,7 @@ public class ShieldAbility : SustentiveAbility
     protected virtual void LoadRigibody()
     {
         if (this._rigibody != null) return;
-        this._rigibody = transform.GetComponent<Rigidbody>();
-        this._rigibody.useGravity = false;
+        this._rigibody = transform.GetComponent<Rigidbody2D>();
         this._rigibody.isKinematic = true;
         Debug.LogWarning(transform.name + ": LoadTrigger", gameObject);
     }

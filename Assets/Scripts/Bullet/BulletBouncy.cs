@@ -13,9 +13,9 @@ public class BulletBouncy : Bounceable
         startPos = transform.parent.position;
     }
 
-    protected override void OnTriggerEnter(Collider collider2D)
+    protected override void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (!this.isBouncing) return;
-        base.OnTriggerEnter(collider2D);
+        base.OnTriggerEnter2D(collider2D);
     }
 }

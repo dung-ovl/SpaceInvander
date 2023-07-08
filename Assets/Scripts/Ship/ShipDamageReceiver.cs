@@ -12,13 +12,11 @@ public class ShipDamageReceiver : DamageReceiver
     protected override void Start()
     {
         base.Start();
-        PlayerHealthBar.Instance.SetMaxHealth(this.maxHealthPoint);
     }
 
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
-        PlayerHealthBar.Instance.SetHealth(this.healthPoint);
     }
 
     protected override void LoadComponents()
@@ -42,6 +40,20 @@ public class ShipDamageReceiver : DamageReceiver
 
     protected override void OnDead()
     {
-        Debug.Log("Dead");
+        OnDeadFX();
+        Destroy(transform.parent.gameObject);
+    }
+
+    protected virtual void OnDeadFX()
+    {
+        string fxOnDeadName = this.GetOnDeadFXName();
+        Transform fxOnDead = FXSpawner.Instance.Spawn(fxOnDeadName, transform.position, transform.rotation);
+        if (fxOnDead == null) return;
+        fxOnDead.gameObject.SetActive(true);
+    }
+
+    protected virtual string GetOnDeadFXName()
+    {
+        return this.onDeadFXName;
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 public class GameCtrl : GameMonoBehaviour
 {
@@ -14,6 +13,9 @@ public class GameCtrl : GameMonoBehaviour
 
     [SerializeField] protected Transform currentShip;
     public Transform CurrentShip { get => currentShip; }
+
+    [SerializeField] protected Transform currentBoss;
+    public Transform CurrentBoss { get => currentBoss; }
 
     private float m_minX;
     public float M_minX => m_minX;
@@ -39,15 +41,14 @@ public class GameCtrl : GameMonoBehaviour
     {
         base.LoadComponents();
         this.LoadCamera();
-        this.LoadCurrentShip();
         this.LimitCalculate();
     }
 
     protected override void Start()
     {
         base.Start();
+        LoadCurrentShip();
     }
-
     private void LimitCalculate()
     {
         this.m_minX = this.mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + limitOffset;
@@ -66,7 +67,7 @@ public class GameCtrl : GameMonoBehaviour
     protected virtual void LoadCurrentShip()
     {
         if (this.currentShip != null) return;
-        this.currentShip = GameObject.Find("Ship").transform;
+        this.currentShip = GameObject.FindGameObjectWithTag("Player").transform;
         Debug.Log(transform.name + ": LoadCurrentShip", gameObject);
     }
 }

@@ -101,6 +101,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -119,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 383ac6d7d1cda58448867a1f1405afec
-      internalID: 1057120703
+      spriteID: e4bf16c6f11fcb94299361a62dafdf21
+      internalID: 827084873
       vertices: []
       indices: 
       edges: []
@@ -140,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c1587b0cc3ab1144da720fbec884e237
-      internalID: -1734822251
+      spriteID: 4daeff0cc43729543a8b59978e070992
+      internalID: 105572263
       vertices: []
       indices: 
       edges: []
@@ -161,8 +173,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b76ceeb514b81145adf901bd52d4c2e
-      internalID: -2138824703
+      spriteID: 0368b05fc1947e74f9990ed99ab69c3f
+      internalID: 1868526254
       vertices: []
       indices: 
       edges: []
@@ -182,8 +194,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eed99986e71cfd148ac0de0b42335142
-      internalID: 1525232708
+      spriteID: a08126a0fc2b3ba4a8ba69ae80b76149
+      internalID: 420723727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SplitBullet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b628344517cbc48b6e4ecc929b448b
+      internalID: -791421324
       vertices: []
       indices: 
       edges: []
@@ -199,10 +232,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SplitBullet_0: 1057120703
-      SplitBullet_1: -1734822251
-      SplitBullet_2: -2138824703
-      SplitBullet_3: 1525232708
+      SplitBullet_0: 827084873
+      SplitBullet_1: 105572263
+      SplitBullet_2: 1868526254
+      SplitBullet_3: 420723727
+      SplitBullet_4: -791421324
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

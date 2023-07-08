@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Collider2D))]
 public abstract class DamageReceiver : GameMonoBehaviour
 {
     [Header("DamageReceiver")]
@@ -12,11 +12,15 @@ public abstract class DamageReceiver : GameMonoBehaviour
     [SerializeField] protected float baseMaxHealthPoint = 10f;
     [SerializeField] protected float maxHealthPointBonus = 0f;
     [SerializeField] protected float maxHealthPoint = 10f;
-    [SerializeField] protected Collider sphereCollider;
-    [SerializeField] protected Rigidbody _rigidbody;
+    [SerializeField] protected Collider2D sphereCollider;
+    [SerializeField] protected Rigidbody2D _rigidbody;
 
     public float MaxHealthPoint => maxHealthPoint;
+    public float HealthPoint => healthPoint;
     [SerializeField] protected bool isDead = false;
+    [SerializeField] protected string onDeadFXName = "E1_Detruction";
+
+    [SerializeField] protected bool isInvulnerable = false;
 
     protected override void LoadComponents()
     {
@@ -28,16 +32,15 @@ public abstract class DamageReceiver : GameMonoBehaviour
     protected virtual void LoadRigidBody()
     {
         if (this._rigidbody != null) return;
-        this._rigidbody = GetComponent<Rigidbody>();
+        this._rigidbody = GetComponent<Rigidbody2D>();
         this._rigidbody.isKinematic = true;
-        this._rigidbody.useGravity = false;
         Debug.Log(transform.name + "LoadCollider", gameObject);
     }
 
     protected virtual void LoadCollider()
     {
         if (this.sphereCollider != null) return;
-        this.sphereCollider = GetComponent<SphereCollider>();
+        this.sphereCollider = GetComponent<Collider2D>();
         this.sphereCollider.isTrigger = true; ;
         Debug.Log(transform.name + "LoadCollider", gameObject);
     }
@@ -56,7 +59,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        CheckIsDead();
+        this.CheckIsDead();
     }
     protected virtual void Reborn()
     {
@@ -73,6 +76,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
 
     public virtual void DeductHealthPoint(float hp)
     {
+        if (this.isInvulnerable) return;
         this.healthPoint -= hp;
         if (this.healthPoint < 0) healthPoint = 0;
 
@@ -93,6 +97,11 @@ public abstract class DamageReceiver : GameMonoBehaviour
     protected virtual void SetupMaxHealth()
     {
         this.maxHealthPoint = this.baseMaxHealthPoint + this.maxHealthPointBonus;
+    }
+
+    public void SetInvulnerable(bool isInvulnerable)
+    {
+        this.isInvulnerable = isInvulnerable;
     }
 
     protected abstract void OnDead();

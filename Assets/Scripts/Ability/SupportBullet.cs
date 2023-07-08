@@ -17,7 +17,7 @@ public class SupportBullet : GameMonoBehaviour
         {
             rotation = transform.parent.rotation;
             rotation.eulerAngles = new Vector3(rotation.x, rotation.y, ang);
-            Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.Instance.Bullet4,transform.parent.position , rotation);
+            Transform newBullet = BulletSpawner.Instance.Spawn("CircleBullet",transform.parent.position , rotation);
             if (newBullet == null) return;
             newBullet.gameObject.SetActive(true);
             BulletCircle bulletCircle = newBullet.GetComponentInChildren<BulletCircle>();

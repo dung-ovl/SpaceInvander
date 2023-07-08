@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c45eeb9c50924c499a8ef2fc8df051c, type: 3}
   m_Name: Shield
   m_EditorClassIdentifier: 
-  name: Shield
   activeTime: 5
+  abilityCode: 2

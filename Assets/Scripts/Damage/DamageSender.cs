@@ -5,7 +5,11 @@ using UnityEngine;
 public class DamageSender : GameMonoBehaviour
 {
     [SerializeField] private float damage = 2f;
+
+
     [SerializeField] protected Vector3 hitPos;
+
+    public float Damage => damage;
     public Vector3 HitPos { get { return hitPos; } set { hitPos = value; } }
     public virtual void Send(Transform obj)
     {
@@ -32,5 +36,10 @@ public class DamageSender : GameMonoBehaviour
     protected virtual string GetImpactFXName()
     {
         return FXSpawner.Instance.Impact1;
+    }
+
+    public virtual void SetDamage(float damage)
+    {
+        this.damage = damage;
     }
 }
