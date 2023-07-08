@@ -11,6 +11,14 @@ public class GameManager : GameMonoBehaviour
     [SerializeField] Transform endPos;
     [SerializeField] Transform currentShipPlayer;
 
+    [SerializeField] Dictionary<float, int> timeCoint = new Dictionary<float, int>() { { 60, 300}, { 120 , 200}, { 180, 100}};
+
+    [SerializeField] int coint = 0;
+
+    private bool isEndlevelProcess = false;
+
+    public int Coint { get => coint; }
+
     private static GameManager instance;
 
     public static GameManager Instance { get => instance; }
@@ -18,7 +26,7 @@ public class GameManager : GameMonoBehaviour
     private float onLoseDelay = 1f;
     private float onLoseTimer = 0f;
     private float onWinDelay = 2f;
-    private float onWinTimer = 2f;
+    private float onWinTimer = 0f;
 
     private float scrollSpeed = 0.5f;
     protected override void Awake()
@@ -59,6 +67,7 @@ public class GameManager : GameMonoBehaviour
 
     private void Update()
     {
+        if (isEndlevelProcess) return;
         CheckOnWinLevel();
         CheckOnLoseLevel();
     }
@@ -76,6 +85,8 @@ public class GameManager : GameMonoBehaviour
         {
             currentShipPlayer.position = Vector2.MoveTowards(currentShipPlayer.position, startPos.position, 0.5f * Time.deltaTime);
             BackgroundManager.Instance.Backgrounds.SetScrollSpeed(scrollSpeed);
+            SliderSkill1.Intance.StartCountDown();
+            SliderSkill2.Intance.StartCountDown();
             yield return new WaitForEndOfFrame();
         }
         isStartUpDone = true;
@@ -113,6 +124,7 @@ public class GameManager : GameMonoBehaviour
                 return;
             }
             LevelOver();
+            isEndlevelProcess = true;
         }
        
     }
@@ -121,7 +133,7 @@ public class GameManager : GameMonoBehaviour
     {
         if (LevelManager.Instance.CurrentState == State.Completed)
         {
-            if (onWinTimer < onLoseDelay)
+            if (onWinTimer < onWinDelay)
             {
                 onWinTimer += Time.deltaTime;
                 return;
@@ -131,16 +143,38 @@ public class GameManager : GameMonoBehaviour
             BackgroundManager.Instance.Backgrounds.SetScrollSpeed(scrollSpeed);
             if (currentShipPlayer.position.y < endPos.position.y) return;
             LevelWin();
+            isEndlevelProcess = true;
         }
     }
 
     public void LevelWin()
     {
         MenuManager.Instance.SwitchCanvas(Menu.GAME_WIN);
+        foreach (var item in timeCoint)
+        {
+            if (Time.time < item.Key)
+            {
+                coint += item.Value;
+                break;
+            }
+            else
+            {
+                coint += 50;
+            }
+        }
+        DataLoaderAndSaver.Instance.PlayerData.coint += coint;
+        DataLoaderAndSaver.Instance.SaveData();
     }
 
     public void LevelOver()
     {
         MenuManager.Instance.SwitchCanvas(Menu.GAME_OVER);
+        DataLoaderAndSaver.Instance.PlayerData.coint += coint;
+        DataLoaderAndSaver.Instance.SaveData();
+    }
+
+    public void AddCoin(int coin)
+    {
+        coint += coin;
     }
 }

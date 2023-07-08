@@ -114,6 +114,11 @@ public class ShipSelection : GameMonoBehaviour
         this.SwitchShip();
     }
 
+    public void ResetIndex()
+    {
+        shipIndex = PlayerPrefs.GetInt("SelectedShip");
+    }
+
     public void SelectShip()
     {
         PlayerPrefs.SetInt("SelectedShip", shipIndex);

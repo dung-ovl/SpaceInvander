@@ -15,5 +15,8 @@ MonoBehaviour:
   enemyName: Junk
   dropList:
   - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
-    dropRate: 0
+    dropRate: 0.5
+  - itemSO: {fileID: 11400000, guid: 1ed4c8bfb787e8b45a4b214b150877ad, type: 2}
+    dropRate: 0.5
   maxHp: 150
+  coin: 20

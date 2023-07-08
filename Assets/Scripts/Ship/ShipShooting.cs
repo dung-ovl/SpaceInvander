@@ -169,7 +169,7 @@ public class ShipShooting : ShipAbstract
 
     public virtual void SetupShootSpeed(int speedPercentAdd = 0)
     {
-        this.shootDelay =  CalculateAttackSpeed(speedPercentAdd);
+        this.shootDelay = CalculateAttackSpeed(speedPercentAdd);
         this.shootTimer = shootDelay;
     }
 
@@ -182,10 +182,8 @@ public class ShipShooting : ShipAbstract
     {
         DamageSender damageSender = newBullet.GetComponentInChildren<DamageSender>();
         
-        Debug.Log("SettDamage");
         if (damageSender != null)
         {
-            Debug.Log("SetDamage");
             damageSender.SetDamage(this.damage);
         }
     }    

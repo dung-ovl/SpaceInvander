@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: E1Battlecruiser
   m_EditorClassIdentifier: 
   enemyName: Scout
+  dropList: []
   maxHp: 500
+  coin: 200
   type: 6

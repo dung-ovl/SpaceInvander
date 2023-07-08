@@ -22,6 +22,8 @@ public class SliderSkill2 : SliderSkill
     public override void StartCountDown()
     {
         base.StartCountDown();
-        this.timeRemain = GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipProfile.countDownSkill2;
+        Transform ship = GameCtrl.Instance.CurrentShip.transform;
+        if (ship == null) return;
+        this.timeRemain = ship.GetComponent<ShipController>().ShipProfile.countDownSkill2;
     }
 }

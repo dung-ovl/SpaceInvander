@@ -9,7 +9,10 @@ public class ShipController : GameMonoBehaviour
 
     [SerializeField] protected ShipShooting shipShooting;
     public ShipShooting ShipShooting => shipShooting;
- 
+
+    [SerializeField] protected ShipSubShooting shipSubShooting;
+    public ShipSubShooting ShipSubShooting => shipSubShooting;
+
     [SerializeField] protected ShipDamageReceiver shipDamageReceiver;
     public ShipDamageReceiver ShipDamageReceiver => shipDamageReceiver;
 
@@ -31,11 +34,19 @@ public class ShipController : GameMonoBehaviour
         base.LoadComponents();
         this.LoadShipMovement();
         this.LoadShipShooting();
+        this.LoadShipSubShooting();
         this.LoadShipDamageReceiver();
         this.LoadAbility();
         this.LoadShipProfile();
         this.LoadShipModel();
         this.LoadShipLevel();
+    }
+
+    private void LoadShipSubShooting()
+    {
+        if (this.shipSubShooting != null) return;
+        this.shipSubShooting = GetComponentInChildren<ShipSubShooting>();
+        Debug.Log(transform.name + ": LoadShipSubShooting", gameObject);
     }
 
     private void LoadShipLevel()

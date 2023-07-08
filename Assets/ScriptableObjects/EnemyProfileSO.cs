@@ -21,4 +21,6 @@ public class EnemyProfileSO : ScriptableObject
 		return enemyType.ToString();
 	}
 
+	public int coin = 10;
+
 }
