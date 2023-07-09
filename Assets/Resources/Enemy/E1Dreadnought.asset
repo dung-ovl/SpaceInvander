@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45a0fbbd9f30a884eb32ea0e46fe8810, type: 3}
-  m_Name: E1Battlecruiser
+  m_Name: E1Dreadnought
   m_EditorClassIdentifier: 
-  enemyName: Scout
+  enemyName: Dreadnought
   dropList: []
   maxHp: 1500
   coin: 200

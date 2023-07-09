@@ -15,6 +15,7 @@ public class WaveManager : GameMonoBehaviour
     [SerializeField] protected State currentState;
     [SerializeField] protected int amountOfUnit = 1;
     [SerializeField] protected string enemyName = "no-name";
+    [SerializeField] private float _unitSpeed = 2f;
 
     public State CurrentState => currentState;
     public bool isWaveSpawnComplete = false;
@@ -173,7 +174,7 @@ public class WaveManager : GameMonoBehaviour
         }
         while (!isFollowPathDone[index])
         {
-            distanceTravelled[index] += 2f * Time.deltaTime;
+            distanceTravelled[index] += _unitSpeed * Time.deltaTime;
             _spawnedUnits[index].position = path.path.GetPointAtDistance(distanceTravelled[index], EndOfPathInstruction.Stop);
             if (distanceTravelled[index] >= path.path.length)
             {

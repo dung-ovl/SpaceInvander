@@ -90,6 +90,7 @@ MonoBehaviour:
   currentState: 0
   amountOfUnit: 5
   enemyName: Asteroid
+  _unitSpeed: 2
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
 --- !u!1 &7964316298112794109

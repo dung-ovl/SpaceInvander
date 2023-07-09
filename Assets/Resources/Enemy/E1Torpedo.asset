@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45a0fbbd9f30a884eb32ea0e46fe8810, type: 3}
-  m_Name: E1Scout
+  m_Name: E1Torpedo
   m_EditorClassIdentifier: 
   enemyName: Scout
   dropList:
   - itemSO: {fileID: 11400000, guid: 1ed4c8bfb787e8b45a4b214b150877ad, type: 2}
-    dropRate: 0.1
+    dropRate: 0.3
   - itemSO: {fileID: 11400000, guid: ec633bcfa42c21242afed4e13e879735, type: 2}
-    dropRate: 0.1
+    dropRate: 0.2
   - itemSO: {fileID: 11400000, guid: 1080ea3cf4ee252469c851024326f02e, type: 2}
-    dropRate: 0.05
-  - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
     dropRate: 0.1
-  maxHp: 50
+  - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
+    dropRate: 0.2
+  maxHp: 250
   coin: 5

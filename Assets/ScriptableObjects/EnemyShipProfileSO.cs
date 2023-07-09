@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EnemyShipProfile", menuName = "ScriptableObject/EnemyShipProfile")]
 public class EnemyShipProfileSO : EnemyProfileSO
 {
-    public EnemyShipType type = EnemyShipType.NoType;
+    private EnemyShipType type = EnemyShipType.NoType;
     public override EnemyType EnemyType => EnemyType = EnemyType.Ship;
 
     public override string GetEnemyTypeName()
