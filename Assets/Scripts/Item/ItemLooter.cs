@@ -48,9 +48,9 @@ public class ItemLooter : ShipAbstract
         {
             this.ShipController.AbilityController.HealAbility.Active();
         }
-        if (itemCode == ItemCode.PowerUpItem)
+        if (itemCode == ItemCode.MissileItem)
         {
-            this.ShipController.AbilityController.PowerUpAbility.Active();
+            this.ShipController.AbilityController.FireMissileAbility.Active();
         }
         if (itemCode == ItemCode.LevelUpItem)
         {

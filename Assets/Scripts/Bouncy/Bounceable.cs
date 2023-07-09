@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class Bounceable : GameMonoBehaviour
 {
-    [SerializeField] protected SphereCollider circleCollider2;
-    public SphereCollider CircleCollider2 { get => circleCollider2; set => circleCollider2 = value; }
+    [SerializeField] protected CircleCollider2D circleCollider2;
+    public CircleCollider2D CircleCollider2D { get => circleCollider2; set => circleCollider2 = value; }
 
     public Vector3 startPos = new Vector3();
     protected override void LoadComponents()
@@ -18,25 +18,31 @@ public class Bounceable : GameMonoBehaviour
     protected virtual void LoadCircleCollider()
     {
         if (this.circleCollider2 != null) return;
-        this.circleCollider2 = GetComponent<SphereCollider>();
+        this.circleCollider2 = GetComponent<CircleCollider2D>();
         this.circleCollider2.radius = 0.1f;
         Debug.Log(transform.name + ": LoadCircleCollider", gameObject);
     }
 
-    protected virtual void OnTriggerEnter(Collider collider)
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         Left left = collider.GetComponent<Left>();
         Right right = collider.GetComponent<Right>();
         if (left != null)
         {
             if (CheckDistance(collider))
+            {
+                Debug.Log("Contain");
                 return;
+            }
             ColliderLeftWall();
         }
         else if (right != null)
         {
             if (CheckDistance(collider))
+            {
+                Debug.Log("Contain");
                 return;
+            }
             ColliderRightWall();
         }
         else
@@ -45,7 +51,7 @@ public class Bounceable : GameMonoBehaviour
         }
     }
 
-    protected virtual bool CheckDistance(Collider collider)
+    protected virtual bool CheckDistance(Collider2D collider)
     {
         return collider.bounds.Contains(startPos);
     }

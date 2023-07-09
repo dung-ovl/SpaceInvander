@@ -1,3 +1,4 @@
+using PathCreation;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ public class WaveManager : GameMonoBehaviour
 {
     [SerializeField] protected float startDelay = 2f;
     public float StartDelay => startDelay;
-    [SerializeField] protected bool isFollowPathDone = false;
-    [SerializeField] protected List<MovePath> _paths;
+    [SerializeField] protected List<PathCreator> _paths;
     [SerializeField] protected List<Transform> _spawnedUnits;
     [SerializeField] protected State currentState;
-    [SerializeField] protected int amountOfUnit = 7;
+    [SerializeField] protected int amountOfUnit = 1;
+    [SerializeField] protected string enemyName = "no-name";
 
     public State CurrentState => currentState;
     public bool isWaveSpawnComplete = false;
@@ -33,6 +34,7 @@ public class WaveManager : GameMonoBehaviour
     {
         this.CheckOnWaveCompleted();
         this.CheckOnAllUnitDead();
+        this.CheckIsWaveSpawnComplete();
     }
     protected override void LoadComponents()
     {
@@ -41,11 +43,11 @@ public class WaveManager : GameMonoBehaviour
     }
     private void LoadPaths()
     {
-        if (_paths.Count > 0) return;
+        if (_paths.Count > 0) _paths.Clear();
         Transform prefabsObj = transform.Find("MovePaths");
         foreach (Transform prefab in prefabsObj)
         {
-            this._paths.Add(prefab.GetComponent<MovePath>());
+            this._paths.Add(prefab.GetComponent<PathCreator>());
         }
         Debug.Log(transform.name + ": LoadPrefabs", gameObject);
     }
@@ -72,16 +74,17 @@ public class WaveManager : GameMonoBehaviour
     {
         yield return new WaitForSeconds(this.startDelay);
         StartCoroutine(this.SpawnEnemyRandom());
+
     }
 
-    protected Dictionary<MovePath, int> GetPathAndAmount(int posCount, int pathCount)
+    protected Dictionary<PathCreator, int> GetPathAndAmount(int posCount, int pathCount)
     {
         // calculate the number of times n can be divided equally among the elements of lst
         int amountDivided = posCount / pathCount;
         // calculate the remainder of the division
         int amountRemainder = posCount % pathCount;
         // create the dictionary
-        Dictionary<MovePath, int> movePaths = new Dictionary<MovePath, int>();
+        Dictionary<PathCreator, int> movePaths = new Dictionary<PathCreator, int>();
         for (int i = 0; i < pathCount; i++)
         {
             int value = amountDivided;
@@ -100,7 +103,7 @@ public class WaveManager : GameMonoBehaviour
         int posCount = this.amountOfUnit; // example integer
         int pathCount = this._paths.Count;
         // create the dictionary
-        Dictionary<MovePath, int> movePaths = this.GetPathAndAmount(posCount, pathCount);
+        Dictionary<PathCreator, int> movePaths = this.GetPathAndAmount(posCount, pathCount);
         while (movePaths.Count > 0)
         {
             var ramdomPath = movePaths.ElementAt(Random.Range(0, movePaths.Count));
@@ -118,18 +121,21 @@ public class WaveManager : GameMonoBehaviour
         this.isWaveSpawnComplete = true;
     }
 
-    protected virtual bool SpawnEnemyInPath(MovePath movePath)
+    protected virtual bool SpawnEnemyInPath(PathCreator movePath)
     {
-        Vector3 spawnPos = movePath.Points[0].transform.position;
-        string enemyName = EnemySpawner.Instance.E1Scout;
+        Vector3 spawnPos = movePath.path.GetPoint(0);
         Quaternion enemyRot = Quaternion.Euler(0, 0, 0);
         Transform newEnemy = EnemySpawner.Instance.Spawn(enemyName, spawnPos, enemyRot);
         if (newEnemy == null) return false;
         if (!this._spawnedUnits.Contains(newEnemy))
         {
             this._spawnedUnits.Add(newEnemy);
+            this.distanceTravelled.Add(0);
+            this.isFollowPathDone.Add(false);
         }
         newEnemy.gameObject.SetActive(true);
+
+        StartCoroutine(MoveOnPath(newEnemy, movePath));
         return true;
     }
 
@@ -139,10 +145,42 @@ public class WaveManager : GameMonoBehaviour
         if (!this.isWaveSpawnComplete) return;
         foreach (var spawnedUnit in this._spawnedUnits)
         {
-            if (!EnemySpawner.Instance.CheckObjectInPool(spawnedUnit)) return;
+            if (!EnemySpawner.Instance.CheckObjectInPool(spawnedUnit))
+                return;
         }
         this._spawnedUnits.Clear();
         this.isAllSpawnedUnitsDead = true;
+    }
+
+    protected void CheckIsWaveSpawnComplete()
+    {
+        if (this._spawnedUnits.Count == amountOfUnit)
+        {
+            isWaveSpawnComplete = true;
+        }
+    }
+
+    protected List<float> distanceTravelled = new List<float>();
+    protected List<bool> isFollowPathDone = new List<bool>();
+    protected IEnumerator MoveOnPath(Transform unit, PathCreator path)
+    {
+        int index = _spawnedUnits.IndexOf(unit);
+        // create the dictionary
+        if (path.path.length <= 0)
+        {
+            isFollowPathDone[index] = true;
+            yield break;
+        }
+        while (!isFollowPathDone[index])
+        {
+            distanceTravelled[index] += 2f * Time.deltaTime;
+            _spawnedUnits[index].position = path.path.GetPointAtDistance(distanceTravelled[index], EndOfPathInstruction.Stop);
+            if (distanceTravelled[index] >= path.path.length)
+            {
+                isFollowPathDone[index] = true;
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 
 }

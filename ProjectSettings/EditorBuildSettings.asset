@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PhucScenes.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 7505977d50ae32f4fa00e8d389d93d34
+  - enabled: 1
+    path: Assets/Scenes/PackupScene.unity
+    guid: 715ebdae843e8f84aa78ad9dfdb55860
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 6d2bf706d47a6174591cf97d53ac4a08
   m_configObjects: {}

@@ -6,4 +6,5 @@ public enum EnemyShipType
 {
     NoType = 0,
     Scout = 1,
+    Battlecruiser = 6,
 }

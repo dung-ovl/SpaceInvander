@@ -7,7 +7,7 @@ public class BulletMissile : GameMonoBehaviour
     
     bool isTarget = false;
 
-    [SerializeField] protected float rotSpeed;
+    [SerializeField] protected float rotSpeed = 7f;
     public float RotSpeed => rotSpeed;
 
     [SerializeField] protected Transform target;
@@ -22,10 +22,9 @@ public class BulletMissile : GameMonoBehaviour
     protected override void OnEnable()
     {
         base.OnEnable();
-        this.rotSpeed = 5f;
         this.isTarget = true;
         end = transform.parent.position;
-        Invoke("SetIsTarget", 1);
+        Invoke("SetIsTarget", time);
     }
 
     protected virtual void FixedUpdate()

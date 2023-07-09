@@ -18,7 +18,7 @@ public class GameMonoBehaviour : MonoBehaviour
 
     protected virtual void OnEnable()
     {
-
+        this.ResetValue();
     }
 
     protected virtual void Start()

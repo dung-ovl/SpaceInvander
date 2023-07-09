@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,8 +13,14 @@ public class LevelManager : GameMonoBehaviour
 
     private State currentState = State.NotStarted;
 
+    public State CurrentState { get => currentState; }
+
     private static LevelManager instance;
     public static LevelManager Instance { get => instance; }
+
+    public int CurrentWaveIndex { get => currentWaveIndex; }
+
+    public int MaxWave { get => waves.Count; }
 
     protected override void Awake()
     {
@@ -20,11 +28,26 @@ public class LevelManager : GameMonoBehaviour
         LevelManager.instance = this;
     }
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        this.LoadWaves();
+    }
+
+    private void LoadWaves()
+    {
+        if (waves.Count > 0) return;
+        foreach (Transform wave in transform)
+        {
+            wave.gameObject.SetActive(false);
+            this.waves.Add(wave.transform.GetComponent<WaveManager>());
+        }
+        Debug.Log(transform.name + ": LoadWaves", gameObject);
+    }
 
     protected override void Start()
     {
         base.Start();
-        this.StartLevel();
     }
 
     void Update()
@@ -54,7 +77,7 @@ public class LevelManager : GameMonoBehaviour
     }
 
 
-    private void StartLevel()
+    public void StartLevel()
     {
         if (currentState == State.NotStarted)
         {

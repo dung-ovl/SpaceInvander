@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveNotification : GameMonoBehaviour
@@ -11,7 +12,7 @@ public class WaveNotification : GameMonoBehaviour
 
     [SerializeField] private float timeShow = 2f;
 
-    [SerializeField] private TextMeshProUGUI textGUI;
+    [SerializeField] private TMP_Text textGUI;
 
     [SerializeField] private string TextGeneral = "wave 0/0" ;
 
@@ -24,10 +25,15 @@ public class WaveNotification : GameMonoBehaviour
         WaveNotification.instance = this;
     }
 
-    public void Update()
+    protected void Update()
     {
         this.textGUI.text = TextGeneral;
+        if (currentTextWave <=0 )
+        {
+            TextGeneral = "Ready to start";
+        }
     }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -42,7 +48,7 @@ public class WaveNotification : GameMonoBehaviour
     private void LoadTextMeshPro()
     {
         if (textGUI != null) return;
-        this.textGUI = GetComponentInChildren<TextMeshProUGUI>();
+        this.textGUI = transform.GetComponentInChildren<TMP_Text>();
         Debug.Log(transform.name + ": LoadTextMeshPro", gameObject);
     }
 

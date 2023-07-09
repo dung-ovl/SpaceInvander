@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LaserBeam 
 {
-    RaycastHit oldhit;
-    RaycastHit newHit;
+    RaycastHit2D oldhit;
+    RaycastHit2D newHit;
     GameObject laserObj;
     LineRenderer lineRenderer;
     DamageSender damageSender;
@@ -17,10 +17,11 @@ public class LaserBeam
         this.lineRenderer = new LineRenderer();
         this.laserObj = new GameObject();
         this.laserObj.name = laserName;
+        this.laserObj.tag = "LaserLine";
         this.lineRenderer = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
-        this.lineRenderer.startWidth = 0.05f;
-        this.lineRenderer.endWidth = 0.05f;
-        lineRenderer.material = new Material(Shader.Find("Legacy Shaders/Particles/Alpha Blended Premultiply"));
+        this.lineRenderer.startWidth = 0.1f;
+        this.lineRenderer.endWidth = 0.1f;
+        lineRenderer.material = Resources.Load<Material>("Material/ShaderLaser");
         this.lineRenderer.startColor = Color.red;
         this.lineRenderer.endColor = Color.red;
         this.lineRenderer.sortingLayerName = "Bullet";
@@ -34,13 +35,12 @@ public class LaserBeam
         if (oldhit.collider != null)
         {
             oldhit.collider.enabled = false;
-            //newHit = Physics2D.Raycast(pos, dir, 20f);
-            Physics.Raycast(ray, out newHit, 30, 1);
+            newHit = Physics2D.Raycast(pos, dir, 20f);
             oldhit.collider.enabled = true;
         }
         else
         {
-            Physics.Raycast(ray, out newHit, 30, 1);
+            newHit = Physics2D.Raycast(pos, dir, 20f);
         }
         if (newHit.collider != null)
         {
@@ -65,7 +65,7 @@ public class LaserBeam
         }
     }
 
-    void CheckHit(RaycastHit raycast, Vector3 dir, LineRenderer lineRenderer)
+    void CheckHit(RaycastHit2D raycast, Vector3 dir, LineRenderer lineRenderer)
     {
         if (raycast.collider.gameObject.tag == "Wall")
         {

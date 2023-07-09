@@ -1,6 +1,8 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShipShooting : ShipAbstract
@@ -8,17 +10,25 @@ public class ShipShooting : ShipAbstract
     [Header("ShipShooting")]
     [SerializeField] protected bool isShooting = true;
     public int numberLaser;
+    public int currentLaser;
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
+    [SerializeField] protected float damage = 1f;
     [SerializeField] protected List<Transform> shipShootPoints;
     [SerializeField] string bulletName = "no-name";
 
-    public List<String> bulletNames = new List<string>();
+    public List<ShipPointLevelInfo> bulletNames = new List<ShipPointLevelInfo>();
 
     protected override void ResetValue()
     {
         base.ResetValue();
-        this.SetupShootSpeed();  
+        this.SetupShootSpeed();
+        this.SetupDamage();
+    }
+
+    protected virtual void SetupDamage()
+    {
+        this.damage = shipController.ShipProfile.mainDamage;
     }
 
     protected override void Start()
@@ -30,19 +40,14 @@ public class ShipShooting : ShipAbstract
 
     protected virtual void LoadBulletName()
     {
-        this.bulletNames = ShipController.ShipProfile.bulletList;
+        this.bulletNames = ShipController.ShipProfile.mainBulletList;
         numberLaser = 0;
-        foreach (string name in this.bulletNames)
-        {
-            if (name == "Laser")
-                numberLaser++;
-        }
+        currentLaser = 0;
     }
 
     private void Update()
     {
         this.Shooting();
-        this.OnShootingAnimation();
     }
 
     private void FixedUpdate()
@@ -50,16 +55,16 @@ public class ShipShooting : ShipAbstract
         this.LoadCurrentShootPoints();
     }
 
-    private void LoadCurrentShootPoints()
+    protected virtual void LoadCurrentShootPoints()
     {
-        Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipShootPointObj();
+        Transform currentShootPointObj = this.shipController.ShipModel.ShipShootPoint.CurrentShipMainShootPointObj();
         this.shipShootPoints.Clear();
         foreach (Transform shootPoint in currentShootPointObj)
         {
             this.shipShootPoints.Add(shootPoint);
         }
     }
-    
+
     protected virtual void Shooting()
     {
         if (this.shipShootPoints.Count <= 0)
@@ -70,6 +75,20 @@ public class ShipShooting : ShipAbstract
         this.ShootingWithShootPoint();
     }
 
+    protected virtual int CalculateShootPointIndex()
+    {
+        int index = this.ShipController.ShipLevel.LevelCurrent - 1;
+        if (index < 0)
+        {
+            index = 0;
+        }
+        else if (index >= bulletNames.Count)
+        {
+            index = bulletNames.Count - 1;
+        }
+        return index;
+    }
+
     protected virtual void ShootingWithShootPoint()
     {
         if (!this.isShooting) return;
@@ -77,31 +96,46 @@ public class ShipShooting : ShipAbstract
         if (shootTimer < shootDelay) return;
         shootTimer = 0;
         int count = 0;
+        int index = CalculateShootPointIndex();
+        List<ShipPointInfo> shipPointInfo = bulletNames[index].Levels;
+        numberLaser = 0;
+        foreach (ShipPointInfo temp in shipPointInfo)
+        {
+            if (temp.Name == "Laser")
+                numberLaser++;    
+        }    
         foreach (Transform shootPoint in shipShootPoints)
         {
             Vector3 spawnPos = shootPoint.position;
-            Quaternion rotation = shootPoint.rotation;
-            if (this.bulletNames[count] != BulletSpawner.Instance.BulletThree)
+            Quaternion rotation = Quaternion.Euler(shootPoint.rotation.eulerAngles.x, shootPoint.rotation.eulerAngles.y, shipPointInfo[count].Rot);
+            string bulletName = shipPointInfo[count].Name;
+            
+            if (bulletName != BulletSpawner.Instance.BulletThree)
             {
-                Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletNames[count], spawnPos, rotation);
+                Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                 if (newBullet == null) return;
+                this.SetDamage(newBullet);
                 newBullet.gameObject.SetActive(true);
+
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
-                Debug.Log("Shoot");
             }
             else
             {
-                if (numberLaser >= 1)
+                if (currentLaser < numberLaser)
                 {
-                    Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletNames[count], spawnPos, rotation);
+                    Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                     if (newBullet == null) return;
                     newBullet.gameObject.SetActive(true);
+
+                    this.SetDamage(newBullet);
+
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                    bulletLaser.laserName = "laser" + numberLaser;
+                    bulletLaser.laserName = "laser" + currentLaser;
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
-                    numberLaser--;
+                    bulletLaser.Rot = shipPointInfo[count].Rot;
+                    currentLaser++;
                 }
             }
             count++;
@@ -123,7 +157,7 @@ public class ShipShooting : ShipAbstract
     }
 
 
-    protected virtual void OnShootingAnimation()
+/*    protected virtual void OnShootingAnimation()
     {
         if (!this.isShooting)
         {
@@ -131,11 +165,26 @@ public class ShipShooting : ShipAbstract
             return;
         }
         shipController.ShipModel.WeaponAnimator.SetBool("isShooting", true);
-    }
+    }*/
 
     public virtual void SetupShootSpeed(int speedPercentAdd = 0)
     {
-        this.shootDelay = shipController.ShipProfile.attackSpeed * (100f/(100 + speedPercentAdd));
+        this.shootDelay = CalculateAttackSpeed(speedPercentAdd);
         this.shootTimer = shootDelay;
     }
+
+    public virtual float CalculateAttackSpeed(int speedPercentAdd)
+    {
+        return shipController.ShipProfile.mainAttackSpeed * (100f / (100 + speedPercentAdd));
+    }
+
+    public virtual void SetDamage(Transform newBullet)
+    {
+        DamageSender damageSender = newBullet.GetComponentInChildren<DamageSender>();
+        
+        if (damageSender != null)
+        {
+            damageSender.SetDamage(this.damage);
+        }
+    }    
 }

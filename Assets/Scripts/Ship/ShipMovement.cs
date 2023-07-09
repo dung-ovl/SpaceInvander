@@ -22,7 +22,7 @@ public class ShipMovement : ObjFollowMouse
         Debug.Log(transform.name + ": LoadShipController", gameObject);
     }
 
-    protected virtual void OnMovingAnimation()
+/*    protected virtual void OnMovingAnimation()
     {
         if (this.isMoving)
         {
@@ -30,7 +30,7 @@ public class ShipMovement : ObjFollowMouse
             return;
         }
         shipController.ShipModel.EngineAnimator.SetBool("isMoving", false);
-    }
+    }*/
 
     protected override void GetTargetPosition()
     {

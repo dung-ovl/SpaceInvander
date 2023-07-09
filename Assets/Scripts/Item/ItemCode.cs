@@ -7,6 +7,6 @@ public enum ItemCode
     NoItem = 0,
     HealItem = 1,
     ShieldItem = 2,
-    PowerUpItem = 3,
-    LevelUpItem = 4,
+    LevelUpItem = 3,
+    MissileItem = 4,
 }
