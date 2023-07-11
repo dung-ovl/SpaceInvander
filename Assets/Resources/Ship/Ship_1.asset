@@ -20,7 +20,7 @@ MonoBehaviour:
   mainAttackSpeed: 0.15
   mainBulletList:
   - Levels:
-    - Name: Ship_1_MainBullet_1
+    - Name: Laser
       Rot: 0
   - Levels:
     - Name: Ship_1_MainBullet_1
@@ -95,3 +95,5 @@ MonoBehaviour:
       Rot: 0
     - Name: Ship_1_SubBullet_1
       Rot: 0
+  countDownSkill1: 10
+  countDownSkill2: 10

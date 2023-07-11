@@ -10757,6 +10757,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1925971885}
   m_CullTransparentMesh: 1
+--- !u!4 &1926157833 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2874439158423679663, guid: 1b740048dd430c740bbce4312f84da0d, type: 3}
+  m_PrefabInstance: {fileID: 1468979588}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947402817
 GameObject:
   m_ObjectHideFlags: 0
@@ -11756,6 +11761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2023980519}
   - component: {fileID: 2023980520}
+  - component: {fileID: 2023980521}
   m_Layer: 5
   m_Name: Skill2
   m_TagString: Untagged
@@ -11836,6 +11842,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2023980521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023980518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f6a1fdd66717374a9ff309a01e6b338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2023980520}
+  countDown: {fileID: 459012892}
+  isCountDown: 0
+  timeRemain: 0
 --- !u!1 &2044228246
 GameObject:
   m_ObjectHideFlags: 0
@@ -12051,6 +12073,8 @@ GameObject:
   - component: {fileID: 2098112994}
   - component: {fileID: 2098112996}
   - component: {fileID: 2098112995}
+  - component: {fileID: 2098112998}
+  - component: {fileID: 2098112997}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -12116,6 +12140,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098112993}
   m_CullTransparentMesh: 1
+--- !u!114 &2098112997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098112993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0314f05a61284ae4a880920898be69fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2098112998}
+--- !u!114 &2098112998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098112993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2098112995}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2104418753
 GameObject:
   m_ObjectHideFlags: 0
@@ -12270,7 +12351,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146440455}
   - component: {fileID: 2146440457}
-  - component: {fileID: 2146440456}
+  - component: {fileID: 2146440458}
   m_Layer: 5
   m_Name: Skill1
   m_TagString: Untagged
@@ -12300,22 +12381,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 84.3031, y: 84.3031}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2146440456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146440454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc211ec23bd27aa41969107d6a4ad106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slider: {fileID: 2146440457}
-  countDown: {fileID: 0}
-  isCountDown: 0
-  timeRemain: 0
 --- !u!114 &2146440457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12367,6 +12432,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2146440458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146440454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e44912c0efceb79429c9aed7eb635f5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 2146440457}
+  countDown: {fileID: 863925705}
+  isCountDown: 0
+  timeRemain: 0
 --- !u!1001 &147214269792542970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12549,6 +12630,10 @@ PrefabInstance:
     - target: {fileID: 147214269834548307, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_Name
       value: BulletSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 147214270051371490, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: m_TagString
+      value: LaserLine
       objectReference: {fileID: 0}
     - target: {fileID: 147214270898951081, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_IsActive
@@ -13089,7 +13174,7 @@ PrefabInstance:
     - target: {fileID: 6515363288461661524, guid: 25226d62db365a84086cdad8fe83d5cb, type: 3}
       propertyPath: prefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 178390296}
+      objectReference: {fileID: 1926157833}
     - target: {fileID: 6515363288461661527, guid: 25226d62db365a84086cdad8fe83d5cb, type: 3}
       propertyPath: m_RootOrder
       value: 1

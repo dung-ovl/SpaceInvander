@@ -9,15 +9,15 @@ public class BtnSkillShield : BaseButton
         if (SliderSkill2.Intance.isCountDown) return;
         Debug.Log("Skill Shield Click");
         SliderSkill2.Intance.StartCountDown();
-        PowerUpAbility powerUpAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<PowerUpAbility>();
-        if (powerUpAbility != null)
+        ShieldAbility shieldAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<ShieldAbility>();
+        if (shieldAbility != null)
         {
-            powerUpAbility.Active();
+            shieldAbility.Active();
             Debug.Log("active power");
         }
         else
         {
-            Debug.LogError("Can not get PowerUpAbility");
+            Debug.LogError("Can not get ShieldAbility");
         }
     }
 }
