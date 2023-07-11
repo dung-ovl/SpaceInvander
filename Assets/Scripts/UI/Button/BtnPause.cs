@@ -6,6 +6,7 @@ public class BtnPause : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
         MenuManager.Instance.SwitchCanvas(Menu.PAUSE);
     }
 }

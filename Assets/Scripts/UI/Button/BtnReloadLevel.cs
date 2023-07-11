@@ -7,6 +7,7 @@ public class BtnReloadLevel : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
        AsyncLevelLoader.Instance.LoadLevel(SceneManager.GetActiveScene().name);
     }
 }

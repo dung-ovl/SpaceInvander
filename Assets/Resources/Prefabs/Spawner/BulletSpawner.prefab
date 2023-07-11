@@ -323,7 +323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d70c385988cdd1846ad940f386c24728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 0.7
   direction: {x: 0, y: 1, z: 0}
 --- !u!1 &471913076
 GameObject:
@@ -1206,7 +1206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1330173087
 Transform:
   m_ObjectHideFlags: 0
@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7892eeff2f3649b4889f451cb50ed024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 0
+  rotSpeed: 7
   target: {fileID: 0}
   isAiming: 1
   end: {x: 0, y: 0, z: 0}
@@ -2004,14 +2004,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletController: {fileID: 915790756}
-  timeCount: 1
+  timeCount: 0
   timesSeparation: 1
-  quantityOfEachTimes: 0
+  quantityOfEachTimes: 2
   baseQuantity: 2
-  timeWait: 0
+  timeWait: 0.1
   angleSeparation: 10
   isSeparating: 1
   parent: {fileID: 0}
+  nameChild: Ship_3_MainBullet_1
 --- !u!1 &2044228246
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,7 +2467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e458b3b0294684bbcaaea413312f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disLimit: 5
+  disLimit: 2
   distance: 0
 --- !u!1 &147214269221576822
 GameObject:
@@ -2699,7 +2700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7892eeff2f3649b4889f451cb50ed024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 0
+  rotSpeed: 7
   target: {fileID: 0}
   isAiming: 1
   end: {x: 0, y: 0, z: 0}

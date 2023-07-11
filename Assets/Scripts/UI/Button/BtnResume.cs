@@ -6,6 +6,7 @@ public class BtnResume : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
         MenuManager.Instance.HideMenus();
     }
 

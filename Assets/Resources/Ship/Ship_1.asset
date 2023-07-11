@@ -84,6 +84,7 @@ MonoBehaviour:
       Rot: 0
     - Name: Ship_1_MainBullet_1
       Rot: 0
+  BulletSound: Ship1MainBullet
   subDamage: 10
   subAttackSpeed: 1.5
   subBulletList:
@@ -95,5 +96,6 @@ MonoBehaviour:
       Rot: 0
     - Name: Ship_1_SubBullet_1
       Rot: 0
+  SubBulletSound: Ship1SubBullet
   countDownSkill1: 10
   countDownSkill2: 10

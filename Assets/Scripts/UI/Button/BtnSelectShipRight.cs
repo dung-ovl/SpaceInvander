@@ -6,6 +6,7 @@ public class BtnSelectShipRight : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
         ShipSelection.Instance.NextShip();
     }
 }

@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ShipSubShooting : ShipShooting
 {
+
+    protected override void LoadBulletSound()
+    {
+        this.bulletSoundName = ShipController.ShipProfile.SubBulletSound;
+    }
     override protected void LoadBulletName()
     {
         this.bulletNames = ShipController.ShipProfile.subBulletList;

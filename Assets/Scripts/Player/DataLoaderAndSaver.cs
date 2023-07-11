@@ -9,6 +9,10 @@ public class DataLoaderAndSaver : GameMonoBehaviour
 
     public PlayerData PlayerData => playerData;
 
+    private int currentLevel;
+
+    public int CurrentLevel => currentLevel;
+
     static DataLoaderAndSaver instance;
 
     public static DataLoaderAndSaver Instance
@@ -40,6 +44,7 @@ public class DataLoaderAndSaver : GameMonoBehaviour
         {
             Destroy(this);
         }
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void LoadPlayerData()
@@ -51,5 +56,10 @@ public class DataLoaderAndSaver : GameMonoBehaviour
     public void SaveData()
     {
         SaveSystem.SavePlayer(playerData);
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        this.currentLevel = level;
     }
 }
