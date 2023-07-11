@@ -21,6 +21,6 @@ MonoBehaviour:
   - itemSO: {fileID: 11400000, guid: 1080ea3cf4ee252469c851024326f02e, type: 2}
     dropRate: 0.05
   - itemSO: {fileID: 11400000, guid: 552c18a1139327243b23b23209a0b0e4, type: 2}
-    dropRate: 0.05
+    dropRate: 0.1
   maxHp: 50
-  type: 1
+  coin: 5

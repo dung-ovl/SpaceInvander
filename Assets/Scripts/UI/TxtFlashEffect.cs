@@ -7,8 +7,6 @@ public class TxtFlashEffect : GameMonoBehaviour
 {
     [SerializeField] private TMP_Text MainText;
 
-
-
     protected override void LoadComponents()
     {
         MainText = GetComponent<TMP_Text>();

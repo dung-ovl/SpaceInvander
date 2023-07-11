@@ -16,7 +16,7 @@ MonoBehaviour:
   maxHeath: 125
   shieldTimeUp: 2
   powerTimeUp: 1
-  mainDamage: 7
+  mainDamage: 12
   mainAttackSpeed: 0.15
   mainBulletList:
   - Levels:
@@ -67,3 +67,5 @@ MonoBehaviour:
       Rot: 60
     - Name: Ship_3_SubBullet_1
       Rot: -60
+  countDownSkill1: 10
+  countDownSkill2: 10

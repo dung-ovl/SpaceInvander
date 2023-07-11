@@ -25,6 +25,7 @@ public class EnemyDamageReceiver : DamageReceiver
     {
         this.OnDeadFX();
         this.enemyController.EnemyDespawn.DespawnObject();
+        GameManager.Instance.AddCoin(this.enemyController.EnemyProfile.coin);
         DropOnDead();
     }
 

@@ -6,6 +6,7 @@ public class BtnSelectShipMenu : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
         MenuManager.Instance.SwitchCanvas(Menu.SHIP_SELECTION);
     }
 }

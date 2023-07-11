@@ -6,6 +6,7 @@ public class BtnMainMenu : BaseButton
 {
     protected override void OnClick()
     {
+        base.OnClick();
         MenuManager.Instance.SwitchCanvas(Menu.MAIN_MENU);
     }
 }

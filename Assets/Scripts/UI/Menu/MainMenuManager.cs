@@ -8,4 +8,12 @@ public class MainMenuManager : MenuController
     {
         this.menuType = Menu.MAIN_MENU;
     }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        ShipSelection.Instance.ResetIndex();
+        ShipSelection.Instance.SwitchShip();
+
+    }
 }

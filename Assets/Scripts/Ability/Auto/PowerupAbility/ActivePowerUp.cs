@@ -8,6 +8,7 @@ public class ActivePowerUp : ActiveSustentiveAbility
     {
         base.Activating();
         this.SustentiveAbility.AbilityController.ShipController.ShipShooting.SetupShootSpeed(100);
+        this.SustentiveAbility.AbilityController.ShipController.ShipSubShooting.SetupShootSpeed(100);
         Debug.Log("active Powerup");
     }
 
@@ -15,5 +16,6 @@ public class ActivePowerUp : ActiveSustentiveAbility
     {
         base.DisableActivating();
         this.SustentiveAbility.AbilityController.ShipController.ShipShooting.SetupShootSpeed();
+        this.SustentiveAbility.AbilityController.ShipController.ShipSubShooting.SetupShootSpeed();
     }
 }

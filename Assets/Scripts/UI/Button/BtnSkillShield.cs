@@ -13,7 +13,7 @@ public class BtnSkillShield : BaseButton
         if (shieldAbility != null)
         {
             shieldAbility.Active();
-            Debug.Log("active power");
+            Debug.Log("active shild");
         }
         else
         {

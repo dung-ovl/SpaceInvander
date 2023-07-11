@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class EnemyShootingBullet1 : EnemyShootingBullet
 {
+
+
     protected override void Shooting()
     {
         shootTimer += Time.deltaTime;
@@ -15,14 +17,16 @@ public class EnemyShootingBullet1 : EnemyShootingBullet
         float angleStep = Math.Abs(endAngle - startAngle) / bulletAmount;
         float angle = startAngle;
 
-        
-        for (int i = 0; i < bulletAmount + 1; i++)
+
+
+        for (int j = 0; j < bulletAmount + 1; j++)
         {
             float rot = CalculateRot(angle);
             this.ShootingWithDirection(transform.parent.position, transform.parent.rotation * Quaternion.Euler(0, 0, rot));
 
             angle += angleStep;
         }
+
     }
 
 }

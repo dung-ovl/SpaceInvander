@@ -8,14 +8,10 @@ public class ShipSelectMenuManager : MenuController
     {
         this.menuType = Menu.SHIP_SELECTION;
     }
-
-    public void OnShipSelected(int shipIndex)
-    {
-        /*GameManager.Instance.SetShipIndex(shipIndex);
-        GameManager.Instance.StartGame();*/
-    }
     public void OnBackButtonPressed()
     {
         MenuManager.Instance.SwitchCanvas(Menu.MAIN_MENU);
     }
+
+
 }
