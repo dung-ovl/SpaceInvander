@@ -1369,12 +1369,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBossBehaviour: {fileID: 990285537}
   isActive: 0
-  shootDelay: 0.2
+  shootDelay: 0.4
   shootTimer: 0
   startAngle: 0
   endAngle: 360
   bulletAmount: 10
-  amount: 4
+  bulletArray: 8
+  bulletEachArray: 2
 --- !u!1 &318752721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2207,9 +2208,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 467325635}
-  - component: {fileID: 467325634}
+  - component: {fileID: 1178840834}
   m_Layer: 0
-  m_Name: ShootingBullet1
+  m_Name: ShootingBullet3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2230,7 +2231,7 @@ Transform:
   m_Father: {fileID: 1057705559}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &467325634
+--- !u!114 &1178840834
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2239,12 +2240,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 467325633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db126637ae70a9a409884c1b524dbe1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 553e3535c547ad7458a6bbd3d01602c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyBossBehaviour: {fileID: 1057705560}
   isActive: 0
-  shootDelay: 0.5
+  shootDelay: 1
   shootTimer: 0
   startAngle: 180
   endAngle: 360
@@ -3868,12 +3869,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBossBehaviour: {fileID: 1057705560}
   isActive: 0
-  shootDelay: 0.1
+  shootDelay: 0.3
   shootTimer: 0
   startAngle: 180
   endAngle: 0
   bulletAmount: 10
-  amount: 1
+  bulletArray: 3
+  bulletEachArray: 3
 --- !u!1 &858552804
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,7 +4647,7 @@ MonoBehaviour:
   speedDownwards: 0.5
   speedOscillates: 0.1
   behaviours:
-  - {fileID: 467325634}
+  - {fileID: 1178840834}
   - {fileID: 854352966}
 --- !u!1 &1066389751
 GameObject:
@@ -6817,7 +6819,7 @@ MonoBehaviour:
   _minesHolder:
   - {fileID: 1837361092}
   - {fileID: 1991107734}
-  shootDelay: 0.75
+  shootDelay: 0.9
   shootTimer: 0
 --- !u!1 &1537653359
 GameObject:
@@ -7680,11 +7682,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyBossBehaviour: {fileID: 990285537}
   isActive: 0
-  shootDelay: 1
+  shootDelay: 1.2
   shootTimer: 0
-  startAngle: 0
+  startAngle: 180
   endAngle: 360
-  bulletAmount: 50
+  bulletAmount: 30
 --- !u!1 &1772858134
 GameObject:
   m_ObjectHideFlags: 0
@@ -8293,7 +8295,8 @@ MonoBehaviour:
   startAngle: 0
   endAngle: 360
   bulletAmount: 10
-  amount: 4
+  bulletArray: 1
+  bulletEachArray: 1
 --- !u!1 &1853505421
 GameObject:
   m_ObjectHideFlags: 0
@@ -12911,7 +12914,8 @@ MonoBehaviour:
   startAngle: 180
   endAngle: 0
   bulletAmount: 10
-  amount: 1
+  bulletArray: 1
+  bulletEachArray: 1
 --- !u!1 &7138915811366816057
 GameObject:
   m_ObjectHideFlags: 0

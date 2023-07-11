@@ -4034,12 +4034,12 @@ MonoBehaviour:
   musicSounds:
   - name: MenuMusic
     clip: {fileID: 8300000, guid: f907e49f8035b654692edd91a0059ab6, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     source: {fileID: 0}
   - name: GamePlay
     clip: {fileID: 8300000, guid: 16d4878ff791d5849bcc3caa444d0313, type: 3}
-    volume: 0.1
+    volume: 0.05
     pitch: 1
     source: {fileID: 0}
   sfxSounds:
@@ -4070,7 +4070,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Hit
     clip: {fileID: 8300000, guid: 5a4af8c40d9368e488f1d45981f72d72, type: 3}
-    volume: 0.05
+    volume: 0.02
     pitch: 2
     source: {fileID: 0}
   - name: Ship1MainBullet
