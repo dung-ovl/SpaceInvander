@@ -17,7 +17,7 @@ public class BtnSkillShield : BaseButton
         }
         else
         {
-            Debug.LogError("Can not get PowerUpAbility");
+            Debug.LogError("Can not get ShieldAbility");
         }
     }
 }
