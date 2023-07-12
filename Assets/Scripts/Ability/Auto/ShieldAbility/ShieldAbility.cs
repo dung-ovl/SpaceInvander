@@ -16,6 +16,13 @@ public class ShieldAbility : SustentiveAbility
         this.LoadRigibody();
     }
 
+    protected override void Start()
+    {
+        this.baseCooldownValue = this.abilityController.ShipController.ShipProfile.countDownSkill2;
+        base.Start();
+
+    }
+
     protected override void ResetValue()
     {
         base.ResetValue();

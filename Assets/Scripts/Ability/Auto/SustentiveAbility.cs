@@ -17,12 +17,31 @@ public class SustentiveAbility : Ability
     [SerializeField] protected float baseTimeExists = 5f;
     public float BaseTimeExists { get { return baseTimeExists; }}
 
-    [SerializeField] protected float bonusTimeExists;
+    [SerializeField] protected float bonusTimeExists = 0f;
     public float BonusTimeExists { get { return bonusTimeExists; } set { bonusTimeExists = value; } }
 
     [SerializeField] protected float timeRemains = 0;
     public float TimeRemains { get { return timeRemains; } set { timeRemains = value; } }
 
+    [SerializeField] protected float cooldownValue;
+
+    public float CooldownValue => cooldownValue;
+
+    [SerializeField] protected float cooldownValueBonus = 0f;
+
+    public float CooldownValueBonus => cooldownValueBonus;
+
+    [SerializeField] protected float baseCooldownValue;
+
+    public float BaseCooldownValue => baseCooldownValue;
+
+
+    protected override void Start()
+    {
+        base.Start();
+        SetupCooldown();
+        SetupTimeExist();
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -57,5 +76,16 @@ public class SustentiveAbility : Ability
     {
         this.bonusTimeExists = value;
         this.SetupTimeExist();
+    }
+       
+    public virtual void SetupCooldown()
+    {
+        this.cooldownValue = this.baseCooldownValue + this.cooldownValueBonus;
+    }
+
+    public virtual void SetBonusCooldownValue(float value)
+    {
+        this.cooldownValueBonus = value;
+        this.SetupCooldown();
     }
 }

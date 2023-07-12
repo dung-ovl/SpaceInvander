@@ -63,4 +63,13 @@ public class EnemyDamageReceiver : DamageReceiver
         baseMaxHealthPoint = enemyController.EnemyProfile.maxHp;
         base.SetupMaxHealth();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
+        if (damageReceiver != null)
+        {
+            this.EnemyController.EnemyDamageSender.Send(collision.transform);
+        }
+    }
 }

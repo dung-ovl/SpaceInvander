@@ -17,6 +17,9 @@ public class EnemyController : GameMonoBehaviour
     [SerializeField] protected EnemyDamageReceiver enemyDamageReceiver;
     public EnemyDamageReceiver EnemyDamageReceiver => enemyDamageReceiver;
 
+    [SerializeField] protected EnemyDamageSender enemyDamageSender;
+    public EnemyDamageSender EnemyDamageSender => enemyDamageSender;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -24,6 +27,7 @@ public class EnemyController : GameMonoBehaviour
         this.LoadEnemyModel();
         this.LoadEnemyProfile();
         this.LoadEnemyDamageReceiver();
+        this.LoadEnemyDamageSender();
     }
 
     private void LoadEnemyDamageReceiver()
@@ -31,6 +35,13 @@ public class EnemyController : GameMonoBehaviour
         if (this.enemyDamageReceiver != null) return;
         this.enemyDamageReceiver = transform.GetComponentInChildren<EnemyDamageReceiver>();
         Debug.Log(transform.name + ": LoadEnemyDamageReceiver", gameObject);
+    }
+
+    private void LoadEnemyDamageSender()
+    {
+        if (this.enemyDamageSender != null) return;
+        this.enemyDamageSender = transform.GetComponentInChildren<EnemyDamageSender>();
+        Debug.Log(transform.name + ": LoadEnemyDamageSender", gameObject);
     }
 
     private void LoadEnemyProfile()

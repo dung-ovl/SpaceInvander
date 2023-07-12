@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 11184462}
   - component: {fileID: 11184463}
   - component: {fileID: 11184464}
+  - component: {fileID: 1216174452855345067}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -117,6 +118,20 @@ PolygonCollider2D:
       - {x: 0.25464568, y: -0.10495895}
       - {x: 0.3145942, y: -0.073634505}
       - {x: 0.32178822, y: 0.26441807}
+--- !u!114 &1216174452855345067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11184461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &36172097
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,6 +603,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1111719135}
   enemyProfile: {fileID: 11400000, guid: 8ad9412528c94c74a859a6e998f04e02, type: 2}
   enemyDamageReceiver: {fileID: 11184462}
+  enemyDamageSender: {fileID: 1216174452855345067}
 --- !u!1 &142613262
 GameObject:
   m_ObjectHideFlags: 0
@@ -1573,6 +1589,7 @@ GameObject:
   - component: {fileID: 339408292}
   - component: {fileID: 339408293}
   - component: {fileID: 339408294}
+  - component: {fileID: 745031966807547606}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -1678,6 +1695,20 @@ PolygonCollider2D:
       - {x: 0.25464568, y: -0.10495895}
       - {x: 0.3145942, y: -0.073634505}
       - {x: 0.32178822, y: 0.26441807}
+--- !u!114 &745031966807547606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339408291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &341140106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,6 +2103,7 @@ GameObject:
   - component: {fileID: 447870963}
   - component: {fileID: 447870962}
   - component: {fileID: 447870961}
+  - component: {fileID: 1057034406906557913}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -2106,10 +2138,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f74ee505b2eaab4b87573a73de778f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoint: 1
-  baseMaxHealthPoint: 1
+  healthPoint: 250
+  baseMaxHealthPoint: 250
   maxHealthPointBonus: 0
-  maxHealthPoint: 1
+  maxHealthPoint: 250
   sphereCollider: {fileID: 447870962}
   _rigidbody: {fileID: 447870961}
   isDead: 0
@@ -2153,6 +2185,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1057034406906557913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447870959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &465692031
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2601,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1667378803}
   enemyProfile: {fileID: 11400000, guid: f55f159bf5399f94fb8b79c3ceb36149, type: 2}
   enemyDamageReceiver: {fileID: 447870963}
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &577263188
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,6 +3532,7 @@ MonoBehaviour:
   enemyModel: {fileID: 529399683}
   enemyProfile: {fileID: 11400000, guid: e2f7fcbc2abeaeb4cac50fd2ae099628, type: 2}
   enemyDamageReceiver: {fileID: 339408292}
+  enemyDamageSender: {fileID: 745031966807547606}
 --- !u!1 &787940018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4702,6 +4750,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1646120360}
   enemyProfile: {fileID: 11400000, guid: 2d10329832acc154bab9be40fbdd27a9, type: 2}
   enemyDamageReceiver: {fileID: 1402661882}
+  enemyDamageSender: {fileID: 7894978420674742491}
 --- !u!1 &1068017298
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,6 +5427,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1381343646}
   enemyProfile: {fileID: 11400000, guid: accf1fd64957bd84d8d02915e0953a42, type: 2}
   enemyDamageReceiver: {fileID: 1898417136}
+  enemyDamageSender: {fileID: 7489681091834212131}
 --- !u!1 &1202985043
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,8 +5658,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyDespawn: {fileID: 669220772}
   enemyModel: {fileID: 1448736500}
-  enemyProfile: {fileID: 0}
+  enemyProfile: {fileID: 11400000, guid: dd2f42a40f74e854e82b8346b2491c27, type: 2}
   enemyDamageReceiver: {fileID: 2055219129}
+  enemyDamageSender: {fileID: 6728202048015282985}
 --- !u!1 &1312633544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5668,6 +5719,7 @@ GameObject:
   - component: {fileID: 1313144521}
   - component: {fileID: 1313144520}
   - component: {fileID: 1313144519}
+  - component: {fileID: 3972216291402222315}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -5749,6 +5801,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3972216291402222315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313144517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1317934220
 GameObject:
   m_ObjectHideFlags: 0
@@ -6088,6 +6154,7 @@ MonoBehaviour:
   enemyModel: {fileID: 616566826}
   enemyProfile: {fileID: 11400000, guid: 1f7f1242c6404474e8b38e1e15615e2e, type: 2}
   enemyDamageReceiver: {fileID: 1912040733}
+  enemyDamageSender: {fileID: 7570483085884224200}
 --- !u!1 &1389890520
 GameObject:
   m_ObjectHideFlags: 0
@@ -6374,6 +6441,7 @@ GameObject:
   - component: {fileID: 1402661882}
   - component: {fileID: 1402661881}
   - component: {fileID: 1402661880}
+  - component: {fileID: 7894978420674742491}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -6455,6 +6523,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7894978420674742491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402661878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 30
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1404947695
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,6 +6852,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1211588594}
   enemyProfile: {fileID: 11400000, guid: 1802b5ff2178aae4dba1e68cd9719122, type: 2}
   enemyDamageReceiver: {fileID: 1313144521}
+  enemyDamageSender: {fileID: 3972216291402222315}
 --- !u!1 &1526186729
 GameObject:
   m_ObjectHideFlags: 0
@@ -7772,6 +7855,7 @@ MonoBehaviour:
   enemyModel: {fileID: 142613263}
   enemyProfile: {fileID: 11400000, guid: 5a208d80313693946bdcd04d6cc3ef2d, type: 2}
   enemyDamageReceiver: {fileID: 1808830290}
+  enemyDamageSender: {fileID: 9020364069543530542}
 --- !u!1 &1808830286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7784,6 +7868,7 @@ GameObject:
   - component: {fileID: 1808830290}
   - component: {fileID: 1808830289}
   - component: {fileID: 1808830288}
+  - component: {fileID: 9020364069543530542}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -7865,6 +7950,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &9020364069543530542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808830286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1827216507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8163,6 +8262,7 @@ GameObject:
   - component: {fileID: 1842147610}
   - component: {fileID: 1842147609}
   - component: {fileID: 1842147608}
+  - component: {fileID: 4831093576684806515}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -8244,6 +8344,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4831093576684806515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1842147606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1848950536
 GameObject:
   m_ObjectHideFlags: 0
@@ -8457,6 +8571,7 @@ GameObject:
   - component: {fileID: 1898417136}
   - component: {fileID: 1898417137}
   - component: {fileID: 1898417138}
+  - component: {fileID: 7489681091834212131}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -8562,6 +8677,20 @@ PolygonCollider2D:
       - {x: 0.25464568, y: -0.10495895}
       - {x: 0.3145942, y: -0.073634505}
       - {x: 0.32178822, y: 0.26441807}
+--- !u!114 &7489681091834212131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898417135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1904573186
 GameObject:
   m_ObjectHideFlags: 0
@@ -8703,6 +8832,7 @@ GameObject:
   - component: {fileID: 1912040733}
   - component: {fileID: 1912040732}
   - component: {fileID: 1912040731}
+  - component: {fileID: 7570483085884224200}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -8784,6 +8914,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7570483085884224200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912040729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &1929306833
 GameObject:
   m_ObjectHideFlags: 0
@@ -9499,6 +9643,7 @@ GameObject:
   - component: {fileID: 2055219129}
   - component: {fileID: 2055219128}
   - component: {fileID: 2055219127}
+  - component: {fileID: 6728202048015282985}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -9580,6 +9725,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6728202048015282985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2055219125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2063757339
 GameObject:
   m_ObjectHideFlags: 0
@@ -9633,6 +9792,7 @@ MonoBehaviour:
   enemyModel: {fileID: 1048398075}
   enemyProfile: {fileID: 11400000, guid: 3473f255d6c91124dafc96990440f5cd, type: 2}
   enemyDamageReceiver: {fileID: 1842147610}
+  enemyDamageSender: {fileID: 0}
 --- !u!1 &2079939532
 GameObject:
   m_ObjectHideFlags: 0
@@ -10025,6 +10185,7 @@ MonoBehaviour:
   enemyModel: {fileID: 6723560574795837411}
   enemyProfile: {fileID: 11400000, guid: 6aa374de37ee32742a2e66756a2fef2c, type: 2}
   enemyDamageReceiver: {fileID: 3992834644716395644}
+  enemyDamageSender: {fileID: 8024601831017423124}
 --- !u!1 &1694653540117503663
 GameObject:
   m_ObjectHideFlags: 0
@@ -10083,6 +10244,7 @@ GameObject:
   - component: {fileID: 3992834644716395644}
   - component: {fileID: 2814747230560269055}
   - component: {fileID: 1600392568443375689}
+  - component: {fileID: 8024601831017423124}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -10164,6 +10326,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8024601831017423124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2609589478105793952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &2734719194389216384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10365,6 +10541,7 @@ MonoBehaviour:
   enemyModel: {fileID: 3770848198039856148}
   enemyProfile: {fileID: 11400000, guid: 955ebc58ecee071468d8dbdc92f0ddf0, type: 2}
   enemyDamageReceiver: {fileID: 867924874793863155}
+  enemyDamageSender: {fileID: 6884135219258344627}
 --- !u!1 &5717715363978739127
 GameObject:
   m_ObjectHideFlags: 0
@@ -10836,6 +11013,7 @@ MonoBehaviour:
   enemyModel: {fileID: 7138915811660765668}
   enemyProfile: {fileID: 11400000, guid: 71c5fe9788d481c47a288fb0872b8fa1, type: 2}
   enemyDamageReceiver: {fileID: 7138915811563074848}
+  enemyDamageSender: {fileID: 7597125292655220926}
 --- !u!1 &7138915809985831403
 GameObject:
   m_ObjectHideFlags: 0
@@ -12083,6 +12261,7 @@ MonoBehaviour:
   enemyModel: {fileID: 7138915811803790704}
   enemyProfile: {fileID: 11400000, guid: 10750e8e9848693418bc97114a7f4c4a, type: 2}
   enemyDamageReceiver: {fileID: 7138915811659899236}
+  enemyDamageSender: {fileID: 5065150434377411003}
 --- !u!1 &7138915810810765012
 GameObject:
   m_ObjectHideFlags: 0
@@ -12593,6 +12772,7 @@ MonoBehaviour:
   enemyModel: {fileID: 7138915811180989704}
   enemyProfile: {fileID: 11400000, guid: 6ceebf3f6506f2247bf7f2160ce86c3c, type: 2}
   enemyDamageReceiver: {fileID: 7138915811293493314}
+  enemyDamageSender: {fileID: 1654610927532257958}
 --- !u!1 &7138915811180989706
 GameObject:
   m_ObjectHideFlags: 0
@@ -12687,6 +12867,7 @@ GameObject:
   - component: {fileID: 7138915811293493314}
   - component: {fileID: 7138915811293493312}
   - component: {fileID: 7138915811293493315}
+  - component: {fileID: 1654610927532257958}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -12768,6 +12949,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1654610927532257958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138915811293493324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7138915811299135368
 GameObject:
   m_ObjectHideFlags: 0
@@ -13097,6 +13292,7 @@ GameObject:
   - component: {fileID: 7138915811563074848}
   - component: {fileID: 7138915811563074854}
   - component: {fileID: 7138915811563074849}
+  - component: {fileID: 7597125292655220926}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -13178,6 +13374,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7597125292655220926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138915811563074850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7138915811659899232
 GameObject:
   m_ObjectHideFlags: 0
@@ -13190,6 +13400,7 @@ GameObject:
   - component: {fileID: 7138915811659899236}
   - component: {fileID: 7138915811659899239}
   - component: {fileID: 7138915811659899238}
+  - component: {fileID: 5065150434377411003}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -13295,6 +13506,20 @@ PolygonCollider2D:
       - {x: 0.25464568, y: -0.10495895}
       - {x: 0.3145942, y: -0.073634505}
       - {x: 0.32178822, y: 0.26441807}
+--- !u!114 &5065150434377411003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138915811659899232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &7138915811660765671
 GameObject:
   m_ObjectHideFlags: 0
@@ -13968,6 +14193,7 @@ GameObject:
   - component: {fileID: 867924874793863155}
   - component: {fileID: 2328418178218390917}
   - component: {fileID: 8570622064482896297}
+  - component: {fileID: 6884135219258344627}
   m_Layer: 0
   m_Name: DamageReceiver
   m_TagString: EnemyTarget
@@ -14049,6 +14275,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6884135219258344627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8446470083070874032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9e4990a827800d4fb241fbd7afb7384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!1 &8851010360770514042
 GameObject:
   m_ObjectHideFlags: 0

@@ -101,5 +101,6 @@ MonoBehaviour:
     - Name: Ship_2_SubBullet_1
       Rot: -30
   SubBulletSound: Ship2SubBullet
-  countDownSkill1: 10
-  countDownSkill2: 10
+  countDownSkill1: 25
+  countDownSkill2: 25
+  isLaserPowerUp: 0

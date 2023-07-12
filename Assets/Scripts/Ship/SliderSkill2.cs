@@ -17,8 +17,8 @@ public class SliderSkill2 : SliderSkill
     protected override void Start()
     {
         base.Start();
-
         SetupCooldown();
+        SetSliderValue();
     }
     public override void SetSliderValue()
     {
@@ -36,6 +36,6 @@ public class SliderSkill2 : SliderSkill
 
     public override void SetupCooldown()
     {
-        this.cooldownValue = currentShip.GetComponent<ShipController>().ShipProfile.countDownSkill2 + cooldownBonus;
+        this.cooldownValue = currentShip.GetComponentInChildren<ShieldAbility>().CooldownValue;
     }
 }

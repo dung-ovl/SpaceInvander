@@ -63,6 +63,6 @@ MonoBehaviour:
     - Name: Laser
       Rot: -45
   SubBulletSound: Attack
-  countDownSkill1: 10
-  countDownSkill2: 10
+  countDownSkill1: 25
+  countDownSkill2: 25
   isLaserPowerUp: 1

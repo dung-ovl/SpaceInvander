@@ -202,8 +202,8 @@ public class GameManager : GameMonoBehaviour
         shipSubShooting.SetDamageBonus(currentShip.ShipProfile.subDamage * 0.05f * damageLevel);
 
         int coolDownLevel = data.data.Where(x => x.stat == Stat.Cooldown).FirstOrDefault().level;
-        SliderSkill1.Intance.SetCoolDownBonus(-coolDownLevel * 1f);
-        SliderSkill2.Intance.SetCoolDownBonus(-coolDownLevel * 1f);
+        currentShip.GetComponentInChildren<PowerUpAbility>().SetBonusCooldownValue(-coolDownLevel * 1f);
+        currentShip.GetComponentInChildren<ShieldAbility>().SetBonusCooldownValue(-coolDownLevel * 1f);
 
 
         int shieldLevel = data.data.Where(x => x.stat == Stat.ShieldBonus).FirstOrDefault().level;  

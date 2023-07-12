@@ -19,7 +19,6 @@ public class SliderSkill : GameMonoBehaviour
     public float timeRemain = 0;
 
     public float cooldownValue;
-    public float cooldownBonus = 0f;
 
 
     protected override void Start()
@@ -28,6 +27,7 @@ public class SliderSkill : GameMonoBehaviour
         StartCoroutine(this.SetSlider());
         isCountDown = false;
         timeRemain = 0;
+
     }
 
     protected virtual void Update()
@@ -50,8 +50,9 @@ public class SliderSkill : GameMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        this.LoadSlider();
         this.LoadCountDown();
+        this.LoadSlider();
+
     }
 
 
@@ -94,11 +95,5 @@ public class SliderSkill : GameMonoBehaviour
     public virtual void SetSliderValue()
     {
 
-    }
-
-    public virtual void SetCoolDownBonus(float value)
-    {
-        this.cooldownBonus = value;
-        SetupCooldown();
     }
 }

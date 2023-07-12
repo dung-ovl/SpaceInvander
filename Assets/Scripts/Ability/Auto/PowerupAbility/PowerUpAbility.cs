@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PowerUpAbility : SustentiveAbility
 {
+
+    protected override void Start()
+    {
+        this.baseCooldownValue = this.abilityController.ShipController.ShipProfile.countDownSkill1;
+        base.Start();
+    }
     protected override void ResetValue()
     {
         base.ResetValue();
