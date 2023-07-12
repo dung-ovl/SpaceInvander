@@ -6336,6 +6336,11 @@ MonoBehaviour:
     volume: 0.1
     pitch: 1
     source: {fileID: 0}
+  - name: Laser
+    clip: {fileID: 8300000, guid: 6f2657742c304f3499403a30c50aa137, type: 3}
+    volume: 0.1
+    pitch: 1
+    source: {fileID: 0}
   musicSource: {fileID: 1969776091}
 --- !u!4 &732768472
 Transform:

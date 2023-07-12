@@ -68,7 +68,6 @@ public class LaserBeam
     {
         int count = 0;
         lineRenderer.positionCount = laserInd.Count;
-        Debug.LogWarning("so luong dierm " + count);
         foreach (Vector3 pos in laserInd)
         {
             lineRenderer.SetPosition(count, pos);
@@ -91,7 +90,7 @@ public class LaserBeam
             DamageReceiver damageReceiver = raycast.collider.GetComponent<DamageReceiver>();
             damageSender.HitPos = raycast.point;
             damageSender.Send(damageReceiver.transform.parent);
-            Debug.Log("Sending damage " + damageReceiver.transform.parent.name);
+            AudioManager.Instance.PlaySFX("Laser");
             UpdateLaser();
         }
         else

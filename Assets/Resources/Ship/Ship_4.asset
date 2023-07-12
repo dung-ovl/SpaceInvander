@@ -52,7 +52,7 @@ MonoBehaviour:
       Rot: 0
     - Name: Laser
       Rot: 0
-  BulletSound: Attack
+  BulletSound: Ship4MainBullet
   subDamage: 1
   subAttackSpeed: 0
   subBulletList:
@@ -62,7 +62,7 @@ MonoBehaviour:
       Rot: 45
     - Name: Laser
       Rot: -45
-  SubBulletSound: Attack
+  SubBulletSound: Ship4SubBullet
   countDownSkill1: 25
   countDownSkill2: 25
   isLaserPowerUp: 1

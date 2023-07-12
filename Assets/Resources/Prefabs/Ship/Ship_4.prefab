@@ -635,6 +635,7 @@ MonoBehaviour:
   shootDelay: 0.15
   shootTimer: 0.15
   damage: 1
+  damageBonus: 0
   shipShootPoints: []
   bulletName: no-name
   bulletNames: []
@@ -657,6 +658,7 @@ MonoBehaviour:
   shootDelay: 1.5
   shootTimer: 1.5
   damage: 30
+  damageBonus: 0
   shipShootPoints: []
   bulletName: no-name
   bulletNames: []
@@ -748,6 +750,9 @@ MonoBehaviour:
   baseTimeExists: 5
   bonusTimeExists: 2
   timeRemains: 0
+  cooldownValue: 0
+  cooldownValueBonus: 0
+  baseCooldownValue: 0
   _collider: {fileID: 4052824686329155049}
   _rigibody: {fileID: 3778979261787379303}
 --- !u!58 &4052824686329155049
@@ -842,6 +847,9 @@ MonoBehaviour:
   baseTimeExists: 5
   bonusTimeExists: 0
   timeRemains: 0
+  cooldownValue: 0
+  cooldownValueBonus: 0
+  baseCooldownValue: 0
 --- !u!1 &6186212837147333472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8d95dacd830154448d6b7ec431daf4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCurrent: 3
+  levelCurrent: 1
   levelMax: 7
   shipController: {fileID: 6186212836614859161}
 --- !u!1 &6186212837964308389

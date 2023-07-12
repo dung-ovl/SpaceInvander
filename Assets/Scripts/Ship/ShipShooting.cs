@@ -135,8 +135,8 @@ public class ShipShooting : ShipAbstract
                 {
                     Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                     if (newBullet == null) return;
-                    newBullet.gameObject.SetActive(true);
                     this.SetDamage(newBullet);
+                    newBullet.gameObject.SetActive(true);
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
@@ -160,7 +160,6 @@ public class ShipShooting : ShipAbstract
         Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
         if (newBullet == null) return;
         newBullet.gameObject.SetActive(true);
-        Debug.Log("Shoot");
     }
 
 
