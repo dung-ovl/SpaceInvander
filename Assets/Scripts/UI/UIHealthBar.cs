@@ -19,10 +19,11 @@ public class UIHealthBar : GameMonoBehaviour
         this.LoadSlider();
     }
 
+
     protected virtual void LoadSlider()
     {
         if (this.slider != null) return;
-        this.slider = transform.GetComponent<Slider>();
+        this.slider = transform.GetComponentInChildren<Slider>();
         Debug.Log(transform.name + ": LoadSlider", gameObject);
     }
 

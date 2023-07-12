@@ -35,6 +35,7 @@ public class BossWaveManager : WaveManager
         if (damageReceiver == null) return;
         BossUIHealthBar.Instance.SetDamageReceiver(damageReceiver);
         BossUIHealthBar.Instance.SetHealthBarActive(true);
+        Debug.Log("LoadBossHealbar");
     }
 
     protected override void LoadComponents()

@@ -9,6 +9,7 @@ public class BtnSkillShield : BaseButton
         if (SliderSkill2.Intance.isCountDown) return;
         Debug.Log("Skill Shield Click");
         SliderSkill2.Intance.StartCountDown();
+        if (GameCtrl.Instance.CurrentShip == null) return;
         ShieldAbility shieldAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<ShieldAbility>();
         if (shieldAbility != null)
         {

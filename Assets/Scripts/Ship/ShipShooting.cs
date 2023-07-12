@@ -106,7 +106,6 @@ public class ShipShooting : ShipAbstract
         shootTimer = 0;
         int count = 0;
         int index = CalculateShootPointIndex();
-        Debug.LogWarning("cai index no ne: " + index);
         List<ShipPointInfo> shipPointInfo = bulletNames[index].Levels;
         numberLaser = 0;
         foreach (ShipPointInfo temp in shipPointInfo)

@@ -10,10 +10,16 @@ public class BossUIHealthBar : DamageReceiverHealthBar
 
     public static BossUIHealthBar Instance => instance;
 
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+
+    }
+
     protected override void Awake()
     {
         base.Awake();
-        BossUIHealthBar.instance = this;
+        instance = this;
     }
 
     protected override void Start()
