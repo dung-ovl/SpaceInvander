@@ -67,7 +67,7 @@ public class EnemyDamageReceiver : DamageReceiver
     private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageReceiver damageReceiver = collision.GetComponent<DamageReceiver>();
-        if (damageReceiver != null)
+        if (damageReceiver != null && !collision.CompareTag("EnemyTarget"))
         {
             this.EnemyController.EnemyDamageSender.Send(collision.transform);
         }

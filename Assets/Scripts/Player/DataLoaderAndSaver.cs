@@ -15,17 +15,7 @@ public class DataLoaderAndSaver : GameMonoBehaviour
 
     static DataLoaderAndSaver instance;
 
-    public static DataLoaderAndSaver Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<DataLoaderAndSaver>();
-            }
-            return instance;
-        }
-    }
+    public static DataLoaderAndSaver Instance => instance;
 
     override protected void LoadComponents()
     {
@@ -39,12 +29,12 @@ public class DataLoaderAndSaver : GameMonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
     }
 
     private void LoadPlayerData()

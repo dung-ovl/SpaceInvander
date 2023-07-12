@@ -14,7 +14,6 @@ public class ObjFollowMouse : ObjMovement
     {
         if (Input.touchCount > 0)
         {
-            Debug.Log("touchCount: " + Input.touchCount);
             Touch touch = Input.GetTouch(0);
             Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
             

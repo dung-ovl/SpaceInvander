@@ -46,7 +46,7 @@ public class ShipLevel : Level
         }
         this.shipController.ShipShooting.currentLaser = 0;
         this.shipController.ShipSubShooting.currentLaser = 0;
-        if (this.levelCurrent >= 4)
+        if (this.levelCurrent >= 4 && levelCurrent < 7)
         {
             this.shipController.ShipShooting.DecreaseDamage(1f);
             this.shipController.ShipSubShooting.DecreaseDamage(1f);
