@@ -15,6 +15,7 @@ public class WaveManager : GameMonoBehaviour
     [SerializeField] protected State currentState;
     [SerializeField] protected int amountOfUnit = 1;
     [SerializeField] protected string enemyName = "no-name";
+    [SerializeField] private float _unitSpeed = 2f;
 
     public State CurrentState => currentState;
     public bool isWaveSpawnComplete = false;
@@ -165,6 +166,10 @@ public class WaveManager : GameMonoBehaviour
     protected IEnumerator MoveOnPath(Transform unit, PathCreator path)
     {
         int index = _spawnedUnits.IndexOf(unit);
+        if (index < 0 || index >= _spawnedUnits.Count)
+        {
+            yield return null;
+        }
         // create the dictionary
         if (path.path.length <= 0)
         {
@@ -173,7 +178,7 @@ public class WaveManager : GameMonoBehaviour
         }
         while (!isFollowPathDone[index])
         {
-            distanceTravelled[index] += 2f * Time.deltaTime;
+            distanceTravelled[index] += _unitSpeed * Time.deltaTime;
             _spawnedUnits[index].position = path.path.GetPointAtDistance(distanceTravelled[index], EndOfPathInstruction.Stop);
             if (distanceTravelled[index] >= path.path.length)
             {

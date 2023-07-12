@@ -14,15 +14,27 @@ public class SliderSkill1 : SliderSkill
         if (SliderSkill1.instance != null) Debug.LogError("Only 1 SliderSkill1 allow to exist");
         SliderSkill1.instance = this;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        SetupCooldown();
+        SetSliderValue();
+    }
     public override void SetSliderValue()
     {
-        this.slider.maxValue = currentShip.GetComponent<ShipController>().ShipProfile.countDownSkill1;
+        this.slider.maxValue = cooldownValue;
         this.slider.value = 0;
     }
 
     public override void StartCountDown()
     {
         base.StartCountDown();
-        this.timeRemain = GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipProfile.countDownSkill1;
+        this.timeRemain = cooldownValue;
+    }
+
+    public override void SetupCooldown()
+    {
+        this.cooldownValue = currentShip.GetComponentInChildren<PowerUpAbility>().CooldownValue;
     }
 }

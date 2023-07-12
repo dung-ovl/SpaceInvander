@@ -105,4 +105,10 @@ public abstract class DamageReceiver : GameMonoBehaviour
     }
 
     protected abstract void OnDead();
+
+    public void SetMaxHealthPointBonus(int point)
+    {
+        this.maxHealthPointBonus = point;
+        Reborn();
+    }
 }

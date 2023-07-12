@@ -24,4 +24,3 @@ MonoBehaviour:
     dropRate: 0.1
   maxHp: 50
   coin: 5
-  type: 1

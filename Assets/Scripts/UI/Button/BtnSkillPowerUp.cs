@@ -9,6 +9,7 @@ public class BtnSkillPowerUp : BaseButton
         if (SliderSkill1.Intance.isCountDown) return;
         Debug.Log("Skill PowerUp Click");
         SliderSkill1.Intance.StartCountDown();
+        if (GameCtrl.Instance.CurrentShip ==null) return;
         PowerUpAbility powerUpAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<PowerUpAbility>();
         if (powerUpAbility != null)
         {

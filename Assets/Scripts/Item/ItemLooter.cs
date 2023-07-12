@@ -51,11 +51,13 @@ public class ItemLooter : ShipAbstract
         if (itemCode == ItemCode.MissileItem)
         {
             this.ShipController.AbilityController.FireMissileAbility.Active();
+            AudioManager.Instance.PlaySFX("FireMissile");
         }
         if (itemCode == ItemCode.LevelUpItem)
         {
             this.ShipController.ShipLevel.LevelUp();
         }
         itemPickupable.Picked();
+        AudioManager.Instance.PlaySFX("Pickup");
     }
 }

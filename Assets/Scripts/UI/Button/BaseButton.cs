@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public abstract class BaseButton : GameMonoBehaviour
+public class BaseButton : GameMonoBehaviour
 {
     [SerializeField] protected Button button;
 
@@ -33,5 +33,8 @@ public abstract class BaseButton : GameMonoBehaviour
         this.button.onClick.AddListener(this.OnClick);
     }
 
-    protected abstract void OnClick();
+    protected virtual void OnClick()
+    {
+        AudioManager.Instance.PlaySFX("Click");
+    }
 }

@@ -54,10 +54,11 @@ MonoBehaviour:
   currentState: 0
   amountOfUnit: 1
   enemyName: E1Scout
+  _unitSpeed: 2
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
   _formation: {fileID: 5395868213743179683}
-  _unitSpeed: 2
+  _unitFormationSpeed: 2
   isAllUnitInFormation: 0
 --- !u!1 &551230923057981072
 GameObject:

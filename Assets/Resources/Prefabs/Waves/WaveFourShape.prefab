@@ -53,11 +53,12 @@ MonoBehaviour:
   _spawnedUnits: []
   currentState: 0
   amountOfUnit: 1
-  enemyName: E1Scout
+  enemyName: E1Bomber
+  _unitSpeed: 2
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
   _formation: {fileID: 8635414363501103830}
-  _unitSpeed: 2
+  _unitFormationSpeed: 2
   isAllUnitInFormation: 0
 --- !u!1 &8635414361971540848
 GameObject:
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _posCount: 52
-  _spread: 0.2
+  _spread: 0.25
   hole: 0 1 2 3 6 7 8 12 13 18 21 26 27 36 37 38 39 42 43 44 45 48 49 50 51
   _columnCount: 6
   _centerUnits: 1

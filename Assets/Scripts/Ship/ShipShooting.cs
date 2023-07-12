@@ -14,8 +14,11 @@ public class ShipShooting : ShipAbstract
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
     [SerializeField] protected float damage = 1f;
+    [SerializeField] protected float damageBonus = 0f;
     [SerializeField] protected List<Transform> shipShootPoints;
     [SerializeField] string bulletName = "no-name";
+
+    protected string bulletSoundName = "no-name";
 
     public List<ShipPointLevelInfo> bulletNames = new List<ShipPointLevelInfo>();
 
@@ -26,9 +29,9 @@ public class ShipShooting : ShipAbstract
         this.SetupDamage();
     }
 
-    protected virtual void SetupDamage()
+    public virtual void SetupDamage()
     {
-        this.damage = shipController.ShipProfile.mainDamage;
+        this.damage = shipController.ShipProfile.mainDamage + this.damageBonus;
     }
 
     protected override void Start()
@@ -36,6 +39,12 @@ public class ShipShooting : ShipAbstract
         base.Start();
         this.LoadCurrentShootPoints();
         this.LoadBulletName();
+        this.LoadBulletSound();
+    }
+
+    protected virtual void LoadBulletSound()
+    {
+        this.bulletSoundName = ShipController.ShipProfile.BulletSound;
     }
 
     protected virtual void LoadBulletName()
@@ -69,7 +78,7 @@ public class ShipShooting : ShipAbstract
     {
         if (this.shipShootPoints.Count <= 0)
         {
-            this.ShootingWithNoShootPoint();
+            //this.ShootingWithNoShootPoint();
             return;
         }
         this.ShootingWithShootPoint();
@@ -116,7 +125,7 @@ public class ShipShooting : ShipAbstract
                 if (newBullet == null) return;
                 this.SetDamage(newBullet);
                 newBullet.gameObject.SetActive(true);
-
+                AudioManager.Instance.PlaySFX(bulletSoundName);
                 BulletController bulletController = newBullet.GetComponent<BulletController>();
                 bulletController.SetShooter(transform.parent);
             }
@@ -126,15 +135,13 @@ public class ShipShooting : ShipAbstract
                 {
                     Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                     if (newBullet == null) return;
-                    newBullet.gameObject.SetActive(true);
-
                     this.SetDamage(newBullet);
-
+                    newBullet.gameObject.SetActive(true);
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                    bulletLaser.laserName = "laser" + currentLaser;
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
                     bulletLaser.Rot = shipPointInfo[count].Rot;
+                    SetColorLaser(ref bulletLaser, currentLaser);
                     currentLaser++;
                 }
             }
@@ -153,7 +160,6 @@ public class ShipShooting : ShipAbstract
         Transform newBullet = BulletSpawner.Instance.Spawn(this.bulletName, spawnPos, rotation);
         if (newBullet == null) return;
         newBullet.gameObject.SetActive(true);
-        Debug.Log("Shoot");
     }
 
 
@@ -187,4 +193,25 @@ public class ShipShooting : ShipAbstract
             damageSender.SetDamage(this.damage);
         }
     }    
+    protected virtual void SetColorLaser(ref BulletLaser bulletLaser, int currentLaser)
+    {
+        bulletLaser.laserName = "laser" + currentLaser;
+    }
+
+    public virtual void IncreaseDamage(float damage = 0)
+    {
+        this.damage += damage;
+    }
+
+    public virtual void DecreaseDamage(float damage = 0)
+    {
+        if (this.damage <= 1) return;
+        this.damage -= damage;
+    }
+
+    public virtual void SetDamageBonus(float damageBonus = 0)
+    {
+        this.damageBonus = damageBonus;
+        SetupDamage();
+    }
 }

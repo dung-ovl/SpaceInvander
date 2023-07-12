@@ -14,7 +14,7 @@ public abstract class ObjMovement : GameMonoBehaviour
     private void Update()
     {
         this.GetTargetPosition();
-        this.CheckOnMovingAndMoving();
+        CheckOnMovingAndMoving();
     }
 
     protected abstract void GetTargetPosition();
@@ -26,13 +26,11 @@ public abstract class ObjMovement : GameMonoBehaviour
 
     protected virtual void CheckOnMovingAndMoving()
     {
-        if (transform.parent.position != this.targetPosition)
+        if (this.isMoving)
         {
             this.Moving();
-            this.isMoving = true;
             return;
         }
-        this.isMoving = false;
     }
 /*    protected virtual void CheckMoving()
     {

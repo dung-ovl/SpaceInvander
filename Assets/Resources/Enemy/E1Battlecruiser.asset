@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Scout
   dropList: []
-  maxHp: 500
+  maxHp: 1500
   coin: 200
-  type: 6

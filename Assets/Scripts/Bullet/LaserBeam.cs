@@ -11,7 +11,7 @@ public class LaserBeam
     DamageSender damageSender;
     List<Vector3> laserInd = new List<Vector3>();
 
-    public LaserBeam(Vector3 pos, Vector3 dir, DamageSender sender, string laserName)
+    public LaserBeam(Vector3 pos, Vector3 dir, DamageSender sender, string laserName, int checkSubLaser = 0)
     {
         this.damageSender = sender;
         this.lineRenderer = new LineRenderer();
@@ -19,11 +19,18 @@ public class LaserBeam
         this.laserObj.name = laserName;
         this.laserObj.tag = "LaserLine";
         this.lineRenderer = this.laserObj.AddComponent(typeof(LineRenderer)) as LineRenderer;
-        this.lineRenderer.startWidth = 0.1f;
-        this.lineRenderer.endWidth = 0.1f;
-        lineRenderer.material = Resources.Load<Material>("Material/ShaderLaser");
-        this.lineRenderer.startColor = Color.red;
-        this.lineRenderer.endColor = Color.red;
+        this.lineRenderer.startWidth = 0.07f;
+        this.lineRenderer.endWidth = 0.07f;
+        if (checkSubLaser != 0)
+        {
+            lineRenderer.material = Resources.Load<Material>("Material/SubShaderLaser");
+        }
+        else
+        {
+            this.lineRenderer.startColor = Color.red;
+            this.lineRenderer.endColor = Color.red;
+            lineRenderer.material = Resources.Load<Material>("Material/ShaderLaser");
+        }
         this.lineRenderer.sortingLayerName = "Bullet";
         CastRay(pos, dir, lineRenderer);
     }
@@ -48,7 +55,11 @@ public class LaserBeam
         }
         else
         {
-            laserInd.Add(ray.GetPoint(20));
+            laserInd.Add(ray.GetPoint(2));
+            for (int i = 4; i < 20; i += 2)
+            {
+                laserInd.Add(ray.GetPoint(i));
+            }
             UpdateLaser();
         }
     }
@@ -57,7 +68,6 @@ public class LaserBeam
     {
         int count = 0;
         lineRenderer.positionCount = laserInd.Count;
-
         foreach (Vector3 pos in laserInd)
         {
             lineRenderer.SetPosition(count, pos);
@@ -80,7 +90,7 @@ public class LaserBeam
             DamageReceiver damageReceiver = raycast.collider.GetComponent<DamageReceiver>();
             damageSender.HitPos = raycast.point;
             damageSender.Send(damageReceiver.transform.parent);
-            Debug.Log("Sending damage " + damageReceiver.transform.parent.name);
+            AudioManager.Instance.PlaySFX("Laser");
             UpdateLaser();
         }
         else

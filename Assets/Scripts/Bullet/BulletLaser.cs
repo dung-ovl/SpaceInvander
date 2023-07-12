@@ -11,6 +11,7 @@ public class BulletLaser : GameMonoBehaviour
     [SerializeField] protected bool isLaser;
 
     public string laserName;
+    public int checkSubLaser;
 
     public Transform Position { get { return position; }  set { position = value; } }
     public bool IsLaser { get { return isLaser; } set{ isLaser = value; } }
@@ -21,10 +22,13 @@ public class BulletLaser : GameMonoBehaviour
         if (isLaser)
         {
             Destroy(GameObject.Find(laserName));
-            Vector3 end = new Vector3(position.position.x + 5 * Mathf.Sin(-Rot), position.position.y + 5 * Mathf.Cos(-Rot));
+            if (position != null)
+            {
+                Vector3 end = new Vector3(position.position.x + 20 * Mathf.Sin(-Rot), position.position.y + 20 * Mathf.Cos(-Rot));
 
-            Vector3 direction = end - position.position;
-            beam = new LaserBeam(position.position, direction, damageSender, laserName);
+                Vector3 direction = end - position.position;
+                beam = new LaserBeam(position.position, direction, damageSender, laserName, checkSubLaser);
+            }
         }
     }
 

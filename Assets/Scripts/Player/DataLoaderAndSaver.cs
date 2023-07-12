@@ -9,19 +9,13 @@ public class DataLoaderAndSaver : GameMonoBehaviour
 
     public PlayerData PlayerData => playerData;
 
+    private int currentLevel;
+
+    public int CurrentLevel => currentLevel;
+
     static DataLoaderAndSaver instance;
 
-    public static DataLoaderAndSaver Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<DataLoaderAndSaver>();
-            }
-            return instance;
-        }
-    }
+    public static DataLoaderAndSaver Instance => instance;
 
     override protected void LoadComponents()
     {
@@ -35,10 +29,11 @@ public class DataLoaderAndSaver : GameMonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this.gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -51,5 +46,10 @@ public class DataLoaderAndSaver : GameMonoBehaviour
     public void SaveData()
     {
         SaveSystem.SavePlayer(playerData);
+    }
+
+    public void SetCurrentLevel(int level)
+    {
+        this.currentLevel = level;
     }
 }

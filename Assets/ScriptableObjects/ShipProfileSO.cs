@@ -16,11 +16,12 @@ public class ShipProfileSO : ScriptableObject
     public float mainDamage = 1f;
     public float mainAttackSpeed = 0.2f;
     public List<ShipPointLevelInfo> mainBulletList;
+    public string BulletSound = "Attack";
     public float subDamage = 1f;
     public float subAttackSpeed = 0.2f;
     public List<ShipPointLevelInfo> subBulletList;
-
+    public string SubBulletSound = "Attack";
     public float countDownSkill1 = 10f;
     public float countDownSkill2 = 10f;
-
+    public bool isLaserPowerUp = false;
 }

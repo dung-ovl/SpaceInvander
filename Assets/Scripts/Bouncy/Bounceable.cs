@@ -76,16 +76,34 @@ public class Bounceable : GameMonoBehaviour
 
     protected virtual void ColliderRightWall()
     {
+        //Vector3 vecStart = transform.parent.position - startPos;
+        //Vector3 res = Vector3.Reflect(vecStart, Vector3.left);
+        //if (Mathf.Abs(res.x) > 0.1)
+        //{
+        //    float rot_z = Mathf.Atan(res.y / res.x) * Mathf.Rad2Deg;
+        //    if (res.x > 0)
+        //    {
+        //        transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+        //    }
+        //    else
+        //    {
+        //        transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+        //    }
+        //    startPos = transform.parent.position;
+        //}
+
         Vector3 vecStart = transform.parent.position - startPos;
         Vector3 res = Vector3.Reflect(vecStart, Vector3.left);
-        float rot_z = Mathf.Atan(res.y / res.x) * Mathf.Rad2Deg;
+        //res = -res;
+        res.Normalize();
+        float rot_z = Mathf.Atan2(res.y, res.x) * Mathf.Rad2Deg;
         if (res.x > 0)
         {
-            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
         }
         else
         {
-            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+            transform.parent.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
         }
         startPos = transform.parent.position;
     }

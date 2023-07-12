@@ -32,7 +32,7 @@ public class BulletSeparate : BulletAbstract
     protected override void OnEnable()
     {
         base.OnEnable();
-        this.timeWait = 0.1f;
+        this.timeWait = 0.2f;
         this.quantityOfEachTimes = this.baseQuantity;
         this.timesSeparation = 2;
         this.angleSeparation = 10;

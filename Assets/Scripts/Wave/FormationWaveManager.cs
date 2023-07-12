@@ -8,14 +8,13 @@ using System.Reflection;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 
 
 public class FormationWaveManager : WaveManager
 {
     [SerializeField] private FormationBase _formation;
-    [SerializeField] private float _unitSpeed = 2;
+    [SerializeField] private float _unitFormationSpeed = 2f;
     private List<Vector3> _formationPoints;
 
     private List<float> _unitOscillatesSpeeds = new List<float>();
@@ -76,7 +75,7 @@ public class FormationWaveManager : WaveManager
             if (this.SpawnEnemyInPath(movePath))
             {
                 this._unitOscillatesSpeeds.Add(Random.Range(0.05f, 0.08f));
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.15f);
             }
             else
             {
@@ -93,7 +92,7 @@ public class FormationWaveManager : WaveManager
         for (var i = 0; i < _spawnedUnits.Count; i++)
         {
             if (!isFollowPathDone[i]) continue;
-            this._spawnedUnits[i].transform.position = Vector3.MoveTowards(this._spawnedUnits[i].transform.position, this._formationPoints[i], this._unitSpeed * Time.deltaTime);
+            this._spawnedUnits[i].transform.position = Vector3.MoveTowards(this._spawnedUnits[i].transform.position, this._formationPoints[i], this._unitFormationSpeed * Time.deltaTime);
         }
         this.CheckOnAllUnitInFormation();
     }

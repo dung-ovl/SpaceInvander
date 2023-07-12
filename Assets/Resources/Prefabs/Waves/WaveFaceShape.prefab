@@ -209,7 +209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8797360000483711800
 Transform:
   m_ObjectHideFlags: 0
@@ -246,11 +246,12 @@ MonoBehaviour:
   _spawnedUnits: []
   currentState: 0
   amountOfUnit: 1
-  enemyName: E1Scout
+  enemyName: E1Bomber
+  _unitSpeed: 2
   isWaveSpawnComplete: 0
   isAllSpawnedUnitsDead: 0
   _formation: {fileID: 3986007108129295659}
-  _unitSpeed: 2
+  _unitFormationSpeed: 2
   isAllUnitInFormation: 0
 --- !u!1 &8797360000553069836
 GameObject:
