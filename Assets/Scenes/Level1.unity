@@ -7201,6 +7201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 147214270051371490, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
+      propertyPath: m_TagString
+      value: LaserLine
+      objectReference: {fileID: 0}
     - target: {fileID: 147214270509892439, guid: 7fbce094696eb6643bbbc0df0d70a6d3, type: 3}
       propertyPath: m_TagString
       value: Untagged

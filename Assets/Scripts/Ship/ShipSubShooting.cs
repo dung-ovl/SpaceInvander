@@ -48,4 +48,10 @@ public class ShipSubShooting : ShipShooting
     {
         this.damage = shipController.ShipProfile.subDamage;
     }
+
+    protected override void SetColorLaser(ref BulletLaser bulletLaser, int currentLaser)
+    {
+        bulletLaser.checkSubLaser = 1;
+        bulletLaser.laserName = "sublaser" + currentLaser;
+    }
 }

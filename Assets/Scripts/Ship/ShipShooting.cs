@@ -139,10 +139,11 @@ public class ShipShooting : ShipAbstract
                     this.SetDamage(newBullet);
 
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                    bulletLaser.laserName = "laser" + currentLaser;
+                    
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
                     bulletLaser.Rot = shipPointInfo[count].Rot;
+                    SetColorLaser(ref bulletLaser, currentLaser);
                     currentLaser++;
                 }
             }
@@ -195,4 +196,8 @@ public class ShipShooting : ShipAbstract
             damageSender.SetDamage(this.damage);
         }
     }    
+    protected virtual void SetColorLaser(ref BulletLaser bulletLaser, int currentLaser)
+    {
+        bulletLaser.laserName = "laser" + currentLaser;
+    }
 }
