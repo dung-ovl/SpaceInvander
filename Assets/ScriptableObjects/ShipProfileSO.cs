@@ -23,5 +23,5 @@ public class ShipProfileSO : ScriptableObject
     public string SubBulletSound = "Attack";
     public float countDownSkill1 = 10f;
     public float countDownSkill2 = 10f;
-
+    public bool isLaserPowerUp = false;
 }

@@ -22,10 +22,13 @@ public class BulletLaser : GameMonoBehaviour
         if (isLaser)
         {
             Destroy(GameObject.Find(laserName));
-            Vector3 end = new Vector3(position.position.x + 20 * Mathf.Sin(-Rot), position.position.y + 20 * Mathf.Cos(-Rot));
+            if (position != null)
+            {
+                Vector3 end = new Vector3(position.position.x + 20 * Mathf.Sin(-Rot), position.position.y + 20 * Mathf.Cos(-Rot));
 
-            Vector3 direction = end - position.position;
-            beam = new LaserBeam(position.position, direction, damageSender, laserName, checkSubLaser);
+                Vector3 direction = end - position.position;
+                beam = new LaserBeam(position.position, direction, damageSender, laserName, checkSubLaser);
+            }
         }
     }
 

@@ -44,7 +44,7 @@ public class ShipSubShooting : ShipShooting
         return shipController.ShipProfile.subAttackSpeed * (100f / (100 + speedPercentAdd));
     }
 
-    protected override void SetupDamage()
+    public override void SetupDamage()
     {
         this.damage = shipController.ShipProfile.subDamage;
     }

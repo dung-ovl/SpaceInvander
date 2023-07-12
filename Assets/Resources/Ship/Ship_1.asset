@@ -89,8 +89,8 @@ MonoBehaviour:
   subAttackSpeed: 1.5
   subBulletList:
   - Levels:
-    - Name: Laser
-      Rot: 45
+    - Name: Ship_1_SubBullet_1
+      Rot: 0
   - Levels:
     - Name: Ship_1_SubBullet_1
       Rot: 0

@@ -28,7 +28,7 @@ public class ShipShooting : ShipAbstract
         this.SetupDamage();
     }
 
-    protected virtual void SetupDamage()
+    public virtual void SetupDamage()
     {
         this.damage = shipController.ShipProfile.mainDamage;
     }
@@ -77,7 +77,7 @@ public class ShipShooting : ShipAbstract
     {
         if (this.shipShootPoints.Count <= 0)
         {
-            this.ShootingWithNoShootPoint();
+            //this.ShootingWithNoShootPoint();
             return;
         }
         this.ShootingWithShootPoint();
@@ -105,6 +105,7 @@ public class ShipShooting : ShipAbstract
         shootTimer = 0;
         int count = 0;
         int index = CalculateShootPointIndex();
+        Debug.LogWarning("cai index no ne: " + index);
         List<ShipPointInfo> shipPointInfo = bulletNames[index].Levels;
         numberLaser = 0;
         foreach (ShipPointInfo temp in shipPointInfo)
@@ -135,11 +136,8 @@ public class ShipShooting : ShipAbstract
                     Transform newBullet = BulletSpawner.Instance.Spawn(bulletName, spawnPos, rotation);
                     if (newBullet == null) return;
                     newBullet.gameObject.SetActive(true);
-
                     this.SetDamage(newBullet);
-
                     BulletLaser bulletLaser = newBullet.GetComponent<BulletLaser>();
-                    
                     bulletLaser.IsLaser = true;
                     bulletLaser.Position = shootPoint;
                     bulletLaser.Rot = shipPointInfo[count].Rot;
@@ -199,5 +197,16 @@ public class ShipShooting : ShipAbstract
     protected virtual void SetColorLaser(ref BulletLaser bulletLaser, int currentLaser)
     {
         bulletLaser.laserName = "laser" + currentLaser;
+    }
+
+    public virtual void IncreaseDamage(float damage = 0)
+    {
+        this.damage += damage;
+    }
+
+    public virtual void DecreaseDamage(float damage = 0)
+    {
+        if (this.damage <= 1) return;
+        this.damage -= damage;
     }
 }
