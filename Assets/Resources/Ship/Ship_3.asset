@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ship_3
   m_EditorClassIdentifier: 
   shipName: Ina
-  maxHeath: 125
+  maxHeath: 75
   shieldTimeUp: 2
   powerTimeUp: 1
   mainDamage: 12
-  mainAttackSpeed: 0.15
+  mainAttackSpeed: 0.2
   mainBulletList:
   - Levels:
     - Name: Ship_3_MainBullet_1
@@ -50,7 +50,8 @@ MonoBehaviour:
       Rot: 0
     - Name: Ship_3_MainBullet_1
       Rot: 0
-  subDamage: 18
+  BulletSound: Ship3MainBullet
+  subDamage: 10
   subAttackSpeed: 2
   subBulletList:
   - Levels:
@@ -67,5 +68,6 @@ MonoBehaviour:
       Rot: 60
     - Name: Ship_3_SubBullet_1
       Rot: -60
+  SubBulletSound: Ship3SubBullet
   countDownSkill1: 10
   countDownSkill2: 10

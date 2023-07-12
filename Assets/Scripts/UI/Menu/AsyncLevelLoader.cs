@@ -28,6 +28,12 @@ public class AsyncLevelLoader : GameMonoBehaviour
         }
     }
 
+    protected override void Start()
+    {
+        base.Start();
+        Application.targetFrameRate = 60;
+    }
+
     private LoadingMenuManager loadingMenuManager;
 
     protected override void LoadComponents()
