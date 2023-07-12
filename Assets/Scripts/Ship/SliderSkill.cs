@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,9 @@ public class SliderSkill : GameMonoBehaviour
     public bool isCountDown = false;
 
     public float timeRemain = 0;
+
+    public float cooldownValue;
+    public float cooldownBonus = 0f;
 
 
     protected override void Start()
@@ -50,6 +54,11 @@ public class SliderSkill : GameMonoBehaviour
         this.LoadCountDown();
     }
 
+
+    public virtual void SetupCooldown()
+    {
+        
+    }
     public virtual void LoadSlider()
     {
         if (this.slider != null) return;
@@ -85,5 +94,11 @@ public class SliderSkill : GameMonoBehaviour
     public virtual void SetSliderValue()
     {
 
+    }
+
+    public virtual void SetCoolDownBonus(float value)
+    {
+        this.cooldownBonus = value;
+        SetupCooldown();
     }
 }

@@ -25,7 +25,7 @@ public class PlayerData
         data = new List<StatusBonusLevel>(5);
         data.Add(new StatusBonusLevel(Stat.Heath, 0));
         data.Add(new StatusBonusLevel(Stat.MainAttack, 0));
-        data.Add(new StatusBonusLevel(Stat.SubAttack, 0));
+        data.Add(new StatusBonusLevel(Stat.Cooldown, 0));
         data.Add(new StatusBonusLevel(Stat.ShieldBonus, 0));
         data.Add(new StatusBonusLevel(Stat.PowerupBonus, 0));
     }

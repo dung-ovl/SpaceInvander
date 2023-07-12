@@ -52,4 +52,10 @@ public class SustentiveAbility : Ability
     {
         this.timeExists = this.baseTimeExists + this.bonusTimeExists;
     }
+
+    public virtual void SetBonusTimeExits(float value)
+    {
+        this.bonusTimeExists = value;
+        this.SetupTimeExist();
+    }
 }

@@ -8,7 +8,7 @@ public enum Stat
 {
     Heath,
     MainAttack,
-    SubAttack,
+    Cooldown,
     ShieldBonus,
     PowerupBonus,
 }

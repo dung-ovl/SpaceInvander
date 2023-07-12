@@ -14,6 +14,7 @@ public class ShipShooting : ShipAbstract
     [SerializeField] protected float shootDelay = 0.2f; //attackspeed
     [SerializeField] protected float shootTimer = 0f;
     [SerializeField] protected float damage = 1f;
+    [SerializeField] protected float damageBonus = 0f;
     [SerializeField] protected List<Transform> shipShootPoints;
     [SerializeField] string bulletName = "no-name";
 
@@ -30,7 +31,7 @@ public class ShipShooting : ShipAbstract
 
     public virtual void SetupDamage()
     {
-        this.damage = shipController.ShipProfile.mainDamage;
+        this.damage = shipController.ShipProfile.mainDamage + this.damageBonus;
     }
 
     protected override void Start()
@@ -208,5 +209,11 @@ public class ShipShooting : ShipAbstract
     {
         if (this.damage <= 1) return;
         this.damage -= damage;
+    }
+
+    public virtual void SetDamageBonus(float damageBonus = 0)
+    {
+        this.damageBonus = damageBonus;
+        SetupDamage();
     }
 }
