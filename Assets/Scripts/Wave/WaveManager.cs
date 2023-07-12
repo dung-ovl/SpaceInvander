@@ -166,6 +166,10 @@ public class WaveManager : GameMonoBehaviour
     protected IEnumerator MoveOnPath(Transform unit, PathCreator path)
     {
         int index = _spawnedUnits.IndexOf(unit);
+        if (index < 0 || index >= _spawnedUnits.Count)
+        {
+            yield return null;
+        }
         // create the dictionary
         if (path.path.length <= 0)
         {

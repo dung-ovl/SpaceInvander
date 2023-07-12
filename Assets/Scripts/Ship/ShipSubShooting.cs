@@ -44,8 +44,14 @@ public class ShipSubShooting : ShipShooting
         return shipController.ShipProfile.subAttackSpeed * (100f / (100 + speedPercentAdd));
     }
 
-    protected override void SetupDamage()
+    public override void SetupDamage()
     {
         this.damage = shipController.ShipProfile.subDamage;
+    }
+
+    protected override void SetColorLaser(ref BulletLaser bulletLaser, int currentLaser)
+    {
+        bulletLaser.checkSubLaser = 1;
+        bulletLaser.laserName = "sublaser" + currentLaser;
     }
 }
