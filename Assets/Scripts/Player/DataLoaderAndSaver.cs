@@ -9,7 +9,7 @@ public class DataLoaderAndSaver : GameMonoBehaviour
 
     public PlayerData PlayerData => playerData;
 
-    private int currentLevel;
+    [SerializeField] private int currentLevel;
 
     public int CurrentLevel => currentLevel;
 

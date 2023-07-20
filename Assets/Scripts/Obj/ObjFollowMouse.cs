@@ -12,6 +12,9 @@ public class ObjFollowMouse : ObjMovement
 
     protected override void GetTargetPosition()
     {
+#if UNITY_ANDROID && !UNITY_EDITOR
+        //code here
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -34,6 +37,10 @@ public class ObjFollowMouse : ObjMovement
             }
 
         }
+        return;
+#endif
+        this.isMoving = true;
+        this.targetPosition = InputManager.Instance.MouseWorldPos;
         this.targetPosition.z = 0;
     }
 

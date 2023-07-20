@@ -8409,7 +8409,7 @@ MonoBehaviour:
   startAngle: 0
   endAngle: 360
   bulletAmount: 10
-  bulletArray: 1
+  bulletArray: 2
   bulletEachArray: 1
 --- !u!1 &1853505421
 GameObject:
