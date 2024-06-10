@@ -15,6 +15,6 @@ public class PlayerUIHealthBar : DamageReceiverHealthBar
     private void LoadShipDamageReceiver()
     {
         if (damageReceiver != null) return;
-        this.damageReceiver = GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipDamageReceiver;
+        SetDamageReceiver(GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().ShipDamageReceiver);
     }
 }

@@ -22,6 +22,26 @@ public abstract class DamageReceiver : GameMonoBehaviour
 
     [SerializeField] protected bool isInvulnerable = false;
 
+    [SerializeField] protected List<IHealthPointValueChangeOvserver> ovserverList = new List<IHealthPointValueChangeOvserver>();
+
+    public void AddOvserver(IHealthPointValueChangeOvserver ovserver)
+    {
+        this.ovserverList.Add(ovserver);
+    }
+
+    public void RemoveOvserver(IHealthPointValueChangeOvserver ovserver)
+    {
+        this.ovserverList.Remove(ovserver);
+    }
+
+    protected virtual void NotifyOvserver()
+    {
+        foreach (var item in ovserverList)
+        {
+            item.OnHealthPointValueChange(this.healthPoint, this.maxHealthPoint);
+        }
+    }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -66,12 +86,14 @@ public abstract class DamageReceiver : GameMonoBehaviour
         this.SetupMaxHealth();
         this.healthPoint = this.maxHealthPoint;
         this.isDead = false;
+        NotifyOvserver();
     }
 
     public virtual void AddHealthPoint(float hp)
     {
         this.healthPoint += hp;
         if (this.healthPoint > this.maxHealthPoint) healthPoint= this.maxHealthPoint;
+        NotifyOvserver();
     }
 
     public virtual void DeductHealthPoint(float hp)
@@ -79,6 +101,7 @@ public abstract class DamageReceiver : GameMonoBehaviour
         if (this.isInvulnerable) return;
         this.healthPoint -= hp;
         if (this.healthPoint < 0) healthPoint = 0;
+        NotifyOvserver();
 
     }
 
