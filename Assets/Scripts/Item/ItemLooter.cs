@@ -9,6 +9,13 @@ public class ItemLooter : ShipAbstract
     [SerializeField] protected SphereCollider _collider;
     [SerializeField] protected Rigidbody _rigibody;
 
+    private ConcreteAbilityFactory concreteAbilityFactory;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        this.concreteAbilityFactory = new ConcreteAbilityFactory();
+    }
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -40,23 +47,11 @@ public class ItemLooter : ShipAbstract
         if (itemPickupable == null) return;
         ItemCode itemCode = itemPickupable.ItemCtrl.ItemProfileSO.itemCode;
         Debug.Log("Picked " + itemCode.ToString());
-        if (itemCode == ItemCode.ShieldItem)
-        {
-            this.ShipController.AbilityController.ShieldAbility.Active();
-        }
-        if (itemCode == ItemCode.HealItem)
-        {
-            this.ShipController.AbilityController.HealAbility.Active();
-        }
-        if (itemCode == ItemCode.MissileItem)
-        {
-            this.ShipController.AbilityController.FireMissileAbility.Active();
-            AudioManager.Instance.PlaySFX("FireMissile");
-        }
-        if (itemCode == ItemCode.LevelUpItem)
-        {
-            this.ShipController.ShipLevel.LevelUp();
-        }
+
+        AbilityCommand abilityCommand = this.concreteAbilityFactory.CreateCommand(itemCode, 
+            this.ShipController.AbilityController, this.ShipController);
+        abilityCommand.Execute();
+
         itemPickupable.Picked();
         AudioManager.Instance.PlaySFX("Pickup");
     }

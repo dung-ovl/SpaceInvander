@@ -10,15 +10,11 @@ public class BtnSkillShield : BaseButton
         Debug.Log("Skill Shield Click");
         SliderSkill2.Intance.StartCountDown();
         if (GameCtrl.Instance.CurrentShip == null) return;
-        ShieldAbility shieldAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<ShieldAbility>();
-        if (shieldAbility != null)
-        {
-            shieldAbility.Active();
-            Debug.Log("active shild");
-        }
-        else
-        {
-            Debug.LogError("Can not get PowerUpAbility");
-        }
+
+        AbilityCommand command = new ShieldCommand(
+            GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().AbilityController);
+        command.Execute();
+
+        Debug.Log("active shild");
     }
 }

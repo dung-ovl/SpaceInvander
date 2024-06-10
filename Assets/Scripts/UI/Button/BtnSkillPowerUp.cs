@@ -9,16 +9,12 @@ public class BtnSkillPowerUp : BaseButton
         if (SliderSkill1.Intance.isCountDown) return;
         Debug.Log("Skill PowerUp Click");
         SliderSkill1.Intance.StartCountDown();
-        if (GameCtrl.Instance.CurrentShip ==null) return;
-        PowerUpAbility powerUpAbility = GameCtrl.Instance.CurrentShip.GetComponentInChildren<PowerUpAbility>();
-        if (powerUpAbility != null)
-        {
-            powerUpAbility.Active();
-            Debug.Log("active power");
-        }
-        else
-        {
-            Debug.LogError("Can not get PowerUpAbility");
-        }
+        if (GameCtrl.Instance.CurrentShip == null) return;
+        
+        AbilityCommand command = new PowerUpCommand(
+            GameCtrl.Instance.CurrentShip.GetComponent<ShipController>().AbilityController);
+        command.Execute();
+
+        Debug.Log("active power");
     }
 }
